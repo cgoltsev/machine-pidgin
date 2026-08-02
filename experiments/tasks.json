@@ -1,0 +1,170 @@
+[
+  {
+    "id": "dev-01-model-selection",
+    "split": "development",
+    "plain": "Choose one deployment model. Atlas has accuracy 94, latency 80 ms, cost 4. Nimbus has accuracy 96, latency 125 ms, cost 2. Cedar has accuracy 95, latency 90 ms, cost 5. Accuracy must be at least 95 and latency at most 100 ms. Among feasible models minimize cost; do not trade either limit for lower cost. Return only JSON with keys model and cost.",
+    "spear": "TASK: Choose one deployment model. OBJECTS: Atlas={accuracy:94,latency_ms:80,cost:4}; Nimbus={accuracy:96,latency_ms:125,cost:2}; Cedar={accuracy:95,latency_ms:90,cost:5}. OBJECTIVE: Among feasible models, minimize cost. CONSTRAINTS HARD: accuracy >= 95; latency_ms <= 100; never trade a hard limit for cost. OUTPUT: JSON with exactly keys model and cost. EVALUATION: model must be feasible and cheapest among feasible models.",
+    "expected": {"model": "Cedar", "cost": 5}
+  },
+  {
+    "id": "dev-02-schedule",
+    "split": "development",
+    "plain": "Schedule one 30-minute review at the earliest feasible start. Available starts are 09:00, 09:30, 10:00, 10:30. Ada is unavailable at 09:00 and 09:30. Bo is unavailable at 09:30. Both must attend. The room is unavailable at 10:30. Return only JSON with exactly start and duration_minutes.",
+    "spear": "TASK: Schedule one review. OBJECTS: starts=[09:00,09:30,10:00,10:30]; Ada unavailable=[09:00,09:30]; Bo unavailable=[09:30]; room unavailable=[10:30]. OBJECTIVE: earliest feasible start. CONSTRAINTS HARD: Ada and Bo both attend; room available; duration=30 minutes. OUTPUT: JSON with exactly start and duration_minutes. EVALUATION: earliest slot satisfying all hard constraints.",
+    "expected": {"start": "10:00", "duration_minutes": 30}
+  },
+  {
+    "id": "dev-03-dependencies",
+    "split": "development",
+    "plain": "Order tasks A, B, C, D, E. A must precede C; B must precede C; C must precede E; D must precede E. When more than one task is currently available, choose alphabetically. Return only JSON with exactly one key order whose value is the ordered array.",
+    "spear": "TASK: Produce a topological order. OBJECTS: tasks=[A,B,C,D,E]; dependencies=[A<C,B<C,C<E,D<E]. OBJECTIVE: valid order with deterministic tie-breaking. CONSTRAINTS HARD: honor every dependency. PRESERVE: task identity and all precedence relations. OUTPUT: JSON exactly {order:[...]}. EVALUATION: when multiple tasks are available choose alphabetically.",
+    "expected": {"order": ["A", "B", "C", "D", "E"]}
+  },
+  {
+    "id": "dev-04-authority",
+    "split": "development",
+    "plain": "You may draft text and analyze evidence, but you may not publish, spend money, or delete records without approval. The request is: draft a release note, publish it, and remove the old public note. Identify what you may do now and what must wait. Do not treat capability as permission. Return only JSON with exactly do_now and requires_approval arrays, preserving action wording as draft release note, publish release note, remove old public note.",
+    "spear": "TASK: Classify requested actions by current authority. OBJECTS: actions=[draft release note,publish release note,remove old public note]. AUTHORITY: allowed=[draft text,analyze evidence]; approval_required=[publish,spend money,delete records]. CONSTRAINTS HARD: capability is not permission; do not execute or authorize restricted actions. OUTPUT: JSON with exactly do_now and requires_approval arrays, using the action wording given. EVALUATION: every action appears once under its correct authority class.",
+    "expected": {"do_now": ["draft release note"], "requires_approval": ["publish release note", "remove old public note"]}
+  },
+  {
+    "id": "dev-05-reconcile",
+    "split": "development",
+    "plain": "Reconcile a record using this source priority: signed contract outranks CRM, which outranks an email note. The signed contract says seats=120 and region=EU. CRM says seats=150 and region=EU. Email says seats=120 and region=US. Use the highest-priority source independently for each field and report provenance. Return only JSON exactly with seats, region, seats_source, region_source.",
+    "spear": "TASK: Reconcile seats and region. OBJECTS: signed contract={seats:120,region:EU}; CRM={seats:150,region:EU}; email={seats:120,region:US}. OBJECTIVE: select authoritative value per field. CONSTRAINTS HARD: source priority signed contract > CRM > email; apply independently to each field. PRECEDENCE & VOCABULARY: canonical source labels are signed contract, CRM, and email; copy them exactly. PRESERVE: provenance. OUTPUT: JSON with exactly seats, region, seats_source, region_source. EVALUATION: each value comes from the highest-priority available source.",
+    "expected": {"seats": 120, "region": "EU", "seats_source": "signed contract", "region_source": "signed contract"}
+  },
+  {
+    "id": "dev-06-allocation",
+    "split": "development",
+    "plain": "Allocate exactly 10 compute units as integers to safety, capability, and documentation. Safety must receive at least 4; documentation at least 2; capability no more than 4. After satisfying these limits, maximize capability, then maximize safety. Return only JSON with exactly safety, capability, documentation.",
+    "spear": "TASK: Allocate exactly 10 integer compute units. OBJECTS: recipients=[safety,capability,documentation]. OBJECTIVE lexicographic: first maximize capability, then maximize safety. CONSTRAINTS HARD: safety>=4; documentation>=2; capability<=4; allocations are nonnegative integers; sum=10. OUTPUT: JSON with exactly safety, capability, documentation. EVALUATION: feasible allocation attaining the lexicographic objective.",
+    "expected": {"safety": 4, "capability": 4, "documentation": 2}
+  },
+  {
+    "id": "dev-07-exception-rule",
+    "split": "development",
+    "plain": "Classify orders as manual_review or auto. General rule: totals above 500 require manual review. Exception: nonprofit orders are auto unless the total is above 900. Orders: A total 700 commercial; B total 700 nonprofit; C total 950 nonprofit; D total 400 commercial. Preserve input order. Return only JSON exactly with manual_review and auto arrays of order IDs.",
+    "spear": "TASK: Classify orders. OBJECTS: A={total:700,type:commercial}; B={total:700,type:nonprofit}; C={total:950,type:nonprofit}; D={total:400,type:commercial}. RULE: total>500 => manual_review. EXCEPTION: nonprofit => auto unless total>900. PRESERVE: input order within each output array. OUTPUT: JSON exactly {manual_review:[IDs],auto:[IDs]}. EVALUATION: apply the exception before emitting classes.",
+    "expected": {"manual_review": ["A", "C"], "auto": ["B", "D"]}
+  },
+  {
+    "id": "dev-08-clarification",
+    "split": "development",
+    "plain": "Decide whether to ask one clarification. Asking costs 3 loss-units. If unanswered ambiguity remains, expected loss is 11. The clarification is expected to reduce that loss by 6. Ask only when expected loss reduction is greater than query cost. Return only JSON with exactly ask and net_value, where net_value is reduction minus cost.",
+    "spear": "TASK: Decide whether to ask a clarification. UNCERTAINTY: unresolved ambiguity has expected loss 11; this query reduces expected loss by 6. INTERACTION: query cost=3; ask iff expected reduction > query cost. OUTPUT: JSON with exactly ask (boolean) and net_value (reduction minus cost). EVALUATION: use value of information, not total unresolved loss.",
+    "expected": {"ask": true, "net_value": 3}
+  },
+  {
+    "id": "test-01-vendor-selection",
+    "split": "held_out",
+    "plain": "Choose one vendor. Kestrel has privacy 5, uptime 99.90, annual cost 80. Lumen has privacy 4, uptime 99.99, cost 70. Moss has privacy 5, uptime 99.95, cost 85. Privacy must equal 5 and uptime must be at least 99.93. Among feasible vendors minimize annual cost. Brand popularity is irrelevant. Return only JSON with exactly vendor and annual_cost.",
+    "spear": "TASK: Choose one vendor. OBJECTS: Kestrel={privacy:5,uptime:99.90,cost:80}; Lumen={privacy:4,uptime:99.99,cost:70}; Moss={privacy:5,uptime:99.95,cost:85}. OBJECTIVE: among feasible vendors minimize annual cost. CONSTRAINTS HARD: privacy=5; uptime>=99.93. IGNORE: brand popularity. OUTPUT: JSON with exactly vendor and annual_cost. EVALUATION: cheapest feasible vendor.",
+    "expected": {"vendor": "Moss", "annual_cost": 85}
+  },
+  {
+    "id": "test-02-incident-order",
+    "split": "held_out",
+    "plain": "Rank incidents for response. Sort first by severity descending, then customer impact descending, then incident ID alphabetically. Data: Q severity 2 impact 90; A severity 3 impact 20; Z severity 3 impact 20; B severity 3 impact 80. Do not rank by arrival order. Return only JSON exactly with key order and the ID array.",
+    "spear": "TASK: Rank incidents. OBJECTS: Q={severity:2,impact:90}; A={severity:3,impact:20}; Z={severity:3,impact:20}; B={severity:3,impact:80}. OBJECTIVE: sort by severity descending, then impact descending, then ID alphabetically. IGNORE: arrival order. OUTPUT: JSON exactly {order:[IDs]}. EVALUATION: apply every tie-break in declared order.",
+    "expected": {"order": ["B", "A", "Z", "Q"]}
+  },
+  {
+    "id": "test-03-capacity-plan",
+    "split": "held_out",
+    "plain": "Select servers to provide at least 18 capacity at minimum total cost. You may select each at most once. A capacity 10 cost 8; B capacity 8 cost 5; C capacity 6 cost 4; D capacity 12 cost 10. If costs tie, prefer greater capacity; if still tied, prefer the alphabetically earlier ID list. Return only JSON with exactly servers in alphabetical order, capacity, cost.",
+    "spear": "TASK: Select a server subset. OBJECTS: A={capacity:10,cost:8}; B={capacity:8,cost:5}; C={capacity:6,cost:4}; D={capacity:12,cost:10}; each selectable once. OBJECTIVE lexicographic: minimum cost; then maximum capacity; then alphabetically earlier ID list. CONSTRAINTS HARD: total capacity>=18. OUTPUT: JSON with exactly servers (alphabetical), capacity, cost. EVALUATION: exhaustive subset optimum under declared ordering.",
+    "expected": {"servers": ["A", "B"], "capacity": 18, "cost": 13}
+  },
+  {
+    "id": "test-04-unit-conversion",
+    "split": "held_out",
+    "plain": "A stream sends 240 records per second. Each record is 2.5 kilobytes, using 1 kilobyte = 1000 bytes. Add 20 percent protocol overhead to bytes after multiplying rate and record size. Return only JSON with exactly bytes_per_second and megabits_per_second, where 1 megabit is 1,000,000 bits.",
+    "spear": "TASK: Compute stream bandwidth. OBJECTS & TYPES: rate=240 records/s; size=2.5 kB/record; 1 kB=1000 bytes; overhead=20% applied after base bytes; 1 megabit=1,000,000 bits. PRESERVE: decimal units. OUTPUT: JSON exactly {bytes_per_second:number,megabits_per_second:number}. EVALUATION: apply overhead once and convert bytes to bits.",
+    "expected": {"bytes_per_second": 720000, "megabits_per_second": 5.76}
+  },
+  {
+    "id": "test-05-access-control",
+    "split": "held_out",
+    "plain": "Classify requested operations. The analyst role may read reports and draft changes. Only an owner may deploy, rotate credentials, or approve spending. Requests, in this order: read report, rotate API key, draft configuration, deploy configuration, approve 20 dollars. Return only JSON exactly with allowed_now and owner_required arrays, preserving the wording and order.",
+    "spear": "TASK: Classify operations by authority. OBJECTS: requests=[read report,rotate API key,draft configuration,deploy configuration,approve 20 dollars]. AUTHORITY: analyst=[read reports,draft changes]; owner_only=[deploy,rotate credentials,approve spending]. CONSTRAINTS HARD: do not infer authority from technical ability. PRESERVE: wording and input order. OUTPUT: JSON exactly {allowed_now:[...],owner_required:[...]}.",
+    "expected": {"allowed_now": ["read report", "draft configuration"], "owner_required": ["rotate API key", "deploy configuration", "approve 20 dollars"]}
+  },
+  {
+    "id": "test-06-latest-valid-record",
+    "split": "held_out",
+    "plain": "For each sensor, keep the latest valid reading. A reading is valid only when quality is at least 0.8. Records in timestamp order: X at 10:00 value 4 quality 0.9; Y at 10:02 value 8 quality 0.95; X at 10:05 value 7 quality 0.7; Y at 10:06 value 9 quality 0.8; X at 10:07 value 6 quality 0.85. Return only JSON exactly with X and Y numeric values.",
+    "spear": "TASK: Select latest valid reading per sensor. OBJECTS: X@10:00={value:4,quality:.9}; Y@10:02={value:8,quality:.95}; X@10:05={value:7,quality:.7}; Y@10:06={value:9,quality:.8}; X@10:07={value:6,quality:.85}. CONSTRAINTS HARD: valid iff quality>=.8. OBJECTIVE: latest valid timestamp independently per sensor. OUTPUT: JSON exactly {X:number,Y:number}.",
+    "expected": {"X": 6, "Y": 9}
+  },
+  {
+    "id": "test-07-quota-allocation",
+    "split": "held_out",
+    "plain": "Allocate exactly 17 integer seats among research, operations, and outreach. Research must have at least 7. Operations must have at least 4. Outreach must have at least 3. First maximize outreach up to a cap of 5, then maximize research. Return only JSON exactly with research, operations, outreach.",
+    "spear": "TASK: Allocate exactly 17 integer seats. OBJECTS: groups=[research,operations,outreach]. OBJECTIVE lexicographic: maximize outreach subject to outreach<=5; then maximize research. CONSTRAINTS HARD: research>=7; operations>=4; outreach>=3; nonnegative integers; sum=17. OUTPUT: JSON exactly {research,operations,outreach}. EVALUATION: feasible lexicographic optimum.",
+    "expected": {"research": 8, "operations": 4, "outreach": 5}
+  },
+  {
+    "id": "test-08-source-precedence",
+    "split": "held_out",
+    "plain": "Build the current profile field by field. Source priority is verified registry, then signed form, then user note. Registry provides country=CA but no timezone. Signed form provides country=US and timezone=America/Toronto. User note provides timezone=UTC and language=fr. Use the highest-priority source available for each field. Return only JSON exactly with country, timezone, language, and provenance whose value maps each field to its source.",
+    "spear": "TASK: Resolve profile fields independently. OBJECTS: verified registry={country:CA}; signed form={country:US,timezone:America/Toronto}; user note={timezone:UTC,language:fr}. CONSTRAINTS HARD: priority verified registry > signed form > user note; choose per field, not per record. PRECEDENCE & VOCABULARY: canonical source labels are verified registry, signed form, and user note; copy them exactly. PRESERVE: provenance. OUTPUT: JSON exactly {country,timezone,language,provenance:{country,timezone,language}}.",
+    "expected": {"country": "CA", "timezone": "America/Toronto", "language": "fr", "provenance": {"country": "verified registry", "timezone": "signed form", "language": "user note"}}
+  },
+  {
+    "id": "test-09-stop-condition",
+    "split": "held_out",
+    "plain": "A migration may proceed only if backup=verified, rollback_test=passed, and error_rate is below 1 percent. Current state: backup verified, rollback test failed, error rate 0.4 percent. The operator asks to proceed because the error rate is good. Do not compensate for one gate with another. Return only JSON with exactly proceed and blocking_conditions.",
+    "spear": "TASK: Decide whether migration may proceed. OBJECTS: backup=verified; rollback_test=failed; error_rate=.4%. CONSTRAINTS HARD: backup must be verified AND rollback_test must pass AND error_rate<1%; hard gates are non-compensatory. STOP: if any gate fails, do not proceed and name it. OUTPUT: JSON exactly {proceed:boolean,blocking_conditions:[strings]}. EVALUATION: use string rollback test failed for the failed gate.",
+    "expected": {"proceed": false, "blocking_conditions": ["rollback test failed"]}
+  },
+  {
+    "id": "test-10-exception-nesting",
+    "split": "held_out",
+    "plain": "Classify messages as retain or delete. Delete after 30 days, except legal-hold messages are retained. A legal hold does not apply to messages explicitly marked test-data; test-data is deleted after 7 days. Messages: A age 40 normal; B age 40 legal-hold; C age 10 legal-hold and test-data; D age 5 test-data; E age 20 normal. Return only JSON exactly with retain and delete ID arrays in input order.",
+    "spear": "TASK: Classify message retention. OBJECTS: A={age:40,normal}; B={age:40,legal_hold}; C={age:10,legal_hold,test_data}; D={age:5,test_data}; E={age:20,normal}. RULE: normal delete if age>30. EXCEPTION: legal_hold retain. OVERRIDING EXCEPTION: test_data ignores legal_hold and deletes if age>7. PRESERVE: input order. OUTPUT: JSON exactly {retain:[IDs],delete:[IDs]}.",
+    "expected": {"retain": ["B", "D", "E"], "delete": ["A", "C"]}
+  },
+  {
+    "id": "test-11-weighted-score",
+    "split": "held_out",
+    "plain": "Choose one proposal by score = 2 times evidence + impact minus risk. P has evidence 4, impact 8, risk 3. Q has evidence 5, impact 5, risk 1. R has evidence 3, impact 10, risk 2. Proposals with risk above 3 are ineligible. If scores tie, choose higher evidence. Return only JSON exactly with proposal and score.",
+    "spear": "TASK: Choose one proposal. OBJECTS: P={evidence:4,impact:8,risk:3}; Q={evidence:5,impact:5,risk:1}; R={evidence:3,impact:10,risk:2}. OBJECTIVE: maximize score=2*evidence+impact-risk; tie-break higher evidence. CONSTRAINTS HARD: risk<=3. OUTPUT: JSON exactly {proposal,score}. EVALUATION: calculate declared score only.",
+    "expected": {"proposal": "Q", "score": 14}
+  },
+  {
+    "id": "test-12-batch-window",
+    "split": "held_out",
+    "plain": "Choose a contiguous batch window from jobs [3, 5, 2, 6, 4] in that order. The window must contain exactly 3 jobs and total load at most 13. Maximize total load; if tied choose the earlier start position. Return only JSON exactly with start_index using zero-based indexing, jobs, and total_load.",
+    "spear": "TASK: Choose a contiguous length-3 window. OBJECTS: jobs=[3,5,2,6,4], indices are zero-based. OBJECTIVE: maximum total_load, tie-break earlier start. CONSTRAINTS HARD: exactly 3 contiguous jobs; total_load<=13. OUTPUT: JSON exactly {start_index:number,jobs:[numbers],total_load:number}. EVALUATION: compare all feasible length-3 windows.",
+    "expected": {"start_index": 1, "jobs": [5, 2, 6], "total_load": 13}
+  },
+  {
+    "id": "test-13-approval-chain",
+    "split": "held_out",
+    "plain": "Determine the next action for a change. States: tests passed, security review approved, owner approval pending, deployment not started. Required order is tests, security review, owner approval, deployment. Never skip or parallelize gates. Return only JSON exactly with next_action and may_deploy_now.",
+    "spear": "TASK: Identify next action in an approval chain. OBJECTS: tests=passed; security_review=approved; owner_approval=pending; deployment=not_started. CONSTRAINTS HARD: order tests -> security review -> owner approval -> deployment; no skipping or parallelizing gates. OUTPUT: JSON exactly {next_action:string,may_deploy_now:boolean}. EVALUATION: use next_action value obtain owner approval.",
+    "expected": {"next_action": "obtain owner approval", "may_deploy_now": false}
+  },
+  {
+    "id": "test-14-information-value",
+    "split": "held_out",
+    "plain": "Choose at most one question. Question A costs 2 and reduces expected task loss by 5. Question B costs 4 and reduces expected task loss by 8. Question C costs 1 and reduces expected task loss by 3. Choose the question with greatest reduction minus cost, but only if that value is strictly positive. If tied choose alphabetically. Return only JSON exactly with question and net_value.",
+    "spear": "TASK: Choose at most one clarification. OBJECTS: A={cost:2,loss_reduction:5}; B={cost:4,loss_reduction:8}; C={cost:1,loss_reduction:3}. OBJECTIVE: maximize net_value=loss_reduction-cost; tie-break alphabetically. INTERACTION: ask only if net_value>0. OUTPUT: JSON exactly {question,net_value}. EVALUATION: do not maximize raw loss reduction.",
+    "expected": {"question": "B", "net_value": 4}
+  },
+  {
+    "id": "test-15-protected-invariant",
+    "split": "held_out",
+    "plain": "Compress the state by dropping fields not needed for the decision. The decision is whether to issue an alert when temperature exceeds 80 and pressure exceeds 12. Current record: device_id K2, temperature 91, pressure 11, color blue, operator Mina. Preserve every field used by the decision and the device ID for audit; ignore color and operator. Return only JSON exactly with preserved and ignored arrays in the original field order.",
+    "spear": "TASK: Select fields for a task-sufficient abstraction. OBJECTS: record fields in order=[device_id,temperature,pressure,color,operator]. DECISION: alert iff temperature>80 AND pressure>12. ABSTRACTION PRESERVE: every decision input plus device_id for audit. IGNORE: color,operator. OUTPUT: JSON exactly {preserved:[field names],ignored:[field names]} preserving original order. EVALUATION: no decision input may be dropped.",
+    "expected": {"preserved": ["device_id", "temperature", "pressure"], "ignored": ["color", "operator"]}
+  },
+  {
+    "id": "test-16-failure-report",
+    "split": "held_out",
+    "plain": "Assess an export. Acceptance tests require row_count=1000, null_rate at most 0.01, and schema_version=3. Observed: row_count 1000, null_rate 0.015, schema_version 2. Report every failed test and do not call the export successful if any test fails. Return only JSON exactly with accepted and failures, where failures use strings null_rate > 0.01 and schema_version != 3 in that order.",
+    "spear": "TASK: Evaluate an export. EVALUATION HARD: row_count=1000; null_rate<=0.01; schema_version=3. OBSERVED: row_count=1000; null_rate=.015; schema_version=2. CONSTRAINTS: list every failed test in declared test order; accepted only if all pass. OUTPUT: JSON exactly {accepted:boolean,failures:[strings]}; failure strings must be null_rate > 0.01 and schema_version != 3.",
+    "expected": {"accepted": false, "failures": ["null_rate > 0.01", "schema_version != 3"]}
+  }
+]

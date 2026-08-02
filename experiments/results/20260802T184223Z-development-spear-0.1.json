@@ -1,0 +1,6259 @@
+{
+  "study": "Machine Pidgin paired on-task benchmark",
+  "timestamp_utc": "20260802T184223Z",
+  "design": {
+    "split": "development",
+    "spear_version": "0.1",
+    "repetitions": 2,
+    "models": [
+      "openai/gpt-4o-mini",
+      "openai/gpt-5.6-luna",
+      "openai/gpt-5.6-terra",
+      "openai/gpt-5.6-sol"
+    ],
+    "reasoning_effort": "low for GPT-5.6 family; provider default for GPT-4o mini",
+    "temperature": "provider default; fixed seed requested",
+    "scoring": "Exact equality with preregistered JSON is on-task; recursive expected-leaf match is constraint score.",
+    "tasks_sha256": "b556952a079c3e53b2075758abf9b4f7b1723adfed63705f50203e4ac0548454"
+  },
+  "summary": {
+    "openai/gpt-4o-mini": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.75,
+        "mean_constraint_score": 0.8875,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0004749
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 0.5,
+        "mean_constraint_score": 0.7552083333333334,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0007071
+      },
+      "absolute_lift": -0.25
+    },
+    "openai/gpt-5.6-luna": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.875,
+        "mean_constraint_score": 0.9375,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0007114
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 0.6875,
+        "mean_constraint_score": 0.8541666666666666,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0009504
+      },
+      "absolute_lift": -0.1875
+    },
+    "openai/gpt-5.6-terra": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.875,
+        "mean_constraint_score": 0.9375,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.005974
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 0.75,
+        "mean_constraint_score": 0.875,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.007410000000000001
+      },
+      "absolute_lift": -0.125
+    },
+    "openai/gpt-5.6-sol": {
+      "plain": {
+        "n": 10,
+        "on_task_rate": 0.8,
+        "mean_constraint_score": 0.9,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0125
+      },
+      "spear": {
+        "n": 10,
+        "on_task_rate": 0.6,
+        "mean_constraint_score": 0.8,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.017070000000000002
+      },
+      "absolute_lift": -0.20000000000000007
+    }
+  },
+  "rows": [
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 11,
+        "total_tokens": 129,
+        "cost": 2.43e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.43e-05,
+          "upstream_inference_prompt_cost": 1.77e-05,
+          "upstream_inference_completions_cost": 6.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.378,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 10,
+        "total_tokens": 128,
+        "cost": 2.37e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.37e-05,
+          "upstream_inference_prompt_cost": 1.77e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.14,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\n  \"model\": \"Cedar\",\n  \"cost\": 5\n}",
+      "usage": {
+        "prompt_tokens": 219,
+        "completion_tokens": 17,
+        "total_tokens": 236,
+        "cost": 4.305e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.305e-05,
+          "upstream_inference_prompt_cost": 3.285e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.183,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\n  \"model\": \"Cedar\",\n  \"cost\": 5\n}",
+      "usage": {
+        "prompt_tokens": 219,
+        "completion_tokens": 17,
+        "total_tokens": 236,
+        "cost": 4.305e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.305e-05,
+          "upstream_inference_prompt_cost": 3.285e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.187,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "10:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":\"10:30\",\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 13,
+        "total_tokens": 124,
+        "cost": 2.445e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.445e-05,
+          "upstream_inference_prompt_cost": 1.665e-05,
+          "upstream_inference_completions_cost": 7.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.12,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "10:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":\"10:30\",\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 13,
+        "total_tokens": 124,
+        "cost": 2.445e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.445e-05,
+          "upstream_inference_prompt_cost": 1.665e-05,
+          "upstream_inference_completions_cost": 7.8e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.362,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "09:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\n  \"start\": \"09:30\",\n  \"duration_minutes\": 30\n}",
+      "usage": {
+        "prompt_tokens": 202,
+        "completion_tokens": 19,
+        "total_tokens": 221,
+        "cost": 4.17e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.17e-05,
+          "upstream_inference_prompt_cost": 3.03e-05,
+          "upstream_inference_completions_cost": 1.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.156,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "09:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\n  \"start\": \"09:30\",\n  \"duration_minutes\": 30\n}",
+      "usage": {
+        "prompt_tokens": 202,
+        "completion_tokens": 19,
+        "total_tokens": 221,
+        "cost": 4.17e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.17e-05,
+          "upstream_inference_prompt_cost": 3.03e-05,
+          "upstream_inference_completions_cost": 1.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.044,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "D",
+          "C",
+          "E"
+        ]
+      },
+      "raw_response": "{\n  \"order\": [\"A\", \"B\", \"D\", \"C\", \"E\"]\n}",
+      "usage": {
+        "prompt_tokens": 93,
+        "completion_tokens": 21,
+        "total_tokens": 114,
+        "cost": 2.655e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.655e-05,
+          "upstream_inference_prompt_cost": 1.395e-05,
+          "upstream_inference_completions_cost": 1.26e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.183,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "D",
+          "C",
+          "E"
+        ]
+      },
+      "raw_response": "{\n  \"order\": [\"A\", \"B\", \"D\", \"C\", \"E\"]\n}",
+      "usage": {
+        "prompt_tokens": 93,
+        "completion_tokens": 21,
+        "total_tokens": 114,
+        "cost": 2.655e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.655e-05,
+          "upstream_inference_prompt_cost": 1.395e-05,
+          "upstream_inference_completions_cost": 1.26e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.151,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 184,
+        "completion_tokens": 14,
+        "total_tokens": 198,
+        "cost": 3.6e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.6e-05,
+          "upstream_inference_prompt_cost": 2.76e-05,
+          "upstream_inference_completions_cost": 8.4e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 0.997,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 184,
+        "completion_tokens": 15,
+        "total_tokens": 199,
+        "cost": 3.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.66e-05,
+          "upstream_inference_prompt_cost": 2.76e-05,
+          "upstream_inference_completions_cost": 9e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.434,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\n  \"do_now\": [\n    \"draft release note\"\n  ],\n  \"requires_approval\": [\n    \"publish release note\",\n    \"remove old public note\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 119,
+        "completion_tokens": 39,
+        "total_tokens": 158,
+        "cost": 4.125e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.125e-05,
+          "upstream_inference_prompt_cost": 1.785e-05,
+          "upstream_inference_completions_cost": 2.34e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.594,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\n  \"do_now\": [\n    \"draft release note\"\n  ],\n  \"requires_approval\": [\n    \"publish release note\",\n    \"remove old public note\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 119,
+        "completion_tokens": 39,
+        "total_tokens": 158,
+        "cost": 4.125e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.125e-05,
+          "upstream_inference_prompt_cost": 1.785e-05,
+          "upstream_inference_completions_cost": 2.34e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.503,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6666666666666666,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note",
+          "remove old public note"
+        ],
+        "requires_approval": [
+          "publish release note"
+        ]
+      },
+      "raw_response": "{\n  \"do_now\": [\n    \"draft release note\",\n    \"remove old public note\"\n  ],\n  \"requires_approval\": [\n    \"publish release note\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 206,
+        "completion_tokens": 39,
+        "total_tokens": 245,
+        "cost": 5.43e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.43e-05,
+          "upstream_inference_prompt_cost": 3.09e-05,
+          "upstream_inference_completions_cost": 2.34e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 2.013,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6666666666666666,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note",
+          "remove old public note"
+        ],
+        "requires_approval": [
+          "publish release note"
+        ]
+      },
+      "raw_response": "{\n  \"do_now\": [\n    \"draft release note\",\n    \"remove old public note\"\n  ],\n  \"requires_approval\": [\n    \"publish release note\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 206,
+        "completion_tokens": 38,
+        "total_tokens": 244,
+        "cost": 5.37e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.37e-05,
+          "upstream_inference_prompt_cost": 3.09e-05,
+          "upstream_inference_completions_cost": 2.28e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.213,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\n  \"seats\": 120,\n  \"region\": \"EU\",\n  \"seats_source\": \"signed contract\",\n  \"region_source\": \"signed contract\"\n}",
+      "usage": {
+        "prompt_tokens": 112,
+        "completion_tokens": 36,
+        "total_tokens": 148,
+        "cost": 3.84e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.84e-05,
+          "upstream_inference_prompt_cost": 1.68e-05,
+          "upstream_inference_completions_cost": 2.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.319,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\n  \"seats\": 120,\n  \"region\": \"EU\",\n  \"seats_source\": \"signed contract\",\n  \"region_source\": \"signed contract\"\n}",
+      "usage": {
+        "prompt_tokens": 112,
+        "completion_tokens": 36,
+        "total_tokens": 148,
+        "cost": 3.84e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.84e-05,
+          "upstream_inference_prompt_cost": 1.68e-05,
+          "upstream_inference_completions_cost": 2.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.433,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\n  \"seats\": 120,\n  \"region\": \"EU\",\n  \"seats_source\": \"contract\",\n  \"region_source\": \"contract\"\n}",
+      "usage": {
+        "prompt_tokens": 211,
+        "completion_tokens": 34,
+        "total_tokens": 245,
+        "cost": 5.205e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.205e-05,
+          "upstream_inference_prompt_cost": 3.165e-05,
+          "upstream_inference_completions_cost": 2.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.199,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\n  \"seats\": 120,\n  \"region\": \"EU\",\n  \"seats_source\": \"contract\",\n  \"region_source\": \"contract\"\n}",
+      "usage": {
+        "prompt_tokens": 211,
+        "completion_tokens": 34,
+        "total_tokens": 245,
+        "cost": 5.205e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.205e-05,
+          "upstream_inference_prompt_cost": 3.165e-05,
+          "upstream_inference_completions_cost": 2.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.154,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\n  \"safety\": 4,\n  \"capability\": 4,\n  \"documentation\": 2\n}",
+      "usage": {
+        "prompt_tokens": 89,
+        "completion_tokens": 25,
+        "total_tokens": 114,
+        "cost": 2.835e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.835e-05,
+          "upstream_inference_prompt_cost": 1.335e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.16,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\n  \"safety\": 4,\n  \"capability\": 4,\n  \"documentation\": 2\n}",
+      "usage": {
+        "prompt_tokens": 89,
+        "completion_tokens": 25,
+        "total_tokens": 114,
+        "cost": 2.835e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.835e-05,
+          "upstream_inference_prompt_cost": 1.335e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.126,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\n  \"safety\": 4,\n  \"capability\": 4,\n  \"documentation\": 2\n}",
+      "usage": {
+        "prompt_tokens": 191,
+        "completion_tokens": 25,
+        "total_tokens": 216,
+        "cost": 4.365e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.365e-05,
+          "upstream_inference_prompt_cost": 2.865e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.322,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\n  \"safety\": 4,\n  \"capability\": 4,\n  \"documentation\": 2\n}",
+      "usage": {
+        "prompt_tokens": 191,
+        "completion_tokens": 25,
+        "total_tokens": 216,
+        "cost": 4.365e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.365e-05,
+          "upstream_inference_prompt_cost": 2.865e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.249,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\n  \"manual_review\": [\"A\", \"C\"],\n  \"auto\": [\"B\", \"D\"]\n}",
+      "usage": {
+        "prompt_tokens": 107,
+        "completion_tokens": 24,
+        "total_tokens": 131,
+        "cost": 3.045e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.045e-05,
+          "upstream_inference_prompt_cost": 1.605e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.398,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\n  \"manual_review\": [\"A\", \"C\"],\n  \"auto\": [\"B\", \"D\"]\n}",
+      "usage": {
+        "prompt_tokens": 107,
+        "completion_tokens": 23,
+        "total_tokens": 130,
+        "cost": 2.985e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.985e-05,
+          "upstream_inference_prompt_cost": 1.605e-05,
+          "upstream_inference_completions_cost": 1.38e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.702,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "C",
+          "D"
+        ],
+        "auto": [
+          "A",
+          "B"
+        ]
+      },
+      "raw_response": "{\n  \"manual_review\": [\"C\", \"D\"],\n  \"auto\": [\"A\", \"B\"]\n}",
+      "usage": {
+        "prompt_tokens": 206,
+        "completion_tokens": 24,
+        "total_tokens": 230,
+        "cost": 4.53e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.53e-05,
+          "upstream_inference_prompt_cost": 3.09e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.475,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.75,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C",
+          "D"
+        ],
+        "auto": [
+          "B"
+        ]
+      },
+      "raw_response": "{\n  \"manual_review\": [\"A\", \"C\", \"D\"],\n  \"auto\": [\"B\"]\n}",
+      "usage": {
+        "prompt_tokens": 206,
+        "completion_tokens": 24,
+        "total_tokens": 230,
+        "cost": 4.53e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.53e-05,
+          "upstream_inference_prompt_cost": 3.09e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.61,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\n  \"ask\": true,\n  \"net_value\": 3\n}",
+      "usage": {
+        "prompt_tokens": 98,
+        "completion_tokens": 16,
+        "total_tokens": 114,
+        "cost": 2.43e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.43e-05,
+          "upstream_inference_prompt_cost": 1.47e-05,
+          "upstream_inference_completions_cost": 9.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.11,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\n  \"ask\": true,\n  \"net_value\": 3\n}",
+      "usage": {
+        "prompt_tokens": 98,
+        "completion_tokens": 16,
+        "total_tokens": 114,
+        "cost": 2.43e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.43e-05,
+          "upstream_inference_prompt_cost": 1.47e-05,
+          "upstream_inference_completions_cost": 9.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.187,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\n  \"ask\": true,\n  \"net_value\": 3\n}",
+      "usage": {
+        "prompt_tokens": 182,
+        "completion_tokens": 17,
+        "total_tokens": 199,
+        "cost": 3.75e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.75e-05,
+          "upstream_inference_prompt_cost": 2.73e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.29,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\n  \"ask\": true,\n  \"net_value\": 3\n}",
+      "usage": {
+        "prompt_tokens": 182,
+        "completion_tokens": 17,
+        "total_tokens": 199,
+        "cost": 3.75e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.75e-05,
+          "upstream_inference_prompt_cost": 2.73e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.748,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 17,
+        "total_tokens": 134,
+        "cost": 2.19e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.19e-05,
+          "upstream_inference_prompt_cost": 1.17e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.134,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 48,
+        "total_tokens": 165,
+        "cost": 4.05e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.05e-05,
+          "upstream_inference_prompt_cost": 1.17e-05,
+          "upstream_inference_completions_cost": 2.88e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 29,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.827,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 17,
+        "total_tokens": 235,
+        "cost": 3.2e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.2e-05,
+          "upstream_inference_prompt_cost": 2.18e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 3.448,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 49,
+        "total_tokens": 267,
+        "cost": 5.12e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.12e-05,
+          "upstream_inference_prompt_cost": 2.18e-05,
+          "upstream_inference_completions_cost": 2.94e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 30,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.424,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 83,
+        "total_tokens": 193,
+        "cost": 6.08e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.08e-05,
+          "upstream_inference_prompt_cost": 1.1e-05,
+          "upstream_inference_completions_cost": 4.98e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 64,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.671,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 91,
+        "total_tokens": 201,
+        "cost": 6.56e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.56e-05,
+          "upstream_inference_prompt_cost": 1.1e-05,
+          "upstream_inference_completions_cost": 5.46e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 72,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 3.227,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 201,
+        "completion_tokens": 116,
+        "total_tokens": 317,
+        "cost": 8.97e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.97e-05,
+          "upstream_inference_prompt_cost": 2.01e-05,
+          "upstream_inference_completions_cost": 6.96e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 97,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 4.167,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 201,
+        "completion_tokens": 122,
+        "total_tokens": 323,
+        "cost": 9.33e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.33e-05,
+          "upstream_inference_prompt_cost": 2.01e-05,
+          "upstream_inference_completions_cost": 7.32e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 103,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.618,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 91,
+        "total_tokens": 183,
+        "cost": 6.38e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.38e-05,
+          "upstream_inference_prompt_cost": 9.2e-06,
+          "upstream_inference_completions_cost": 5.46e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 68,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.397,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 84,
+        "total_tokens": 176,
+        "cost": 5.96e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.96e-05,
+          "upstream_inference_prompt_cost": 9.2e-06,
+          "upstream_inference_completions_cost": 5.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 61,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.944,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 56,
+        "total_tokens": 239,
+        "cost": 5.19e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.19e-05,
+          "upstream_inference_prompt_cost": 1.83e-05,
+          "upstream_inference_completions_cost": 3.36e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 33,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.01,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 79,
+        "total_tokens": 262,
+        "cost": 6.57e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.57e-05,
+          "upstream_inference_prompt_cost": 1.83e-05,
+          "upstream_inference_completions_cost": 4.74e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.588,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 64,
+        "total_tokens": 182,
+        "cost": 5.02e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.02e-05,
+          "upstream_inference_prompt_cost": 1.18e-05,
+          "upstream_inference_completions_cost": 3.84e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 32,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.056,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 52,
+        "total_tokens": 170,
+        "cost": 4.3e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.3e-05,
+          "upstream_inference_prompt_cost": 1.18e-05,
+          "upstream_inference_completions_cost": 3.12e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 20,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.657,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 64,
+        "total_tokens": 269,
+        "cost": 5.89e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.89e-05,
+          "upstream_inference_prompt_cost": 2.05e-05,
+          "upstream_inference_completions_cost": 3.84e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 32,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.74,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 59,
+        "total_tokens": 264,
+        "cost": 5.59e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.59e-05,
+          "upstream_inference_prompt_cost": 2.05e-05,
+          "upstream_inference_completions_cost": 3.54e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 27,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.673,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"signed contract\",\"region_source\":\"signed contract\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 30,
+        "total_tokens": 141,
+        "cost": 2.91e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.91e-05,
+          "upstream_inference_prompt_cost": 1.11e-05,
+          "upstream_inference_completions_cost": 1.8e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.737,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"signed contract\",\"region_source\":\"signed contract\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 30,
+        "total_tokens": 141,
+        "cost": 2.91e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.91e-05,
+          "upstream_inference_prompt_cost": 1.11e-05,
+          "upstream_inference_completions_cost": 1.8e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.547,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"contract\",\"region_source\":\"contract\"}",
+      "usage": {
+        "prompt_tokens": 210,
+        "completion_tokens": 57,
+        "total_tokens": 267,
+        "cost": 5.52e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.52e-05,
+          "upstream_inference_prompt_cost": 2.1e-05,
+          "upstream_inference_completions_cost": 3.42e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 27,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.568,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"contract\",\"region_source\":\"contract\"}",
+      "usage": {
+        "prompt_tokens": 210,
+        "completion_tokens": 28,
+        "total_tokens": 238,
+        "cost": 3.78e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.78e-05,
+          "upstream_inference_prompt_cost": 2.1e-05,
+          "upstream_inference_completions_cost": 1.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.174,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 77,
+        "total_tokens": 165,
+        "cost": 5.5e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.5e-05,
+          "upstream_inference_prompt_cost": 8.8e-06,
+          "upstream_inference_completions_cost": 4.62e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 53,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.9,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 90,
+        "total_tokens": 178,
+        "cost": 6.28e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.28e-05,
+          "upstream_inference_prompt_cost": 8.8e-06,
+          "upstream_inference_completions_cost": 5.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 66,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 4.67,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6666666666666666,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 6,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":6,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 97,
+        "total_tokens": 287,
+        "cost": 7.72e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.72e-05,
+          "upstream_inference_prompt_cost": 1.9e-05,
+          "upstream_inference_completions_cost": 5.82e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 73,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.614,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 74,
+        "total_tokens": 264,
+        "cost": 6.34e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.34e-05,
+          "upstream_inference_prompt_cost": 1.9e-05,
+          "upstream_inference_completions_cost": 4.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.62,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 23,
+        "total_tokens": 129,
+        "cost": 2.44e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.44e-05,
+          "upstream_inference_prompt_cost": 1.06e-05,
+          "upstream_inference_completions_cost": 1.38e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.189,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 46,
+        "total_tokens": 152,
+        "cost": 3.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.82e-05,
+          "upstream_inference_prompt_cost": 1.06e-05,
+          "upstream_inference_completions_cost": 2.76e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 3.779,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 76,
+        "total_tokens": 281,
+        "cost": 6.61e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.61e-05,
+          "upstream_inference_prompt_cost": 2.05e-05,
+          "upstream_inference_completions_cost": 4.56e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 51,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.056,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 79,
+        "total_tokens": 284,
+        "cost": 6.79e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.79e-05,
+          "upstream_inference_prompt_cost": 2.05e-05,
+          "upstream_inference_completions_cost": 4.74e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 54,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.613,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 97,
+        "completion_tokens": 40,
+        "total_tokens": 137,
+        "cost": 3.37e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.37e-05,
+          "upstream_inference_prompt_cost": 9.7e-06,
+          "upstream_inference_completions_cost": 2.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.513,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 97,
+        "completion_tokens": 40,
+        "total_tokens": 137,
+        "cost": 3.37e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.37e-05,
+          "upstream_inference_prompt_cost": 9.7e-06,
+          "upstream_inference_completions_cost": 2.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.326,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 181,
+        "completion_tokens": 42,
+        "total_tokens": 223,
+        "cost": 4.33e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.33e-05,
+          "upstream_inference_prompt_cost": 1.81e-05,
+          "upstream_inference_completions_cost": 2.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 23,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.866,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 181,
+        "completion_tokens": 38,
+        "total_tokens": 219,
+        "cost": 4.09e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.09e-05,
+          "upstream_inference_prompt_cost": 1.81e-05,
+          "upstream_inference_completions_cost": 2.28e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 19,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.937,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 46,
+        "total_tokens": 163,
+        "cost": 0.000393,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000393,
+          "upstream_inference_prompt_cost": 0.00011700000000000001,
+          "upstream_inference_completions_cost": 0.000276
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 27,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.585,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 36,
+        "total_tokens": 153,
+        "cost": 0.000333,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000333,
+          "upstream_inference_prompt_cost": 0.00011700000000000001,
+          "upstream_inference_completions_cost": 0.000216
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 17,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.234,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 40,
+        "total_tokens": 258,
+        "cost": 0.000458,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000458,
+          "upstream_inference_prompt_cost": 0.00021800000000000004,
+          "upstream_inference_completions_cost": 0.00024
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.556,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 48,
+        "total_tokens": 266,
+        "cost": 0.000506,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000506,
+          "upstream_inference_prompt_cost": 0.00021800000000000004,
+          "upstream_inference_completions_cost": 0.000288
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 29,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.549,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 73,
+        "total_tokens": 183,
+        "cost": 0.000548,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000548,
+          "upstream_inference_prompt_cost": 0.00011000000000000002,
+          "upstream_inference_completions_cost": 0.000438
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 54,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.787,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 83,
+        "total_tokens": 193,
+        "cost": 0.000608,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000608,
+          "upstream_inference_prompt_cost": 0.00011000000000000002,
+          "upstream_inference_completions_cost": 0.000498
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 64,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.051,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 201,
+        "completion_tokens": 93,
+        "total_tokens": 294,
+        "cost": 0.000759,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000759,
+          "upstream_inference_prompt_cost": 0.00020100000000000003,
+          "upstream_inference_completions_cost": 0.000558
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 74,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.536,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": null,
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":null,\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 201,
+        "completion_tokens": 108,
+        "total_tokens": 309,
+        "cost": 0.000849,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000849,
+          "upstream_inference_prompt_cost": 0.00020100000000000003,
+          "upstream_inference_completions_cost": 0.000648
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 89,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.216,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 21,
+        "total_tokens": 113,
+        "cost": 0.000218,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000218,
+          "upstream_inference_prompt_cost": 9.200000000000001e-05,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.145,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 67,
+        "total_tokens": 159,
+        "cost": 0.000494,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000494,
+          "upstream_inference_prompt_cost": 9.200000000000001e-05,
+          "upstream_inference_completions_cost": 0.000402
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 44,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.787,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 21,
+        "total_tokens": 204,
+        "cost": 0.00030900000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00030900000000000003,
+          "upstream_inference_prompt_cost": 0.00018300000000000003,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.497,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 21,
+        "total_tokens": 204,
+        "cost": 0.00030900000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00030900000000000003,
+          "upstream_inference_prompt_cost": 0.00018300000000000003,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.244,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 30,
+        "total_tokens": 148,
+        "cost": 0.00029800000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00029800000000000003,
+          "upstream_inference_prompt_cost": 0.00011800000000000002,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.478,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 30,
+        "total_tokens": 148,
+        "cost": 0.00029800000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00029800000000000003,
+          "upstream_inference_prompt_cost": 0.00011800000000000002,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.346,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 63,
+        "total_tokens": 268,
+        "cost": 0.0005830000000000001,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0005830000000000001,
+          "upstream_inference_prompt_cost": 0.00020500000000000002,
+          "upstream_inference_completions_cost": 0.000378
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 31,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.575,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 30,
+        "total_tokens": 235,
+        "cost": 0.00038500000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00038500000000000003,
+          "upstream_inference_prompt_cost": 0.00020500000000000002,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.281,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"signed contract\",\"region_source\":\"signed contract\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 30,
+        "total_tokens": 141,
+        "cost": 0.000291,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000291,
+          "upstream_inference_prompt_cost": 0.00011100000000000001,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.413,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"signed contract\",\"region_source\":\"signed contract\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 30,
+        "total_tokens": 141,
+        "cost": 0.000291,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000291,
+          "upstream_inference_prompt_cost": 0.00011100000000000001,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.316,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"contract\",\"region_source\":\"contract\"}",
+      "usage": {
+        "prompt_tokens": 210,
+        "completion_tokens": 28,
+        "total_tokens": 238,
+        "cost": 0.000378,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000378,
+          "upstream_inference_prompt_cost": 0.00021000000000000004,
+          "upstream_inference_completions_cost": 0.000168
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.895,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"contract\",\"region_source\":\"contract\"}",
+      "usage": {
+        "prompt_tokens": 210,
+        "completion_tokens": 28,
+        "total_tokens": 238,
+        "cost": 0.000378,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000378,
+          "upstream_inference_prompt_cost": 0.00021000000000000004,
+          "upstream_inference_completions_cost": 0.000168
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.275,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 70,
+        "total_tokens": 158,
+        "cost": 0.000508,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000508,
+          "upstream_inference_prompt_cost": 8.800000000000001e-05,
+          "upstream_inference_completions_cost": 0.00042
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 46,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.819,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 73,
+        "total_tokens": 161,
+        "cost": 0.000526,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000526,
+          "upstream_inference_prompt_cost": 8.800000000000001e-05,
+          "upstream_inference_completions_cost": 0.000438
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 49,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.765,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 57,
+        "total_tokens": 247,
+        "cost": 0.000532,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000532,
+          "upstream_inference_prompt_cost": 0.00019000000000000004,
+          "upstream_inference_completions_cost": 0.000342
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 33,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.058,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "raw_response": "{\"safety\":4,\"capability\":4,\"documentation\":2}",
+      "usage": {
+        "prompt_tokens": 190,
+        "completion_tokens": 72,
+        "total_tokens": 262,
+        "cost": 0.000622,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000622,
+          "upstream_inference_prompt_cost": 0.00019000000000000004,
+          "upstream_inference_completions_cost": 0.000432
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.974,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 23,
+        "total_tokens": 129,
+        "cost": 0.00024400000000000002,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00024400000000000002,
+          "upstream_inference_prompt_cost": 0.00010600000000000002,
+          "upstream_inference_completions_cost": 0.000138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.08,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 23,
+        "total_tokens": 129,
+        "cost": 0.00024400000000000002,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00024400000000000002,
+          "upstream_inference_prompt_cost": 0.00010600000000000002,
+          "upstream_inference_completions_cost": 0.000138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.537,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 23,
+        "total_tokens": 228,
+        "cost": 0.00034300000000000004,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00034300000000000004,
+          "upstream_inference_prompt_cost": 0.00020500000000000002,
+          "upstream_inference_completions_cost": 0.000138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.387,
+      "error": null
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "raw_response": "{\"manual_review\":[\"A\",\"C\"],\"auto\":[\"B\",\"D\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 23,
+        "total_tokens": 228,
+        "cost": 0.00034300000000000004,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00034300000000000004,
+          "upstream_inference_prompt_cost": 0.00020500000000000002,
+          "upstream_inference_completions_cost": 0.000138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.895,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 97,
+        "completion_tokens": 40,
+        "total_tokens": 137,
+        "cost": 0.000337,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000337,
+          "upstream_inference_prompt_cost": 9.700000000000001e-05,
+          "upstream_inference_completions_cost": 0.00024
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.7,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 97,
+        "completion_tokens": 41,
+        "total_tokens": 138,
+        "cost": 0.000343,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000343,
+          "upstream_inference_prompt_cost": 9.700000000000001e-05,
+          "upstream_inference_completions_cost": 0.000246
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 22,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.876,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 181,
+        "completion_tokens": 17,
+        "total_tokens": 198,
+        "cost": 0.00028300000000000005,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00028300000000000005,
+          "upstream_inference_prompt_cost": 0.00018100000000000004,
+          "upstream_inference_completions_cost": 0.000102
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.406,
+      "error": null
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": {
+        "ask": true,
+        "net_value": 3
+      },
+      "raw_response": "{\"ask\":true,\"net_value\":3}",
+      "usage": {
+        "prompt_tokens": 181,
+        "completion_tokens": 32,
+        "total_tokens": 213,
+        "cost": 0.000373,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000373,
+          "upstream_inference_prompt_cost": 0.00018100000000000004,
+          "upstream_inference_completions_cost": 0.000192
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 13,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.395,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 17,
+        "total_tokens": 134,
+        "cost": 0.001095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001095,
+          "upstream_inference_prompt_cost": 0.000585,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.521,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 17,
+        "total_tokens": 134,
+        "cost": 0.001095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001095,
+          "upstream_inference_prompt_cost": 0.000585,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.673,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 17,
+        "total_tokens": 235,
+        "cost": 0.0016,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0016,
+          "upstream_inference_prompt_cost": 0.00109,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.12,
+      "error": null
+    },
+    {
+      "task_id": "dev-01-model-selection",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "response": {
+        "model": "Cedar",
+        "cost": 5
+      },
+      "raw_response": "{\"model\":\"Cedar\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 218,
+        "completion_tokens": 17,
+        "total_tokens": 235,
+        "cost": 0.0016,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0016,
+          "upstream_inference_prompt_cost": 0.00109,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.523,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "10:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":\"10:30\",\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 19,
+        "total_tokens": 129,
+        "cost": 0.00112,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00112,
+          "upstream_inference_prompt_cost": 0.00055,
+          "upstream_inference_completions_cost": 0.00057
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.544,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "10:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":\"10:30\",\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 19,
+        "total_tokens": 129,
+        "cost": 0.00112,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00112,
+          "upstream_inference_prompt_cost": 0.00055,
+          "upstream_inference_completions_cost": 0.00057
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.387,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "10:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":\"10:30\",\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 201,
+        "completion_tokens": 19,
+        "total_tokens": 220,
+        "cost": 0.001575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001575,
+          "upstream_inference_prompt_cost": 0.001005,
+          "upstream_inference_completions_cost": 0.00057
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.551,
+      "error": null
+    },
+    {
+      "task_id": "dev-02-schedule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "start": "10:00",
+        "duration_minutes": 30
+      },
+      "response": {
+        "start": "10:30",
+        "duration_minutes": 30
+      },
+      "raw_response": "{\"start\":\"10:30\",\"duration_minutes\":30}",
+      "usage": {
+        "prompt_tokens": 201,
+        "completion_tokens": 19,
+        "total_tokens": 220,
+        "cost": 0.001575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001575,
+          "upstream_inference_prompt_cost": 0.001005,
+          "upstream_inference_completions_cost": 0.00057
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.123,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 21,
+        "total_tokens": 113,
+        "cost": 0.00109,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00109,
+          "upstream_inference_prompt_cost": 0.00046,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.635,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 21,
+        "total_tokens": 113,
+        "cost": 0.00109,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00109,
+          "upstream_inference_prompt_cost": 0.00046,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.915,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 21,
+        "total_tokens": 204,
+        "cost": 0.001545,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001545,
+          "upstream_inference_prompt_cost": 0.000915,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 9.125,
+      "error": null
+    },
+    {
+      "task_id": "dev-03-dependencies",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "response": {
+        "order": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\"order\":[\"A\",\"B\",\"C\",\"D\",\"E\"]}",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 21,
+        "total_tokens": 204,
+        "cost": 0.001545,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001545,
+          "upstream_inference_prompt_cost": 0.000915,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 9.373,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 30,
+        "total_tokens": 148,
+        "cost": 0.00149,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00149,
+          "upstream_inference_prompt_cost": 0.00059,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 9.606,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 30,
+        "total_tokens": 148,
+        "cost": 0.00149,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00149,
+          "upstream_inference_prompt_cost": 0.00059,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 10.729,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 30,
+        "total_tokens": 235,
+        "cost": 0.001925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001925,
+          "upstream_inference_prompt_cost": 0.001025,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 9.904,
+      "error": null
+    },
+    {
+      "task_id": "dev-04-authority",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "response": {
+        "do_now": [
+          "draft release note"
+        ],
+        "requires_approval": [
+          "publish release note",
+          "remove old public note"
+        ]
+      },
+      "raw_response": "{\"do_now\":[\"draft release note\"],\"requires_approval\":[\"publish release note\",\"remove old public note\"]}",
+      "usage": {
+        "prompt_tokens": 205,
+        "completion_tokens": 30,
+        "total_tokens": 235,
+        "cost": 0.001925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001925,
+          "upstream_inference_prompt_cost": 0.001025,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 8.811,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"signed contract\",\"region_source\":\"signed contract\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 30,
+        "total_tokens": 141,
+        "cost": 0.001455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001455,
+          "upstream_inference_prompt_cost": 0.000555,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.651,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"signed contract\",\"region_source\":\"signed contract\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 30,
+        "total_tokens": 141,
+        "cost": 0.001455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001455,
+          "upstream_inference_prompt_cost": 0.000555,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.966,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"contract\",\"region_source\":\"contract\"}",
+      "usage": {
+        "prompt_tokens": 210,
+        "completion_tokens": 28,
+        "total_tokens": 238,
+        "cost": 0.00189,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00189,
+          "upstream_inference_prompt_cost": 0.00105,
+          "upstream_inference_completions_cost": 0.00084
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.48,
+      "error": null
+    },
+    {
+      "task_id": "dev-05-reconcile",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "signed contract",
+        "region_source": "signed contract"
+      },
+      "response": {
+        "seats": 120,
+        "region": "EU",
+        "seats_source": "contract",
+        "region_source": "contract"
+      },
+      "raw_response": "{\"seats\":120,\"region\":\"EU\",\"seats_source\":\"contract\",\"region_source\":\"contract\"}",
+      "usage": {
+        "prompt_tokens": 210,
+        "completion_tokens": 28,
+        "total_tokens": 238,
+        "cost": 0.00189,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00189,
+          "upstream_inference_prompt_cost": 0.00105,
+          "upstream_inference_completions_cost": 0.00084
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.519,
+      "error": null
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-06-allocation",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "safety": 4,
+        "capability": 4,
+        "documentation": 2
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-07-exception-rule",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "manual_review": [
+          "A",
+          "C"
+        ],
+        "auto": [
+          "B",
+          "D"
+        ]
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 2,
+      "spear_version": null,
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.1",
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    },
+    {
+      "task_id": "dev-08-clarification",
+      "split": "development",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 2,
+      "spear_version": "0.1",
+      "valid_json": false,
+      "on_task": false,
+      "constraint_score": 0,
+      "expected": {
+        "ask": true,
+        "net_value": 3
+      },
+      "response": null,
+      "raw_response": "",
+      "usage": {},
+      "provider": null,
+      "latency_seconds": null,
+      "error": "OpenRouter request failed: {\"error\":{\"message\":\"Rate limit exceeded: new-account-rpm/openai/gpt-5.6-sol-20260709. Rate limit reached: new accounts are limited to 10 requests per minute for this model. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"10\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1785696240000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\"New accounts are temporarily limited for this model. Please retry shortly.\",\"provider_name\":null,\"previous_errors\":[{\"code\":"
+    }
+  ]
+}

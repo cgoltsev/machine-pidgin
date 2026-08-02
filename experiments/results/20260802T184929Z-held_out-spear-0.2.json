@@ -1,0 +1,6731 @@
+{
+  "study": "Machine Pidgin paired on-task benchmark",
+  "timestamp_utc": "20260802T184929Z",
+  "design": {
+    "split": "held_out",
+    "spear_version": "0.2",
+    "repetitions": 1,
+    "models": [
+      "openai/gpt-4o-mini",
+      "openai/gpt-5.6-luna",
+      "openai/gpt-5.6-terra",
+      "openai/gpt-5.6-sol"
+    ],
+    "reasoning_effort": "low for GPT-5.6 family; provider default for GPT-4o mini",
+    "temperature": "provider default; fixed seed requested",
+    "scoring": "Exact equality with preregistered JSON is on-task; recursive expected-leaf match is constraint score.",
+    "tasks_sha256": "e49d9f9545b11d03b433a2da4be9a8e1bfffc1d2964b1510ea14cf237f7fd218"
+  },
+  "summary": {
+    "openai/gpt-4o-mini": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.3125,
+        "mean_constraint_score": 0.5166666666666666,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.00058545
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 0.6875,
+        "mean_constraint_score": 0.7458333333333333,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0009261
+      },
+      "absolute_lift": 0.375
+    },
+    "openai/gpt-5.6-luna": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.875,
+        "mean_constraint_score": 0.90625,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0008623
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 0.9375,
+        "mean_constraint_score": 0.96875,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0011454
+      },
+      "absolute_lift": 0.0625
+    },
+    "openai/gpt-5.6-terra": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.8125,
+        "mean_constraint_score": 0.875,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.006841
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 0.9375,
+        "mean_constraint_score": 0.96875,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.009516
+      },
+      "absolute_lift": 0.125
+    },
+    "openai/gpt-5.6-sol": {
+      "plain": {
+        "n": 16,
+        "on_task_rate": 0.875,
+        "mean_constraint_score": 0.90625,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.028145
+      },
+      "spear": {
+        "n": 16,
+        "on_task_rate": 1.0,
+        "mean_constraint_score": 1.0,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.04548
+      },
+      "absolute_lift": 0.125
+    }
+  },
+  "rows": [
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Kestrel",
+        "annual_cost": 80
+      },
+      "raw_response": "{\n  \"vendor\": \"Kestrel\",\n  \"annual_cost\": 80\n}",
+      "usage": {
+        "prompt_tokens": 123,
+        "completion_tokens": 19,
+        "total_tokens": 142,
+        "cost": 2.985e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.985e-05,
+          "upstream_inference_prompt_cost": 1.845e-05,
+          "upstream_inference_completions_cost": 1.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.343,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\n  \"vendor\": \"Moss\",\n  \"annual_cost\": 85\n}",
+      "usage": {
+        "prompt_tokens": 290,
+        "completion_tokens": 18,
+        "total_tokens": 308,
+        "cost": 5.43e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.43e-05,
+          "upstream_inference_prompt_cost": 4.35e-05,
+          "upstream_inference_completions_cost": 1.08e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.119,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "ID": [
+          "A",
+          "B",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\n  \"ID\": [\"A\", \"B\", \"Z\", \"Q\"]\n}",
+      "usage": {
+        "prompt_tokens": 104,
+        "completion_tokens": 18,
+        "total_tokens": 122,
+        "cost": 2.64e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.64e-05,
+          "upstream_inference_prompt_cost": 1.56e-05,
+          "upstream_inference_completions_cost": 1.08e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.015,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\n  \"order\": [\"B\", \"A\", \"Z\", \"Q\"]\n}",
+      "usage": {
+        "prompt_tokens": 271,
+        "completion_tokens": 19,
+        "total_tokens": 290,
+        "cost": 5.205e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.205e-05,
+          "upstream_inference_prompt_cost": 4.065e-05,
+          "upstream_inference_completions_cost": 1.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.524,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          {
+            "id": "B",
+            "capacity": 8,
+            "cost": 5
+          },
+          {
+            "id": "C",
+            "capacity": 6,
+            "cost": 4
+          },
+          {
+            "id": "D",
+            "capacity": 12,
+            "cost": 10
+          }
+        ]
+      },
+      "raw_response": "{\n  \"servers\": [\n    {\n      \"id\": \"B\",\n      \"capacity\": 8,\n      \"cost\": 5\n    },\n    {\n      \"id\": \"C\",\n      \"capacity\": 6,\n      \"cost\": 4\n    },\n    {\n      \"id\": \"D\",\n      \"capacity\": 12,\n      \"cost\": 10\n    }\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 85,
+        "total_tokens": 202,
+        "cost": 6.855e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.855e-05,
+          "upstream_inference_prompt_cost": 1.755e-05,
+          "upstream_inference_completions_cost": 5.1e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 2.062,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "B",
+          "C",
+          "D"
+        ],
+        "capacity": 26,
+        "cost": 19
+      },
+      "raw_response": "{\n  \"servers\": [\n    \"B\",\n    \"C\",\n    \"D\"\n  ],\n  \"capacity\": 26,\n  \"cost\": 19\n}",
+      "usage": {
+        "prompt_tokens": 287,
+        "completion_tokens": 35,
+        "total_tokens": 322,
+        "cost": 6.405e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.405e-05,
+          "upstream_inference_prompt_cost": 4.305e-05,
+          "upstream_inference_completions_cost": 2.1e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.208,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5760
+      },
+      "raw_response": "{\n  \"bytes_per_second\": 720000,\n  \"megabits_per_second\": 5760\n}",
+      "usage": {
+        "prompt_tokens": 105,
+        "completion_tokens": 24,
+        "total_tokens": 129,
+        "cost": 3.015e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.015e-05,
+          "upstream_inference_prompt_cost": 1.575e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.147,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 288000,
+        "megabits_per_second": 2304
+      },
+      "raw_response": "{\n  \"bytes_per_second\": 288000,\n  \"megabits_per_second\": 2304\n}",
+      "usage": {
+        "prompt_tokens": 271,
+        "completion_tokens": 24,
+        "total_tokens": 295,
+        "cost": 5.505e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.505e-05,
+          "upstream_inference_prompt_cost": 4.065e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.29,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\n  \"allowed_now\": [\n    \"read report\",\n    \"draft configuration\"\n  ],\n  \"owner_required\": [\n    \"rotate API key\",\n    \"deploy configuration\",\n    \"approve 20 dollars\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 99,
+        "completion_tokens": 47,
+        "total_tokens": 146,
+        "cost": 4.305e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.305e-05,
+          "upstream_inference_prompt_cost": 1.485e-05,
+          "upstream_inference_completions_cost": 2.82e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.764,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\n  \"allowed_now\": [\n    \"read report\",\n    \"draft configuration\"\n  ],\n  \"owner_required\": [\n    \"rotate API key\",\n    \"deploy configuration\",\n    \"approve 20 dollars\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 267,
+        "completion_tokens": 47,
+        "total_tokens": 314,
+        "cost": 6.825e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.825e-05,
+          "upstream_inference_prompt_cost": 4.005e-05,
+          "upstream_inference_completions_cost": 2.82e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.915,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\n  \"X\": 6,\n  \"Y\": 9\n}",
+      "usage": {
+        "prompt_tokens": 145,
+        "completion_tokens": 17,
+        "total_tokens": 162,
+        "cost": 3.195e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.195e-05,
+          "upstream_inference_prompt_cost": 2.175e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.409,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\n  \"X\": 6,\n  \"Y\": 9\n}",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 16,
+        "total_tokens": 308,
+        "cost": 5.34e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.34e-05,
+          "upstream_inference_prompt_cost": 4.38e-05,
+          "upstream_inference_completions_cost": 9.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.062,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6666666666666666,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 9,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\n  \"research\": 9,\n  \"operations\": 4,\n  \"outreach\": 5\n}",
+      "usage": {
+        "prompt_tokens": 93,
+        "completion_tokens": 24,
+        "total_tokens": 117,
+        "cost": 2.835e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.835e-05,
+          "upstream_inference_prompt_cost": 1.395e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.536,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.3333333333333333,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 7,
+        "operations": 5,
+        "outreach": 5
+      },
+      "raw_response": "{\n  \"research\": 7,\n  \"operations\": 5,\n  \"outreach\": 5\n}",
+      "usage": {
+        "prompt_tokens": 262,
+        "completion_tokens": 24,
+        "total_tokens": 286,
+        "cost": 5.37e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.37e-05,
+          "upstream_inference_prompt_cost": 3.93e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.062,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": {
+          "value": "CA",
+          "provenance": "verified registry"
+        },
+        "timezone": {
+          "value": "America/Toronto",
+          "provenance": "signed form"
+        },
+        "language": {
+          "value": "fr",
+          "provenance": "user note"
+        }
+      },
+      "raw_response": "{\n  \"country\": {\n    \"value\": \"CA\",\n    \"provenance\": \"verified registry\"\n  },\n  \"timezone\": {\n    \"value\": \"America/Toronto\",\n    \"provenance\": \"signed form\"\n  },\n  \"language\": {\n    \"value\": \"fr\",\n    \"provenance\": \"user note\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 78,
+        "total_tokens": 196,
+        "cost": 6.45e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.45e-05,
+          "upstream_inference_prompt_cost": 1.77e-05,
+          "upstream_inference_completions_cost": 4.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.928,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\n  \"country\": \"CA\",\n  \"timezone\": \"America/Toronto\",\n  \"language\": \"fr\",\n  \"provenance\": {\n    \"country\": \"verified registry\",\n    \"timezone\": \"signed form\",\n    \"language\": \"user note\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 297,
+        "completion_tokens": 60,
+        "total_tokens": 357,
+        "cost": 8.055e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.055e-05,
+          "upstream_inference_prompt_cost": 4.455e-05,
+          "upstream_inference_completions_cost": 3.6e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.745,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback_test=failed"
+        ]
+      },
+      "raw_response": "{\n  \"proceed\": false,\n  \"blocking_conditions\": [\n    \"rollback_test=failed\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 102,
+        "completion_tokens": 24,
+        "total_tokens": 126,
+        "cost": 2.97e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.97e-05,
+          "upstream_inference_prompt_cost": 1.53e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.219,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "raw_response": "{\n  \"proceed\": false,\n  \"blocking_conditions\": [\n    \"rollback test failed\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 274,
+        "completion_tokens": 24,
+        "total_tokens": 298,
+        "cost": 5.55e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.55e-05,
+          "upstream_inference_prompt_cost": 4.11e-05,
+          "upstream_inference_completions_cost": 1.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.738,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B"
+        ],
+        "delete": [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "raw_response": "{\n  \"retain\": [\"B\"],\n  \"delete\": [\"A\", \"C\", \"D\", \"E\"]\n}",
+      "usage": {
+        "prompt_tokens": 127,
+        "completion_tokens": 25,
+        "total_tokens": 152,
+        "cost": 3.405e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.405e-05,
+          "upstream_inference_prompt_cost": 1.905e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.767,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "C",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "B"
+        ]
+      },
+      "raw_response": "{\n  \"retain\": [\"C\", \"D\", \"E\"],\n  \"delete\": [\"A\", \"B\"]\n}",
+      "usage": {
+        "prompt_tokens": 287,
+        "completion_tokens": 26,
+        "total_tokens": 313,
+        "cost": 5.865e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.865e-05,
+          "upstream_inference_prompt_cost": 4.305e-05,
+          "upstream_inference_completions_cost": 1.56e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.306,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 13
+      },
+      "raw_response": "{\n  \"proposal\": \"Q\",\n  \"score\": 13\n}",
+      "usage": {
+        "prompt_tokens": 114,
+        "completion_tokens": 17,
+        "total_tokens": 131,
+        "cost": 2.73e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.73e-05,
+          "upstream_inference_prompt_cost": 1.71e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.352,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "P",
+        "score": 19
+      },
+      "raw_response": "{\n  \"proposal\": \"P\",\n  \"score\": 19\n}",
+      "usage": {
+        "prompt_tokens": 278,
+        "completion_tokens": 17,
+        "total_tokens": 295,
+        "cost": 5.19e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.19e-05,
+          "upstream_inference_prompt_cost": 4.17e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.202,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\n  \"start_index\": 1,\n  \"jobs\": [5, 2, 6],\n  \"total_load\": 13\n}",
+      "usage": {
+        "prompt_tokens": 102,
+        "completion_tokens": 31,
+        "total_tokens": 133,
+        "cost": 3.39e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.39e-05,
+          "upstream_inference_prompt_cost": 1.53e-05,
+          "upstream_inference_completions_cost": 1.86e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.057,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\n  \"start_index\": 1,\n  \"jobs\": [5, 2, 6],\n  \"total_load\": 13\n}",
+      "usage": {
+        "prompt_tokens": 265,
+        "completion_tokens": 31,
+        "total_tokens": 296,
+        "cost": 5.835e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.835e-05,
+          "upstream_inference_prompt_cost": 3.975e-05,
+          "upstream_inference_completions_cost": 1.86e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.223,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\n  \"next_action\": \"owner approval\",\n  \"may_deploy_now\": false\n}",
+      "usage": {
+        "prompt_tokens": 87,
+        "completion_tokens": 20,
+        "total_tokens": 107,
+        "cost": 2.505e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.505e-05,
+          "upstream_inference_prompt_cost": 1.305e-05,
+          "upstream_inference_completions_cost": 1.2e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.214,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\n  \"next_action\": \"obtain owner approval\",\n  \"may_deploy_now\": false\n}",
+      "usage": {
+        "prompt_tokens": 261,
+        "completion_tokens": 23,
+        "total_tokens": 284,
+        "cost": 5.295e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.295e-05,
+          "upstream_inference_prompt_cost": 3.915e-05,
+          "upstream_inference_completions_cost": 1.38e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.602,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 10,
+        "total_tokens": 121,
+        "cost": 2.265e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.265e-05,
+          "upstream_inference_prompt_cost": 1.665e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 0.971,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 274,
+        "completion_tokens": 10,
+        "total_tokens": 284,
+        "cost": 4.71e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.71e-05,
+          "upstream_inference_prompt_cost": 4.11e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.039,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": {
+          "device_id": "K2",
+          "temperature": 91,
+          "pressure": 11
+        },
+        "ignored": {
+          "color": "blue",
+          "operator": "Mina"
+        }
+      },
+      "raw_response": "{\n  \"preserved\": {\n    \"device_id\": \"K2\",\n    \"temperature\": 91,\n    \"pressure\": 11\n  },\n  \"ignored\": {\n    \"color\": \"blue\",\n    \"operator\": \"Mina\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 116,
+        "completion_tokens": 55,
+        "total_tokens": 171,
+        "cost": 5.04e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.04e-05,
+          "upstream_inference_prompt_cost": 1.74e-05,
+          "upstream_inference_completions_cost": 3.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.412,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\n  \"preserved\": [\"device_id\", \"temperature\", \"pressure\"],\n  \"ignored\": [\"color\", \"operator\"]\n}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 28,
+        "total_tokens": 301,
+        "cost": 5.775e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.775e-05,
+          "upstream_inference_prompt_cost": 4.095e-05,
+          "upstream_inference_completions_cost": 1.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.463,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\n  \"accepted\": false,\n  \"failures\": [\n    \"null_rate > 0.01\",\n    \"schema_version != 3\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 124,
+        "completion_tokens": 35,
+        "total_tokens": 159,
+        "cost": 3.96e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.96e-05,
+          "upstream_inference_prompt_cost": 1.86e-05,
+          "upstream_inference_completions_cost": 2.1e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.497,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-4o-mini",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\n  \"accepted\": false,\n  \"failures\": [\n    \"null_rate > 0.01\",\n    \"schema_version != 3\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 277,
+        "completion_tokens": 35,
+        "total_tokens": 312,
+        "cost": 6.255e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.255e-05,
+          "upstream_inference_prompt_cost": 4.155e-05,
+          "upstream_inference_completions_cost": 2.1e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.249,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\"vendor\":\"Moss\",\"annual_cost\":85}",
+      "usage": {
+        "prompt_tokens": 122,
+        "completion_tokens": 45,
+        "total_tokens": 167,
+        "cost": 3.92e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.92e-05,
+          "upstream_inference_prompt_cost": 1.22e-05,
+          "upstream_inference_completions_cost": 2.7e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 25,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.364,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\"vendor\":\"Moss\",\"annual_cost\":85}",
+      "usage": {
+        "prompt_tokens": 289,
+        "completion_tokens": 56,
+        "total_tokens": 345,
+        "cost": 6.25e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.25e-05,
+          "upstream_inference_prompt_cost": 2.89e-05,
+          "upstream_inference_completions_cost": 3.36e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 36,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.924,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "ids": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\"ids\":[\"B\",\"A\",\"Z\",\"Q\"]}",
+      "usage": {
+        "prompt_tokens": 103,
+        "completion_tokens": 58,
+        "total_tokens": 161,
+        "cost": 4.51e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.51e-05,
+          "upstream_inference_prompt_cost": 1.03e-05,
+          "upstream_inference_completions_cost": 3.48e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 37,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.33,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\"order\":[\"B\",\"A\",\"Z\",\"Q\"]}",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 52,
+        "total_tokens": 322,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 2.7e-05,
+          "upstream_inference_completions_cost": 3.12e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 31,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.69,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "raw_response": "{\"servers\":[\"A\",\"B\"],\"capacity\":18,\"cost\":13}",
+      "usage": {
+        "prompt_tokens": 116,
+        "completion_tokens": 209,
+        "total_tokens": 325,
+        "cost": 0.000137,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000137,
+          "upstream_inference_prompt_cost": 1.16e-05,
+          "upstream_inference_completions_cost": 0.0001254
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 184,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 3.254,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "raw_response": "{\"servers\":[\"A\",\"B\"],\"capacity\":18,\"cost\":13}",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 133,
+        "total_tokens": 419,
+        "cost": 0.0001084,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001084,
+          "upstream_inference_prompt_cost": 2.86e-05,
+          "upstream_inference_completions_cost": 7.98e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 108,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.31,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "raw_response": "{\"bytes_per_second\":720000,\"megabits_per_second\":5.76}",
+      "usage": {
+        "prompt_tokens": 104,
+        "completion_tokens": 69,
+        "total_tokens": 173,
+        "cost": 5.18e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.18e-05,
+          "upstream_inference_prompt_cost": 1.04e-05,
+          "upstream_inference_completions_cost": 4.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 42,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.777,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "raw_response": "{\"bytes_per_second\":720000,\"megabits_per_second\":5.76}",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 83,
+        "total_tokens": 353,
+        "cost": 7.68e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.68e-05,
+          "upstream_inference_prompt_cost": 2.7e-05,
+          "upstream_inference_completions_cost": 4.98e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.652,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\"allowed_now\":[\"read report\",\"draft configuration\"],\"owner_required\":[\"rotate API key\",\"deploy configuration\",\"approve 20 dollars\"]}",
+      "usage": {
+        "prompt_tokens": 98,
+        "completion_tokens": 93,
+        "total_tokens": 191,
+        "cost": 6.56e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.56e-05,
+          "upstream_inference_prompt_cost": 9.8e-06,
+          "upstream_inference_completions_cost": 5.58e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 57,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.758,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\"allowed_now\":[\"read report\",\"draft configuration\"],\"owner_required\":[\"rotate API key\",\"deploy configuration\",\"approve 20 dollars\"]}",
+      "usage": {
+        "prompt_tokens": 266,
+        "completion_tokens": 107,
+        "total_tokens": 373,
+        "cost": 9.08e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.08e-05,
+          "upstream_inference_prompt_cost": 2.66e-05,
+          "upstream_inference_completions_cost": 6.42e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 71,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.962,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\"X\":6,\"Y\":9}",
+      "usage": {
+        "prompt_tokens": 144,
+        "completion_tokens": 38,
+        "total_tokens": 182,
+        "cost": 3.72e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.72e-05,
+          "upstream_inference_prompt_cost": 1.44e-05,
+          "upstream_inference_completions_cost": 2.28e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 20,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.532,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\"X\":6,\"Y\":9}",
+      "usage": {
+        "prompt_tokens": 291,
+        "completion_tokens": 70,
+        "total_tokens": 361,
+        "cost": 7.11e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.11e-05,
+          "upstream_inference_prompt_cost": 2.91e-05,
+          "upstream_inference_completions_cost": 4.2e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 52,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.653,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\"research\":8,\"operations\":4,\"outreach\":5}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 72,
+        "total_tokens": 164,
+        "cost": 5.24e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.24e-05,
+          "upstream_inference_prompt_cost": 9.2e-06,
+          "upstream_inference_completions_cost": 4.32e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 49,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.549,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\"research\":8,\"operations\":4,\"outreach\":5}",
+      "usage": {
+        "prompt_tokens": 261,
+        "completion_tokens": 69,
+        "total_tokens": 330,
+        "cost": 6.75e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.75e-05,
+          "upstream_inference_prompt_cost": 2.61e-05,
+          "upstream_inference_completions_cost": 4.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 46,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.704,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\"country\":\"CA\",\"timezone\":\"America/Toronto\",\"language\":\"fr\",\"provenance\":{\"country\":\"verified registry\",\"timezone\":\"signed form\",\"language\":\"user note\"}}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 84,
+        "total_tokens": 201,
+        "cost": 6.21e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.21e-05,
+          "upstream_inference_prompt_cost": 1.17e-05,
+          "upstream_inference_completions_cost": 5.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 40,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.785,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\"country\":\"CA\",\"timezone\":\"America/Toronto\",\"language\":\"fr\",\"provenance\":{\"country\":\"verified registry\",\"timezone\":\"signed form\",\"language\":\"user note\"}}",
+      "usage": {
+        "prompt_tokens": 296,
+        "completion_tokens": 84,
+        "total_tokens": 380,
+        "cost": 8e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8e-05,
+          "upstream_inference_prompt_cost": 2.96e-05,
+          "upstream_inference_completions_cost": 5.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 40,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.622,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback_test=failed"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking_conditions\":[\"rollback_test=failed\"]}",
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 49,
+        "total_tokens": 150,
+        "cost": 3.95e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.95e-05,
+          "upstream_inference_prompt_cost": 1.01e-05,
+          "upstream_inference_completions_cost": 2.94e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 25,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.293,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking_conditions\":[\"rollback test failed\"]}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 47,
+        "total_tokens": 320,
+        "cost": 5.55e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.55e-05,
+          "upstream_inference_prompt_cost": 2.73e-05,
+          "upstream_inference_completions_cost": 2.82e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 24,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.539,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\",\"E\"],\"delete\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 126,
+        "completion_tokens": 72,
+        "total_tokens": 198,
+        "cost": 5.58e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.58e-05,
+          "upstream_inference_prompt_cost": 1.26e-05,
+          "upstream_inference_completions_cost": 4.32e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 46,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.878,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\",\"E\"],\"delete\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 89,
+        "total_tokens": 375,
+        "cost": 8.2e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.2e-05,
+          "upstream_inference_prompt_cost": 2.86e-05,
+          "upstream_inference_completions_cost": 5.34e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 63,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.537,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "raw_response": "{\"proposal\":\"Q\",\"score\":14}",
+      "usage": {
+        "prompt_tokens": 113,
+        "completion_tokens": 68,
+        "total_tokens": 181,
+        "cost": 5.21e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.21e-05,
+          "upstream_inference_prompt_cost": 1.13e-05,
+          "upstream_inference_completions_cost": 4.08e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.742,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "raw_response": "{\"proposal\":\"Q\",\"score\":14}",
+      "usage": {
+        "prompt_tokens": 277,
+        "completion_tokens": 68,
+        "total_tokens": 345,
+        "cost": 6.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.85e-05,
+          "upstream_inference_prompt_cost": 2.77e-05,
+          "upstream_inference_completions_cost": 4.08e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.565,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\"start_index\":1,\"jobs\":[5,2,6],\"total_load\":13}",
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 78,
+        "total_tokens": 179,
+        "cost": 5.69e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.69e-05,
+          "upstream_inference_prompt_cost": 1.01e-05,
+          "upstream_inference_completions_cost": 4.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.625,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\"start_index\":1,\"jobs\":[5,2,6],\"total_load\":13}",
+      "usage": {
+        "prompt_tokens": 264,
+        "completion_tokens": 78,
+        "total_tokens": 342,
+        "cost": 7.32e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.32e-05,
+          "upstream_inference_prompt_cost": 2.64e-05,
+          "upstream_inference_completions_cost": 4.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.634,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\"next_action\":\"obtain owner approval\",\"may_deploy_now\":false}",
+      "usage": {
+        "prompt_tokens": 86,
+        "completion_tokens": 42,
+        "total_tokens": 128,
+        "cost": 3.38e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.38e-05,
+          "upstream_inference_prompt_cost": 8.6e-06,
+          "upstream_inference_completions_cost": 2.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 17,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.344,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\"next_action\":\"obtain owner approval\",\"may_deploy_now\":false}",
+      "usage": {
+        "prompt_tokens": 260,
+        "completion_tokens": 46,
+        "total_tokens": 306,
+        "cost": 5.36e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.36e-05,
+          "upstream_inference_prompt_cost": 2.6e-05,
+          "upstream_inference_completions_cost": 2.76e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.357,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 40,
+        "total_tokens": 150,
+        "cost": 3.5e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.5e-05,
+          "upstream_inference_prompt_cost": 1.1e-05,
+          "upstream_inference_completions_cost": 2.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.693,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "Choose clarification B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"Choose clarification B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 69,
+        "total_tokens": 342,
+        "cost": 6.87e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.87e-05,
+          "upstream_inference_prompt_cost": 2.73e-05,
+          "upstream_inference_completions_cost": 4.14e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.698,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\"preserved\":[\"device_id\",\"temperature\",\"pressure\"],\"ignored\":[\"color\",\"operator\"]}",
+      "usage": {
+        "prompt_tokens": 115,
+        "completion_tokens": 95,
+        "total_tokens": 210,
+        "cost": 6.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.85e-05,
+          "upstream_inference_prompt_cost": 1.15e-05,
+          "upstream_inference_completions_cost": 5.7e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.529,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\"preserved\":[\"device_id\",\"temperature\",\"pressure\"],\"ignored\":[\"color\",\"operator\"]}",
+      "usage": {
+        "prompt_tokens": 272,
+        "completion_tokens": 59,
+        "total_tokens": 331,
+        "cost": 6.26e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.26e-05,
+          "upstream_inference_prompt_cost": 2.72e-05,
+          "upstream_inference_completions_cost": 3.54e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 31,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.497,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\"accepted\":false,\"failures\":[\"null_rate > 0.01\",\"schema_version != 3\"]}",
+      "usage": {
+        "prompt_tokens": 123,
+        "completion_tokens": 30,
+        "total_tokens": 153,
+        "cost": 3.03e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.03e-05,
+          "upstream_inference_prompt_cost": 1.23e-05,
+          "upstream_inference_completions_cost": 1.8e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.335,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-luna",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\"accepted\":false,\"failures\":[\"null_rate > 0.01\",\"schema_version != 3\"]}",
+      "usage": {
+        "prompt_tokens": 276,
+        "completion_tokens": 64,
+        "total_tokens": 340,
+        "cost": 6.6e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.6e-05,
+          "upstream_inference_prompt_cost": 2.76e-05,
+          "upstream_inference_completions_cost": 3.84e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 32,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.736,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\"vendor\":\"Moss\",\"annual_cost\":85}",
+      "usage": {
+        "prompt_tokens": 122,
+        "completion_tokens": 39,
+        "total_tokens": 161,
+        "cost": 0.00035600000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00035600000000000003,
+          "upstream_inference_prompt_cost": 0.00012200000000000002,
+          "upstream_inference_completions_cost": 0.000234
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 19,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.499,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\"vendor\":\"Moss\",\"annual_cost\":85}",
+      "usage": {
+        "prompt_tokens": 289,
+        "completion_tokens": 44,
+        "total_tokens": 333,
+        "cost": 0.000553,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000553,
+          "upstream_inference_prompt_cost": 0.00028900000000000003,
+          "upstream_inference_completions_cost": 0.000264
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 24,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.915,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "ranked_incidents": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\"ranked_incidents\":[\"B\",\"A\",\"Z\",\"Q\"]}",
+      "usage": {
+        "prompt_tokens": 103,
+        "completion_tokens": 22,
+        "total_tokens": 125,
+        "cost": 0.00023500000000000002,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00023500000000000002,
+          "upstream_inference_prompt_cost": 0.00010300000000000001,
+          "upstream_inference_completions_cost": 0.000132
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.629,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\"order\":[\"B\",\"A\",\"Z\",\"Q\"]}",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 49,
+        "total_tokens": 319,
+        "cost": 0.000564,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000564,
+          "upstream_inference_prompt_cost": 0.00027000000000000006,
+          "upstream_inference_completions_cost": 0.000294
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 28,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.425,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "raw_response": "{\"servers\":[\"A\",\"B\"],\"capacity\":18,\"cost\":13}",
+      "usage": {
+        "prompt_tokens": 116,
+        "completion_tokens": 133,
+        "total_tokens": 249,
+        "cost": 0.000914,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000914,
+          "upstream_inference_prompt_cost": 0.00011600000000000001,
+          "upstream_inference_completions_cost": 0.000798
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 108,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.237,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "raw_response": "{\"servers\":[\"A\",\"B\"],\"capacity\":18,\"cost\":13}",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 110,
+        "total_tokens": 396,
+        "cost": 0.000946,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000946,
+          "upstream_inference_prompt_cost": 0.00028600000000000007,
+          "upstream_inference_completions_cost": 0.00066
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 85,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.45,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "raw_response": "{\"bytes_per_second\":720000,\"megabits_per_second\":5.76}",
+      "usage": {
+        "prompt_tokens": 104,
+        "completion_tokens": 74,
+        "total_tokens": 178,
+        "cost": 0.000548,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000548,
+          "upstream_inference_prompt_cost": 0.00010400000000000002,
+          "upstream_inference_completions_cost": 0.000444
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 47,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.673,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "raw_response": "{\"bytes_per_second\":720000,\"megabits_per_second\":5.76}",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 65,
+        "total_tokens": 335,
+        "cost": 0.00066,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00066,
+          "upstream_inference_prompt_cost": 0.00027000000000000006,
+          "upstream_inference_completions_cost": 0.00039
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 38,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.147,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\"allowed_now\":[\"read report\",\"draft configuration\"],\"owner_required\":[\"rotate API key\",\"deploy configuration\",\"approve 20 dollars\"]}",
+      "usage": {
+        "prompt_tokens": 98,
+        "completion_tokens": 57,
+        "total_tokens": 155,
+        "cost": 0.00044,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00044,
+          "upstream_inference_prompt_cost": 9.800000000000001e-05,
+          "upstream_inference_completions_cost": 0.000342
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 21,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.938,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\"allowed_now\":[\"read report\",\"draft configuration\"],\"owner_required\":[\"rotate API key\",\"deploy configuration\",\"approve 20 dollars\"]}",
+      "usage": {
+        "prompt_tokens": 266,
+        "completion_tokens": 34,
+        "total_tokens": 300,
+        "cost": 0.00047000000000000004,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00047000000000000004,
+          "upstream_inference_prompt_cost": 0.000266,
+          "upstream_inference_completions_cost": 0.000204
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.469,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\"X\":6,\"Y\":9}",
+      "usage": {
+        "prompt_tokens": 144,
+        "completion_tokens": 16,
+        "total_tokens": 160,
+        "cost": 0.00024000000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00024000000000000003,
+          "upstream_inference_prompt_cost": 0.00014400000000000003,
+          "upstream_inference_completions_cost": 9.6e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.187,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\"X\":6,\"Y\":9}",
+      "usage": {
+        "prompt_tokens": 291,
+        "completion_tokens": 47,
+        "total_tokens": 338,
+        "cost": 0.000573,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000573,
+          "upstream_inference_prompt_cost": 0.000291,
+          "upstream_inference_completions_cost": 0.000282
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 29,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.297,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\"research\":8,\"operations\":4,\"outreach\":5}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 85,
+        "total_tokens": 177,
+        "cost": 0.000602,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000602,
+          "upstream_inference_prompt_cost": 9.200000000000001e-05,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 62,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.225,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\"research\":8,\"operations\":4,\"outreach\":5}",
+      "usage": {
+        "prompt_tokens": 261,
+        "completion_tokens": 52,
+        "total_tokens": 313,
+        "cost": 0.000573,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000573,
+          "upstream_inference_prompt_cost": 0.00026100000000000006,
+          "upstream_inference_completions_cost": 0.000312
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 29,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.602,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\"country\":\"CA\",\"timezone\":\"America/Toronto\",\"language\":\"fr\",\"provenance\":{\"country\":\"verified registry\",\"timezone\":\"signed form\",\"language\":\"user note\"}}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 42,
+        "total_tokens": 159,
+        "cost": 0.000369,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000369,
+          "upstream_inference_prompt_cost": 0.00011700000000000001,
+          "upstream_inference_completions_cost": 0.000252
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.252,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\"country\":\"CA\",\"timezone\":\"America/Toronto\",\"language\":\"fr\",\"provenance\":{\"country\":\"verified registry\",\"timezone\":\"signed form\",\"language\":\"user note\"}}",
+      "usage": {
+        "prompt_tokens": 296,
+        "completion_tokens": 42,
+        "total_tokens": 338,
+        "cost": 0.0005480000000000001,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0005480000000000001,
+          "upstream_inference_prompt_cost": 0.00029600000000000004,
+          "upstream_inference_completions_cost": 0.000252
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.268,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback_test=failed"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking_conditions\":[\"rollback_test=failed\"]}",
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 48,
+        "total_tokens": 149,
+        "cost": 0.000389,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000389,
+          "upstream_inference_prompt_cost": 0.00010100000000000002,
+          "upstream_inference_completions_cost": 0.000288
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 24,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.771,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking_conditions\":[\"rollback test failed\"]}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 21,
+        "total_tokens": 294,
+        "cost": 0.00039900000000000005,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00039900000000000005,
+          "upstream_inference_prompt_cost": 0.000273,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.773,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\",\"E\"],\"delete\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 126,
+        "completion_tokens": 74,
+        "total_tokens": 200,
+        "cost": 0.00057,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00057,
+          "upstream_inference_prompt_cost": 0.00012600000000000003,
+          "upstream_inference_completions_cost": 0.000444
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.891,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\",\"E\"],\"delete\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 81,
+        "total_tokens": 367,
+        "cost": 0.000772,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000772,
+          "upstream_inference_prompt_cost": 0.00028600000000000007,
+          "upstream_inference_completions_cost": 0.000486
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 55,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.787,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "raw_response": "{\"proposal\":\"Q\",\"score\":14}",
+      "usage": {
+        "prompt_tokens": 113,
+        "completion_tokens": 66,
+        "total_tokens": 179,
+        "cost": 0.000509,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000509,
+          "upstream_inference_prompt_cost": 0.00011300000000000002,
+          "upstream_inference_completions_cost": 0.000396
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.768,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "raw_response": "{\"proposal\":\"Q\",\"score\":14}",
+      "usage": {
+        "prompt_tokens": 277,
+        "completion_tokens": 66,
+        "total_tokens": 343,
+        "cost": 0.0006730000000000001,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0006730000000000001,
+          "upstream_inference_prompt_cost": 0.00027700000000000007,
+          "upstream_inference_completions_cost": 0.000396
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.74,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\"start_index\":1,\"jobs\":[5,2,6],\"total_load\":13}",
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 74,
+        "total_tokens": 175,
+        "cost": 0.000545,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000545,
+          "upstream_inference_prompt_cost": 0.00010100000000000002,
+          "upstream_inference_completions_cost": 0.000444
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 46,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.554,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\"start_index\":1,\"jobs\":[5,2,6],\"total_load\":13}",
+      "usage": {
+        "prompt_tokens": 264,
+        "completion_tokens": 77,
+        "total_tokens": 341,
+        "cost": 0.0007260000000000001,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0007260000000000001,
+          "upstream_inference_prompt_cost": 0.000264,
+          "upstream_inference_completions_cost": 0.000462
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 49,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.467,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\"next_action\":\"owner approval\",\"may_deploy_now\":false}",
+      "usage": {
+        "prompt_tokens": 86,
+        "completion_tokens": 21,
+        "total_tokens": 107,
+        "cost": 0.000212,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000212,
+          "upstream_inference_prompt_cost": 8.600000000000002e-05,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.203,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\"next_action\":\"obtain owner approval\",\"may_deploy_now\":false}",
+      "usage": {
+        "prompt_tokens": 260,
+        "completion_tokens": 23,
+        "total_tokens": 283,
+        "cost": 0.000398,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000398,
+          "upstream_inference_prompt_cost": 0.00026000000000000003,
+          "upstream_inference_completions_cost": 0.000138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.356,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 38,
+        "total_tokens": 148,
+        "cost": 0.00033800000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00033800000000000003,
+          "upstream_inference_prompt_cost": 0.00011000000000000002,
+          "upstream_inference_completions_cost": 0.000228
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 19,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.605,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "Would you like to choose B?",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"Would you like to choose B?\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 84,
+        "total_tokens": 357,
+        "cost": 0.000777,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000777,
+          "upstream_inference_prompt_cost": 0.000273,
+          "upstream_inference_completions_cost": 0.000504
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 59,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.829,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\"preserved\":[\"device_id\",\"temperature\",\"pressure\"],\"ignored\":[\"color\",\"operator\"]}",
+      "usage": {
+        "prompt_tokens": 115,
+        "completion_tokens": 26,
+        "total_tokens": 141,
+        "cost": 0.00027100000000000003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00027100000000000003,
+          "upstream_inference_prompt_cost": 0.00011500000000000002,
+          "upstream_inference_completions_cost": 0.000156
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.239,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\"preserved\":[\"device_id\",\"temperature\",\"pressure\"],\"ignored\":[\"color\",\"operator\"]}",
+      "usage": {
+        "prompt_tokens": 272,
+        "completion_tokens": 26,
+        "total_tokens": 298,
+        "cost": 0.00042800000000000005,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00042800000000000005,
+          "upstream_inference_prompt_cost": 0.00027200000000000005,
+          "upstream_inference_completions_cost": 0.000156
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.284,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\"accepted\":false,\"failures\":[\"null_rate > 0.01\",\"schema_version != 3\"]}",
+      "usage": {
+        "prompt_tokens": 123,
+        "completion_tokens": 30,
+        "total_tokens": 153,
+        "cost": 0.000303,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000303,
+          "upstream_inference_prompt_cost": 0.000123,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.326,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-terra",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\"accepted\":false,\"failures\":[\"null_rate > 0.01\",\"schema_version != 3\"]}",
+      "usage": {
+        "prompt_tokens": 276,
+        "completion_tokens": 30,
+        "total_tokens": 306,
+        "cost": 0.000456,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000456,
+          "upstream_inference_prompt_cost": 0.00027600000000000004,
+          "upstream_inference_completions_cost": 0.00018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.333,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\"vendor\":\"Moss\",\"annual_cost\":85}",
+      "usage": {
+        "prompt_tokens": 122,
+        "completion_tokens": 18,
+        "total_tokens": 140,
+        "cost": 0.00115,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00115,
+          "upstream_inference_prompt_cost": 0.00061,
+          "upstream_inference_completions_cost": 0.00054
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.442,
+      "error": null
+    },
+    {
+      "task_id": "test-01-vendor-selection",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "response": {
+        "vendor": "Moss",
+        "annual_cost": 85
+      },
+      "raw_response": "{\"vendor\":\"Moss\",\"annual_cost\":85}",
+      "usage": {
+        "prompt_tokens": 289,
+        "completion_tokens": 38,
+        "total_tokens": 327,
+        "cost": 0.002585,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002585,
+          "upstream_inference_prompt_cost": 0.001445,
+          "upstream_inference_completions_cost": 0.00114
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 18,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 9.551,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\"order\":[\"B\",\"A\",\"Z\",\"Q\"]}",
+      "usage": {
+        "prompt_tokens": 103,
+        "completion_tokens": 60,
+        "total_tokens": 163,
+        "cost": 0.002315,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002315,
+          "upstream_inference_prompt_cost": 0.000515,
+          "upstream_inference_completions_cost": 0.0018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 39,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 14.961,
+      "error": null
+    },
+    {
+      "task_id": "test-02-incident-order",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "response": {
+        "order": [
+          "B",
+          "A",
+          "Z",
+          "Q"
+        ]
+      },
+      "raw_response": "{\"order\":[\"B\",\"A\",\"Z\",\"Q\"]}",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 19,
+        "total_tokens": 289,
+        "cost": 0.00192,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00192,
+          "upstream_inference_prompt_cost": 0.00135,
+          "upstream_inference_completions_cost": 0.00057
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 19.824,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "raw_response": "{\"servers\":[\"A\",\"B\"],\"capacity\":18,\"cost\":13}",
+      "usage": {
+        "prompt_tokens": 116,
+        "completion_tokens": 106,
+        "total_tokens": 222,
+        "cost": 0.00376,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00376,
+          "upstream_inference_prompt_cost": 0.00058,
+          "upstream_inference_completions_cost": 0.00318
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 81,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 27.227,
+      "error": null
+    },
+    {
+      "task_id": "test-03-capacity-plan",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "response": {
+        "servers": [
+          "A",
+          "B"
+        ],
+        "capacity": 18,
+        "cost": 13
+      },
+      "raw_response": "{\"servers\":[\"A\",\"B\"],\"capacity\":18,\"cost\":13}",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 92,
+        "total_tokens": 378,
+        "cost": 0.00419,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00419,
+          "upstream_inference_prompt_cost": 0.00143,
+          "upstream_inference_completions_cost": 0.00276
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 32.921,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "raw_response": "{\"bytes_per_second\":720000,\"megabits_per_second\":5.76}",
+      "usage": {
+        "prompt_tokens": 104,
+        "completion_tokens": 67,
+        "total_tokens": 171,
+        "cost": 0.00253,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00253,
+          "upstream_inference_prompt_cost": 0.00052,
+          "upstream_inference_completions_cost": 0.00201
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 40,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 38.497,
+      "error": null
+    },
+    {
+      "task_id": "test-04-unit-conversion",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "response": {
+        "bytes_per_second": 720000,
+        "megabits_per_second": 5.76
+      },
+      "raw_response": "{\"bytes_per_second\":720000,\"megabits_per_second\":5.76}",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 65,
+        "total_tokens": 335,
+        "cost": 0.0033,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0033,
+          "upstream_inference_prompt_cost": 0.00135,
+          "upstream_inference_completions_cost": 0.00195
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 38,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 44.404,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\"allowed_now\":[\"read report\",\"draft configuration\"],\"owner_required\":[\"rotate API key\",\"deploy configuration\",\"approve 20 dollars\"]}",
+      "usage": {
+        "prompt_tokens": 98,
+        "completion_tokens": 34,
+        "total_tokens": 132,
+        "cost": 0.00151,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00151,
+          "upstream_inference_prompt_cost": 0.00049,
+          "upstream_inference_completions_cost": 0.00102
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 50.73,
+      "error": null
+    },
+    {
+      "task_id": "test-05-access-control",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "response": {
+        "allowed_now": [
+          "read report",
+          "draft configuration"
+        ],
+        "owner_required": [
+          "rotate API key",
+          "deploy configuration",
+          "approve 20 dollars"
+        ]
+      },
+      "raw_response": "{\"allowed_now\":[\"read report\",\"draft configuration\"],\"owner_required\":[\"rotate API key\",\"deploy configuration\",\"approve 20 dollars\"]}",
+      "usage": {
+        "prompt_tokens": 266,
+        "completion_tokens": 73,
+        "total_tokens": 339,
+        "cost": 0.00352,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00352,
+          "upstream_inference_prompt_cost": 0.00133,
+          "upstream_inference_completions_cost": 0.00219
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 37,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 58.589,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\"X\":6,\"Y\":9}",
+      "usage": {
+        "prompt_tokens": 144,
+        "completion_tokens": 16,
+        "total_tokens": 160,
+        "cost": 0.0012,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0012,
+          "upstream_inference_prompt_cost": 0.00072,
+          "upstream_inference_completions_cost": 0.00048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.677,
+      "error": null
+    },
+    {
+      "task_id": "test-06-latest-valid-record",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "X": 6,
+        "Y": 9
+      },
+      "response": {
+        "X": 6,
+        "Y": 9
+      },
+      "raw_response": "{\"X\":6,\"Y\":9}",
+      "usage": {
+        "prompt_tokens": 291,
+        "completion_tokens": 16,
+        "total_tokens": 307,
+        "cost": 0.001935,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001935,
+          "upstream_inference_prompt_cost": 0.001455,
+          "upstream_inference_completions_cost": 0.00048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 60.611,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\"research\":8,\"operations\":4,\"outreach\":5}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 65,
+        "total_tokens": 157,
+        "cost": 0.00241,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00241,
+          "upstream_inference_prompt_cost": 0.00046,
+          "upstream_inference_completions_cost": 0.00195
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 42,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 63.053,
+      "error": null
+    },
+    {
+      "task_id": "test-07-quota-allocation",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "response": {
+        "research": 8,
+        "operations": 4,
+        "outreach": 5
+      },
+      "raw_response": "{\"research\":8,\"operations\":4,\"outreach\":5}",
+      "usage": {
+        "prompt_tokens": 261,
+        "completion_tokens": 59,
+        "total_tokens": 320,
+        "cost": 0.003075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003075,
+          "upstream_inference_prompt_cost": 0.001305,
+          "upstream_inference_completions_cost": 0.00177
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 36,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 64.139,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\"country\":\"CA\",\"timezone\":\"America/Toronto\",\"language\":\"fr\",\"provenance\":{\"country\":\"verified registry\",\"timezone\":\"signed form\",\"language\":\"user note\"}}",
+      "usage": {
+        "prompt_tokens": 117,
+        "completion_tokens": 42,
+        "total_tokens": 159,
+        "cost": 0.001845,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001845,
+          "upstream_inference_prompt_cost": 0.000585,
+          "upstream_inference_completions_cost": 0.00126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 61.529,
+      "error": null
+    },
+    {
+      "task_id": "test-08-source-precedence",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "response": {
+        "country": "CA",
+        "timezone": "America/Toronto",
+        "language": "fr",
+        "provenance": {
+          "country": "verified registry",
+          "timezone": "signed form",
+          "language": "user note"
+        }
+      },
+      "raw_response": "{\"country\":\"CA\",\"timezone\":\"America/Toronto\",\"language\":\"fr\",\"provenance\":{\"country\":\"verified registry\",\"timezone\":\"signed form\",\"language\":\"user note\"}}",
+      "usage": {
+        "prompt_tokens": 296,
+        "completion_tokens": 42,
+        "total_tokens": 338,
+        "cost": 0.00274,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00274,
+          "upstream_inference_prompt_cost": 0.00148,
+          "upstream_inference_completions_cost": 0.00126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 61.221,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback_test failed"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking_conditions\":[\"rollback_test failed\"]}",
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 21,
+        "total_tokens": 122,
+        "cost": 0.001135,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001135,
+          "upstream_inference_prompt_cost": 0.000505,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.463,
+      "error": null
+    },
+    {
+      "task_id": "test-09-stop-condition",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking_conditions": [
+          "rollback test failed"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking_conditions\":[\"rollback test failed\"]}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 21,
+        "total_tokens": 294,
+        "cost": 0.001995,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001995,
+          "upstream_inference_prompt_cost": 0.001365,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.179,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\",\"E\"],\"delete\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 126,
+        "completion_tokens": 24,
+        "total_tokens": 150,
+        "cost": 0.00135,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00135,
+          "upstream_inference_prompt_cost": 0.00063,
+          "upstream_inference_completions_cost": 0.00072
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.281,
+      "error": null
+    },
+    {
+      "task_id": "test-10-exception-nesting",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D",
+          "E"
+        ],
+        "delete": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\",\"E\"],\"delete\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 71,
+        "total_tokens": 357,
+        "cost": 0.00356,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00356,
+          "upstream_inference_prompt_cost": 0.00143,
+          "upstream_inference_completions_cost": 0.00213
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 45,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 60.99,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "raw_response": "{\"proposal\":\"Q\",\"score\":14}",
+      "usage": {
+        "prompt_tokens": 113,
+        "completion_tokens": 68,
+        "total_tokens": 181,
+        "cost": 0.002605,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002605,
+          "upstream_inference_prompt_cost": 0.000565,
+          "upstream_inference_completions_cost": 0.00204
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.95,
+      "error": null
+    },
+    {
+      "task_id": "test-11-weighted-score",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "response": {
+        "proposal": "Q",
+        "score": 14
+      },
+      "raw_response": "{\"proposal\":\"Q\",\"score\":14}",
+      "usage": {
+        "prompt_tokens": 277,
+        "completion_tokens": 67,
+        "total_tokens": 344,
+        "cost": 0.003395,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003395,
+          "upstream_inference_prompt_cost": 0.001385,
+          "upstream_inference_completions_cost": 0.00201
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 49,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 63.02,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 0,
+        "jobs": [
+          3,
+          5,
+          2
+        ],
+        "total_load": 10
+      },
+      "raw_response": "{\"start_index\":0,\"jobs\":[3,5,2],\"total_load\":10}",
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 26,
+        "total_tokens": 127,
+        "cost": 0.001285,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001285,
+          "upstream_inference_prompt_cost": 0.000505,
+          "upstream_inference_completions_cost": 0.00078
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 60.931,
+      "error": null
+    },
+    {
+      "task_id": "test-12-batch-window",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "response": {
+        "start_index": 1,
+        "jobs": [
+          5,
+          2,
+          6
+        ],
+        "total_load": 13
+      },
+      "raw_response": "{\"start_index\":1,\"jobs\":[5,2,6],\"total_load\":13}",
+      "usage": {
+        "prompt_tokens": 264,
+        "completion_tokens": 80,
+        "total_tokens": 344,
+        "cost": 0.00372,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00372,
+          "upstream_inference_prompt_cost": 0.00132,
+          "upstream_inference_completions_cost": 0.0024
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 52,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 61.517,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\"next_action\":\"obtain owner approval\",\"may_deploy_now\":false}",
+      "usage": {
+        "prompt_tokens": 86,
+        "completion_tokens": 23,
+        "total_tokens": 109,
+        "cost": 0.00112,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00112,
+          "upstream_inference_prompt_cost": 0.00043,
+          "upstream_inference_completions_cost": 0.00069
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.656,
+      "error": null
+    },
+    {
+      "task_id": "test-13-approval-chain",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "response": {
+        "next_action": "obtain owner approval",
+        "may_deploy_now": false
+      },
+      "raw_response": "{\"next_action\":\"obtain owner approval\",\"may_deploy_now\":false}",
+      "usage": {
+        "prompt_tokens": 260,
+        "completion_tokens": 23,
+        "total_tokens": 283,
+        "cost": 0.00199,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00199,
+          "upstream_inference_prompt_cost": 0.0013,
+          "upstream_inference_completions_cost": 0.00069
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.888,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 17,
+        "total_tokens": 127,
+        "cost": 0.00106,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00106,
+          "upstream_inference_prompt_cost": 0.00055,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 61.918,
+      "error": null
+    },
+    {
+      "task_id": "test-14-information-value",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "question": "B",
+        "net_value": 4
+      },
+      "response": {
+        "question": "B",
+        "net_value": 4
+      },
+      "raw_response": "{\"question\":\"B\",\"net_value\":4}",
+      "usage": {
+        "prompt_tokens": 273,
+        "completion_tokens": 59,
+        "total_tokens": 332,
+        "cost": 0.003135,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003135,
+          "upstream_inference_prompt_cost": 0.001365,
+          "upstream_inference_completions_cost": 0.00177
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 40,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 63.564,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\"preserved\":[\"device_id\",\"temperature\",\"pressure\"],\"ignored\":[\"color\",\"operator\"]}",
+      "usage": {
+        "prompt_tokens": 115,
+        "completion_tokens": 26,
+        "total_tokens": 141,
+        "cost": 0.001355,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001355,
+          "upstream_inference_prompt_cost": 0.000575,
+          "upstream_inference_completions_cost": 0.00078
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 63.204,
+      "error": null
+    },
+    {
+      "task_id": "test-15-protected-invariant",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "response": {
+        "preserved": [
+          "device_id",
+          "temperature",
+          "pressure"
+        ],
+        "ignored": [
+          "color",
+          "operator"
+        ]
+      },
+      "raw_response": "{\"preserved\":[\"device_id\",\"temperature\",\"pressure\"],\"ignored\":[\"color\",\"operator\"]}",
+      "usage": {
+        "prompt_tokens": 272,
+        "completion_tokens": 26,
+        "total_tokens": 298,
+        "cost": 0.00214,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00214,
+          "upstream_inference_prompt_cost": 0.00136,
+          "upstream_inference_completions_cost": 0.00078
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.132,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "plain",
+      "repetition": 1,
+      "spear_version": null,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\"accepted\":false,\"failures\":[\"null_rate > 0.01\",\"schema_version != 3\"]}",
+      "usage": {
+        "prompt_tokens": 123,
+        "completion_tokens": 30,
+        "total_tokens": 153,
+        "cost": 0.001515,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001515,
+          "upstream_inference_prompt_cost": 0.000615,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 62.214,
+      "error": null
+    },
+    {
+      "task_id": "test-16-failure-report",
+      "split": "held_out",
+      "model": "openai/gpt-5.6-sol",
+      "condition": "spear",
+      "repetition": 1,
+      "spear_version": "0.2",
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "response": {
+        "accepted": false,
+        "failures": [
+          "null_rate > 0.01",
+          "schema_version != 3"
+        ]
+      },
+      "raw_response": "{\"accepted\":false,\"failures\":[\"null_rate > 0.01\",\"schema_version != 3\"]}",
+      "usage": {
+        "prompt_tokens": 276,
+        "completion_tokens": 30,
+        "total_tokens": 306,
+        "cost": 0.00228,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00228,
+          "upstream_inference_prompt_cost": 0.00138,
+          "upstream_inference_completions_cost": 0.0009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 63.026,
+      "error": null
+    }
+  ]
+}
