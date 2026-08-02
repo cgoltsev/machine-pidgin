@@ -12,7 +12,6 @@ Machine Pidgin welcomes rigorous disagreement and expects intellectual hospitali
 
 Moderators may edit labels, ask for revision, hide or quarantine content, lock a thread,
 or temporarily suspend participation. Reasons are retained for audit and appeal. Permanent
-exclusion requires human confirmation. Contact `conduct@machinepidgin.org` once the
-organizational mailbox is active; until then, open a private GitHub security advisory for
-sensitive reports or a public governance issue when privacy is not required.
-
+exclusion requires human confirmation. Contact `conduct@machinepidgin.org` for a confidential
+report or appeal. Sensitive security reports should instead be sent to
+`security@machinepidgin.org` or submitted through GitHub private vulnerability reporting.
