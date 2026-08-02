@@ -1,0 +1,360 @@
+{
+  "study": "Machine Pidgin Benchmark 002 post-run prompt-equivalence audit",
+  "raw_result": "20260802T221708Z-held_out-formal-notation.json",
+  "status": "preregistered result retained; asymmetric task excluded in audited sensitivity",
+  "exclusions": [
+    {
+      "task_id": "test-math-14-workflow",
+      "reason": "Post-run prompt-equivalence audit: the formal condition hard-coded the canonical next_action value 'open the vote' inside its output template, while the vernacular condition named the action in prose but did not define that exact canonical value. All eight paired observations failed vernacular exact-match and passed formal, so this single asymmetric output-label cue accounts for the preregistered aggregate lift."
+    }
+  ],
+  "preregistered_summary_all_20_tasks": {
+    "overall": {
+      "vernacular": {
+        "n": 160,
+        "errors": 0,
+        "on_task_count": 134,
+        "on_task_rate": 0.8375,
+        "mean_constraint_score": 0.906875,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0795901,
+        "mean_latency_seconds": 10.0069
+      },
+      "formal": {
+        "n": 160,
+        "errors": 0,
+        "on_task_count": 138,
+        "on_task_rate": 0.8625,
+        "mean_constraint_score": 0.91625,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0823999,
+        "mean_latency_seconds": 10.37595625
+      },
+      "absolute_lift": 0.025000000000000022
+    },
+    "by_model": {
+      "openai/gpt-4o-mini": {
+        "vernacular": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 24,
+          "on_task_rate": 0.6,
+          "mean_constraint_score": 0.765,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0011559,
+          "mean_latency_seconds": 1.34315
+        },
+        "formal": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 21,
+          "on_task_rate": 0.525,
+          "mean_constraint_score": 0.7150000000000001,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0010502999999999999,
+          "mean_latency_seconds": 1.3211249999999999
+        },
+        "absolute_lift": -0.07499999999999996
+      },
+      "openai/gpt-5.6-luna": {
+        "vernacular": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 36,
+          "on_task_rate": 0.9,
+          "mean_constraint_score": 0.925,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0017602,
+          "mean_latency_seconds": 1.8166
+        },
+        "formal": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 38,
+          "on_task_rate": 0.95,
+          "mean_constraint_score": 0.9666666666666666,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0019336,
+          "mean_latency_seconds": 1.7899999999999998
+        },
+        "absolute_lift": 0.04999999999999993
+      },
+      "openai/gpt-5.6-terra": {
+        "vernacular": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 36,
+          "on_task_rate": 0.9,
+          "mean_constraint_score": 0.9625,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.014914,
+          "mean_latency_seconds": 1.5644
+        },
+        "formal": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 40,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.016576,
+          "mean_latency_seconds": 1.7469249999999998
+        },
+        "absolute_lift": 0.09999999999999998
+      },
+      "openai/gpt-5.6-sol": {
+        "vernacular": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 38,
+          "on_task_rate": 0.95,
+          "mean_constraint_score": 0.975,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.06176,
+          "mean_latency_seconds": 35.30345
+        },
+        "formal": {
+          "n": 40,
+          "errors": 0,
+          "on_task_count": 39,
+          "on_task_rate": 0.975,
+          "mean_constraint_score": 0.9833333333333334,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.06284,
+          "mean_latency_seconds": 36.645775
+        },
+        "absolute_lift": 0.025000000000000022
+      }
+    },
+    "by_expected_effect": {
+      "notation_friendly": {
+        "vernacular": {
+          "n": 144,
+          "errors": 0,
+          "on_task_count": 118,
+          "on_task_rate": 0.8194444444444444,
+          "mean_constraint_score": 0.8965277777777777,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0745567,
+          "mean_latency_seconds": 9.956486111111111
+        },
+        "formal": {
+          "n": 144,
+          "errors": 0,
+          "on_task_count": 122,
+          "on_task_rate": 0.8472222222222222,
+          "mean_constraint_score": 0.9069444444444444,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0776139,
+          "mean_latency_seconds": 10.363375
+        },
+        "absolute_lift": 0.02777777777777779
+      },
+      "negative_controls": {
+        "vernacular": {
+          "n": 16,
+          "errors": 0,
+          "on_task_count": 16,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0050334,
+          "mean_latency_seconds": 10.460625
+        },
+        "formal": {
+          "n": 16,
+          "errors": 0,
+          "on_task_count": 16,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.004786,
+          "mean_latency_seconds": 10.4891875
+        },
+        "absolute_lift": 0.0
+      }
+    },
+    "paired": {
+      "formal_repairs": 12,
+      "formal_regressions": 8,
+      "concordant_success": 126,
+      "concordant_failure": 14,
+      "mcnemar_exact_two_sided_descriptive_p": 0.5034446716308594
+    }
+  },
+  "audited_summary_19_equivalent_tasks": {
+    "overall": {
+      "vernacular": {
+        "n": 152,
+        "errors": 0,
+        "on_task_count": 134,
+        "on_task_rate": 0.881578947368421,
+        "mean_constraint_score": 0.9282894736842104,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0769749,
+        "mean_latency_seconds": 10.029888157894737
+      },
+      "formal": {
+        "n": 152,
+        "errors": 0,
+        "on_task_count": 130,
+        "on_task_rate": 0.8552631578947368,
+        "mean_constraint_score": 0.9118421052631579,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0796139,
+        "mean_latency_seconds": 10.374414473684212
+      },
+      "absolute_lift": -0.02631578947368418
+    },
+    "by_model": {
+      "openai/gpt-4o-mini": {
+        "vernacular": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 24,
+          "on_task_rate": 0.631578947368421,
+          "mean_constraint_score": 0.7789473684210527,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0011055,
+          "mean_latency_seconds": 1.362
+        },
+        "formal": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 19,
+          "on_task_rate": 0.5,
+          "mean_constraint_score": 0.7000000000000001,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0010029,
+          "mean_latency_seconds": 1.3165526315789473
+        },
+        "absolute_lift": -0.13157894736842102
+      },
+      "openai/gpt-5.6-luna": {
+        "vernacular": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 36,
+          "on_task_rate": 0.9473684210526315,
+          "mean_constraint_score": 0.9473684210526315,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0017034,
+          "mean_latency_seconds": 1.8282105263157893
+        },
+        "formal": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 36,
+          "on_task_rate": 0.9473684210526315,
+          "mean_constraint_score": 0.9649122807017543,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.001871,
+          "mean_latency_seconds": 1.8078684210526315
+        },
+        "absolute_lift": 0.0
+      },
+      "openai/gpt-5.6-terra": {
+        "vernacular": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 36,
+          "on_task_rate": 0.9473684210526315,
+          "mean_constraint_score": 0.9868421052631579,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.014496,
+          "mean_latency_seconds": 1.5840789473684211
+        },
+        "formal": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 38,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.01613,
+          "mean_latency_seconds": 1.7707368421052632
+        },
+        "absolute_lift": 0.052631578947368474
+      },
+      "openai/gpt-5.6-sol": {
+        "vernacular": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 38,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.05967,
+          "mean_latency_seconds": 35.345263157894735
+        },
+        "formal": {
+          "n": 38,
+          "errors": 0,
+          "on_task_count": 37,
+          "on_task_rate": 0.9736842105263158,
+          "mean_constraint_score": 0.9824561403508772,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.06061,
+          "mean_latency_seconds": 36.6025
+        },
+        "absolute_lift": -0.02631578947368418
+      }
+    },
+    "by_expected_effect": {
+      "notation_friendly": {
+        "vernacular": {
+          "n": 136,
+          "errors": 0,
+          "on_task_count": 118,
+          "on_task_rate": 0.8676470588235294,
+          "mean_constraint_score": 0.9198529411764705,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0719415,
+          "mean_latency_seconds": 9.979213235294118
+        },
+        "formal": {
+          "n": 136,
+          "errors": 0,
+          "on_task_count": 114,
+          "on_task_rate": 0.8382352941176471,
+          "mean_constraint_score": 0.901470588235294,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0748279,
+          "mean_latency_seconds": 10.360911764705882
+        },
+        "absolute_lift": -0.02941176470588236
+      },
+      "negative_controls": {
+        "vernacular": {
+          "n": 16,
+          "errors": 0,
+          "on_task_count": 16,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0050334,
+          "mean_latency_seconds": 10.460625
+        },
+        "formal": {
+          "n": 16,
+          "errors": 0,
+          "on_task_count": 16,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.004786,
+          "mean_latency_seconds": 10.4891875
+        },
+        "absolute_lift": 0.0
+      }
+    },
+    "paired": {
+      "formal_repairs": 4,
+      "formal_regressions": 8,
+      "concordant_success": 126,
+      "concordant_failure": 14,
+      "mcnemar_exact_two_sided_descriptive_p": 0.3876953125
+    }
+  },
+  "interpretation": "The preregistered all-task aggregate shows a +2.5 percentage-point formal lift, but the audited equivalent-task set shows a -2.6-point formal change. Mathematical notation alone therefore did not establish an on-task improvement in this pilot."
+}

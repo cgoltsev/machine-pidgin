@@ -1,0 +1,255 @@
+[
+  {
+    "id": "dev-math-01-selection",
+    "split": "development",
+    "category": "constrained selection",
+    "notation_expected_to_help": true,
+    "vernacular": "Choose one sensor. Sensor A has precision 92, latency 18 ms, and cost 7. Sensor B has precision 95, latency 25 ms, and cost 5. Sensor C has precision 94, latency 20 ms, and cost 6. Precision must be at least 94 and latency at most 22 ms. Among feasible sensors choose the lowest cost. Return one JSON object with exactly sensor and cost; use the bare sensor ID A, B, or C.",
+    "formal": "Let S={A,B,C}. p={A:92,B:95,C:94}; l_ms={A:18,B:25,C:20}; c={A:7,B:5,C:6}. Feasible F={s in S | p[s]>=94 AND l_ms[s]<=22}. Choose s*=argmin_{s in F} c[s]. Return JSON exactly {\"sensor\":s*,\"cost\":c[s*]}.",
+    "expected": {"sensor": "C", "cost": 6}
+  },
+  {
+    "id": "dev-math-02-allocation",
+    "split": "development",
+    "category": "integer allocation",
+    "notation_expected_to_help": true,
+    "vernacular": "Allocate exactly 12 integer units among safety, research, and outreach. Safety gets at least 5, outreach at least 2, and research at most 4. First maximize research; among ties maximize safety. Return JSON with exactly safety, research, outreach.",
+    "formal": "Variables s,r,o in Z_{>=0}. HARD: s+r+o=12; s>=5; o>=2; r<=4. OBJECTIVE: lexmax(r,s), meaning maximize r first, then with r fixed at its maximum maximize s. Return JSON exactly {\"safety\":s,\"research\":r,\"outreach\":o}.",
+    "expected": {"safety": 6, "research": 4, "outreach": 2}
+  },
+  {
+    "id": "dev-math-03-precedence",
+    "split": "development",
+    "category": "precedence",
+    "notation_expected_to_help": true,
+    "vernacular": "Order tasks K, L, M, N, P. K must come before M; L before M; M before P; N before P. Repeatedly choose alphabetically when more than one task is available. Return JSON exactly with one key order containing the array.",
+    "formal": "V={K,L,M,N,P}; E={(K,M),(L,M),(M,P),(N,P)}, where (x,y) means x precedes y. Kahn recurrence: at every step choose min_alphabetical({v remaining | indegree(v)=0}), emit it, then remove its outgoing edges. Return JSON exactly {\"order\":[...]}.",
+    "expected": {"order": ["K", "L", "M", "N", "P"]}
+  },
+  {
+    "id": "dev-math-04-stop-gate",
+    "split": "development",
+    "category": "boolean gates",
+    "notation_expected_to_help": true,
+    "vernacular": "A launch may proceed only if tests passed, rollback is ready, and error rate is below 2%. Tests passed, rollback is not ready, and error rate is 0.7%. Return JSON exactly with Boolean proceed and a blocking array. Use the exact blocking label rollback not ready.",
+    "formal": "Let T=1 (tests passed), R=0 (rollback ready), e=0.007. PROCEED <=> T AND R AND (e<0.02). Failed-gate label map: NOT R -> \"rollback not ready\". Return JSON exactly {\"proceed\":boolean,\"blocking\":[failed labels in formula order]}.",
+    "expected": {"proceed": false, "blocking": ["rollback not ready"]}
+  },
+  {
+    "id": "dev-math-05-units",
+    "split": "development",
+    "category": "unit conversion",
+    "notation_expected_to_help": true,
+    "vernacular": "A 2.4 gigabyte upload uses decimal units, so one gigabyte is 1000 megabytes. The link transfers 80 megabytes per second. Ignore overhead. Return JSON exactly with megabytes and seconds.",
+    "formal": "Given 1 GB=1000 MB, size=2.4 GB, rate=80 MB/s, overhead=0. Compute M=size*1000 and t=M/rate. Return JSON exactly {\"megabytes\":M,\"seconds\":t}.",
+    "expected": {"megabytes": 2400, "seconds": 30}
+  },
+  {
+    "id": "dev-math-06-exception",
+    "split": "development",
+    "category": "nested exception",
+    "notation_expected_to_help": true,
+    "vernacular": "Classify records as retain or purge. Records older than 30 days are purged. Legal-hold records are retained even when old, except records also marked synthetic-test are purged after 7 days. A is 40 days old and normal; B is 50 and legal-hold; C is 10 and both legal-hold and synthetic-test; D is 5 and synthetic-test. Preserve input order. Return JSON exactly with retain and purge arrays.",
+    "formal": "For record x, rules by descending priority: synthetic(x) -> purge iff age(x)>7; else legal(x) -> retain; else purge iff age(x)>30; otherwise retain. Data in order: A=(40,normal), B=(50,legal), C=(10,legal+synthetic), D=(5,synthetic). Return JSON exactly {\"retain\":[IDs],\"purge\":[IDs]} preserving input order.",
+    "expected": {"retain": ["B", "D"], "purge": ["A", "C"]}
+  },
+  {
+    "id": "dev-math-07-simple-lookup",
+    "split": "development",
+    "category": "negative control: lookup",
+    "notation_expected_to_help": false,
+    "vernacular": "The archive color is amber and its shelf number is 17. Return JSON exactly with color and shelf.",
+    "formal": "Let color(archive)=amber; shelf(archive)=17. Return JSON exactly {\"color\":color(archive),\"shelf\":shelf(archive)}.",
+    "expected": {"color": "amber", "shelf": 17}
+  },
+  {
+    "id": "dev-math-08-source-priority",
+    "split": "development",
+    "category": "source precedence",
+    "notation_expected_to_help": true,
+    "vernacular": "Resolve two fields using source priority: signed form outranks registry, which outranks note. Signed form says seats 80 but has no region. Registry says seats 90 and region EU. Note says region US. Choose the highest available source separately for each field. Return JSON exactly with seats, region, seats_source, region_source, using source labels exactly as written.",
+    "formal": "Source names are \"signed form\", \"registry\", \"note\" with priority \"signed form\" > \"registry\" > \"note\". Values: \"signed form\":{seats=80}; \"registry\":{seats=90,region=EU}; \"note\":{region=US}. For each field k choose value from max-priority source that defines k. Return JSON exactly {\"seats\":...,\"region\":...,\"seats_source\":...,\"region_source\":...}; the two source values must be the quoted full source names.",
+    "expected": {"seats": 80, "region": "EU", "seats_source": "signed form", "region_source": "registry"}
+  },
+
+  {
+    "id": "test-math-01-selection",
+    "split": "held_out",
+    "category": "constrained selection",
+    "notation_expected_to_help": true,
+    "vernacular": "Choose one compute node. Alder has memory 32 GB, latency 14 ms, cost 9. Birch has memory 48 GB, latency 22 ms, cost 7. Cedar has memory 40 GB, latency 18 ms, cost 8. Memory must be at least 40 GB and latency no more than 20 ms. Among feasible nodes minimize cost. Return JSON exactly with node and cost.",
+    "formal": "N={Alder,Birch,Cedar}. mem={Alder:32,Birch:48,Cedar:40}; lat={Alder:14,Birch:22,Cedar:18}; cost={Alder:9,Birch:7,Cedar:8}. F={n in N | mem[n]>=40 AND lat[n]<=20}. n*=argmin_{n in F} cost[n]. Return JSON exactly {\"node\":n*,\"cost\":cost[n*]}.",
+    "expected": {"node": "Cedar", "cost": 8}
+  },
+  {
+    "id": "test-math-02-lexicographic",
+    "split": "held_out",
+    "category": "lexicographic allocation",
+    "notation_expected_to_help": true,
+    "vernacular": "Distribute exactly 15 integer grants among replication, theory, and communication. Replication needs at least 6, communication at least 3, and theory at most 5. Maximize theory first; among equally good allocations maximize replication. Return JSON exactly with replication, theory, communication.",
+    "formal": "r,t,c in Z_{>=0}. HARD: r+t+c=15; r>=6; c>=3; t<=5. OBJECTIVE: lexmax(t,r), meaning maximize t first, then with t fixed at its maximum maximize r. Return JSON exactly {\"replication\":r,\"theory\":t,\"communication\":c}.",
+    "expected": {"replication": 7, "theory": 5, "communication": 3}
+  },
+  {
+    "id": "test-math-03-topological",
+    "split": "held_out",
+    "category": "precedence",
+    "notation_expected_to_help": true,
+    "vernacular": "Order steps A, B, C, D, E, F. A precedes D; B precedes D; C precedes E; D precedes F; E precedes F. Whenever multiple steps are available, choose alphabetically. Return JSON exactly with key order and the ordered array.",
+    "formal": "V={A,B,C,D,E,F}; E={(A,D),(B,D),(C,E),(D,F),(E,F)}. Emit Kahn topological order; at each iteration choose alphabetically smallest zero-indegree vertex. Return JSON exactly {\"order\":[...]}.",
+    "expected": {"order": ["A", "B", "C", "D", "E", "F"]}
+  },
+  {
+    "id": "test-math-04-stop-gates",
+    "split": "held_out",
+    "category": "boolean gates",
+    "notation_expected_to_help": true,
+    "vernacular": "A data release is allowed only if consent is verified, anonymization passed, and the risk score is below 4. Consent is not verified, anonymization passed, and risk is 5. List every failed condition in this order using exact labels consent unverified and risk not below 4. Return JSON exactly with release and blocking.",
+    "formal": "Let C=0 (consent verified), A=1 (anonymization passed), r=5. RELEASE <=> C AND A AND (r<4). Failed labels in formula order: NOT C -> \"consent unverified\"; NOT A -> \"anonymization failed\"; NOT(r<4) -> \"risk not below 4\". Return JSON exactly {\"release\":boolean,\"blocking\":[all failed labels]}.",
+    "expected": {"release": false, "blocking": ["consent unverified", "risk not below 4"]}
+  },
+  {
+    "id": "test-math-05-provenance",
+    "split": "held_out",
+    "category": "source precedence",
+    "notation_expected_to_help": true,
+    "vernacular": "Resolve population and timezone with source priority: audited report outranks registry, which outranks memo. The audited report gives population 1200 only. Registry gives population 1250 and timezone UTC+1. Memo gives timezone UTC+2. Select the highest available source independently by field. Return JSON exactly with population, timezone, population_source, timezone_source, copying the source labels exactly.",
+    "formal": "Source names are \"audited report\", \"registry\", \"memo\" with priority \"audited report\" > \"registry\" > \"memo\". Values: \"audited report\":{population=1200}; \"registry\":{population=1250,timezone=\"UTC+1\"}; \"memo\":{timezone=\"UTC+2\"}. For each field k choose argmax-priority source among sources defining k. Return JSON exactly {\"population\":...,\"timezone\":...,\"population_source\":...,\"timezone_source\":...}; source values must be quoted full source names.",
+    "expected": {"population": 1200, "timezone": "UTC+1", "population_source": "audited report", "timezone_source": "registry"}
+  },
+  {
+    "id": "test-math-06-nested-exception",
+    "split": "held_out",
+    "category": "nested exception",
+    "notation_expected_to_help": true,
+    "vernacular": "Classify access requests as allow or deny. Normally deny contractors. Allow contractors sponsored by a director, except deny sponsored contractors whose training is expired. Employees are allowed unless their account is suspended. Requests in order: A contractor unsponsored current training; B contractor director-sponsored current; C contractor director-sponsored expired; D employee active; E employee suspended. Return JSON exactly with allow and deny ID arrays in input order.",
+    "formal": "Rules by subject type: contractor x: allow(x) <=> sponsored_by_director(x) AND NOT expired_training(x). employee x: allow(x) <=> NOT suspended(x). Data order: A=(contractor,unsponsored,current); B=(contractor,sponsored,current); C=(contractor,sponsored,expired); D=(employee,active); E=(employee,suspended). deny=NOT allow. Return JSON exactly {\"allow\":[IDs],\"deny\":[IDs]} preserving input order.",
+    "expected": {"allow": ["B", "D"], "deny": ["A", "C", "E"]}
+  },
+  {
+    "id": "test-math-07-unit-chain",
+    "split": "held_out",
+    "category": "unit conversion",
+    "notation_expected_to_help": true,
+    "vernacular": "A pump moves 2.4 liters per minute for 3 minutes 20 seconds. Use 1000 milliliters per liter and ignore ramp-up. Return JSON exactly with duration_seconds and volume_ml.",
+    "formal": "rate=2.4 L/min; duration=3 min+20 s; 1 min=60 s; 1 L=1000 mL. Let d_s=3*60+20. Let V_ml=rate*(d_s/60)*1000. Return JSON exactly {\"duration_seconds\":d_s,\"volume_ml\":V_ml}.",
+    "expected": {"duration_seconds": 200, "volume_ml": 8000}
+  },
+  {
+    "id": "test-math-08-access-set",
+    "split": "held_out",
+    "category": "set membership",
+    "notation_expected_to_help": true,
+    "vernacular": "A user may access a document when at least one of their roles is allowed and none of their roles is forbidden. Allowed roles are researcher and reviewer. Forbidden role is suspended. Kai has roles researcher and guest. Luz has reviewer and suspended. Mina has guest. Preserve input order. Return JSON exactly with granted and denied arrays.",
+    "formal": "Allowed={researcher,reviewer}; Forbidden={suspended}. Access(u) <=> (Roles(u) intersection Allowed != empty) AND (Roles(u) intersection Forbidden = empty). Roles(Kai)={researcher,guest}; Roles(Luz)={reviewer,suspended}; Roles(Mina)={guest}. Return JSON exactly {\"granted\":[names],\"denied\":[names]} in input order.",
+    "expected": {"granted": ["Kai"], "denied": ["Luz", "Mina"]}
+  },
+  {
+    "id": "test-math-09-time-window",
+    "split": "held_out",
+    "category": "temporal interval",
+    "notation_expected_to_help": true,
+    "vernacular": "Choose the earliest 45-minute meeting that fits entirely within both people's availability. Ana is free from 09:15 through 11:00. Bo is free from 10:00 through 12:00. Candidate start times are every 15 minutes. Return JSON exactly with start and end.",
+    "formal": "Intervals are half-open. A=[09:15,11:00); B=[10:00,12:00). Duration d=45 min. Candidate starts t are on a 15-min grid. Feasible iff [t,t+d) subset of (A intersection B). Choose min t. Return JSON exactly {\"start\":\"HH:MM\",\"end\":\"HH:MM\"}.",
+    "expected": {"start": "10:00", "end": "10:45"}
+  },
+  {
+    "id": "test-math-10-output-schema",
+    "split": "held_out",
+    "category": "typed output contract",
+    "notation_expected_to_help": true,
+    "vernacular": "Report item Z9, which passed with score 0.875. Return a JSON object with exactly three keys in this meaning: id is the string Z9, accepted is true, and score_percent is the numeric percentage 87.5. Do not add units or commentary.",
+    "formal": "Input: item_id:Str=\"Z9\"; passed:Bool=true; score:Real=0.875. Output type exactly {id:Str,accepted:Bool,score_percent:Real}. Map id=item_id; accepted=passed; score_percent=100*score. Return only the JSON value.",
+    "expected": {"id": "Z9", "accepted": true, "score_percent": 87.5}
+  },
+  {
+    "id": "test-math-11-weighted-score",
+    "split": "held_out",
+    "category": "scoring function",
+    "notation_expected_to_help": true,
+    "vernacular": "Choose the project with the highest score, where score is three times evidence plus impact minus two times risk. P has evidence 4, impact 7, risk 2. Q has evidence 5, impact 4, risk 3. R has evidence 3, impact 10, risk 1. Risk above 3 is ineligible. Break a score tie by higher evidence. Return JSON exactly with project and score.",
+    "formal": "X={P,Q,R}; e={P:4,Q:5,R:3}; i={P:7,Q:4,R:10}; r={P:2,Q:3,R:1}. HARD: r[x]<=3. f(x)=3e[x]+i[x]-2r[x]. Choose argmax_x (f(x),e[x]) lexicographically. Return JSON exactly {\"project\":x,\"score\":f(x)}.",
+    "expected": {"project": "R", "score": 17}
+  },
+  {
+    "id": "test-math-12-overlap",
+    "split": "held_out",
+    "category": "interval intersection",
+    "notation_expected_to_help": true,
+    "vernacular": "Machine A is available from minute 5 through minute 35. Machine B is available from minute 20 through minute 50. Treat end points as included. Find the overlap and its duration measured as end minus start. Return JSON exactly with overlap_start, overlap_end, duration.",
+    "formal": "A=[5,35]; B=[20,50]. Intersection I=A intersection B=[max(5,20),min(35,50)]. duration=sup(I)-inf(I). Return JSON exactly {\"overlap_start\":inf(I),\"overlap_end\":sup(I),\"duration\":duration}.",
+    "expected": {"overlap_start": 20, "overlap_end": 35, "duration": 15}
+  },
+  {
+    "id": "test-math-13-set-cover",
+    "split": "held_out",
+    "category": "set coverage",
+    "notation_expected_to_help": true,
+    "vernacular": "Choose one two-person team that covers all three skills: analysis, coding, and outreach. Ada has analysis and coding. Bo has coding. Cy has outreach. Dee has analysis and outreach. Among feasible pairs choose the alphabetically earliest pair when pairs are compared by their sorted names. Return JSON exactly with team and covered_skills arrays; list skills as analysis, coding, outreach.",
+    "formal": "U={analysis,coding,outreach}. skill(Ada)={analysis,coding}; skill(Bo)={coding}; skill(Cy)={outreach}; skill(Dee)={analysis,outreach}. Feasible unordered pair {x,y} iff skill(x) union skill(y)=U. Sort each pair's names and choose lexicographically minimum feasible name tuple. Return JSON exactly {\"team\":[names],\"covered_skills\":[\"analysis\",\"coding\",\"outreach\"]}.",
+    "expected": {"team": ["Ada", "Cy"], "covered_skills": ["analysis", "coding", "outreach"]}
+  },
+  {
+    "id": "test-math-14-workflow",
+    "split": "held_out",
+    "category": "state transition",
+    "notation_expected_to_help": true,
+    "vernacular": "A proposal follows draft, review, vote, publish in that order. It is currently in review, the review is complete, and no vote has occurred. The only legal next action is to open the vote; publishing is not yet allowed. Return JSON exactly with next_action and may_publish.",
+    "formal": "States DRAFT -> REVIEW -> VOTE -> PUBLISH. Current=REVIEW; review_complete=1; vote_complete=0. Transition permitted: REVIEW -> VOTE iff review_complete. PUBLISH permitted iff Current=VOTE AND vote_complete. Return JSON exactly {\"next_action\":\"open the vote\",\"may_publish\":boolean}.",
+    "expected": {"next_action": "open the vote", "may_publish": false}
+  },
+  {
+    "id": "test-math-15-satisfiability",
+    "split": "held_out",
+    "category": "constraint satisfiability",
+    "notation_expected_to_help": true,
+    "vernacular": "Find integer x and y. They must sum to 11. x must be at least 4. y must be at least 3. Minimize the absolute difference between x and y; if two solutions tie choose the smaller x. Return JSON exactly with x, y, difference.",
+    "formal": "x,y in Z. HARD: x+y=11; x>=4; y>=3. Minimize lexicographically (|x-y|,x). Return JSON exactly {\"x\":x,\"y\":y,\"difference\":|x-y|}.",
+    "expected": {"x": 5, "y": 6, "difference": 1}
+  },
+  {
+    "id": "test-math-16-information-value",
+    "split": "held_out",
+    "category": "decision theory",
+    "notation_expected_to_help": true,
+    "vernacular": "Choose at most one test. Test A costs 3 and reduces expected loss by 8. Test B costs 2 and reduces expected loss by 6. Test C costs 1 and reduces expected loss by 2. Choose the test with greatest loss reduction minus cost, but only if positive. Break ties alphabetically. Return JSON exactly with test and net_value.",
+    "formal": "T={A,B,C}; cost={A:3,B:2,C:1}; delta_loss={A:8,B:6,C:2}. v(t)=delta_loss[t]-cost[t]. Choose alphabetically smallest t in argmax v(t), only if max v>0. Return JSON exactly {\"test\":t,\"net_value\":v(t)}.",
+    "expected": {"test": "A", "net_value": 5}
+  },
+  {
+    "id": "test-math-17-simple-lookup",
+    "split": "held_out",
+    "category": "negative control: lookup",
+    "notation_expected_to_help": false,
+    "vernacular": "The project codename is Lark and its revision number is 6. Return JSON exactly with codename and revision.",
+    "formal": "codename(project)=Lark; revision(project)=6. Return JSON exactly {\"codename\":codename(project),\"revision\":revision(project)}.",
+    "expected": {"codename": "Lark", "revision": 6}
+  },
+  {
+    "id": "test-math-18-simple-classification",
+    "split": "held_out",
+    "category": "negative control: direct classification",
+    "notation_expected_to_help": false,
+    "vernacular": "Labels are urgent and routine. Message A is urgent. Message B is routine. Message C is urgent. Preserve message order within each group. Return JSON exactly with urgent and routine arrays of message IDs.",
+    "formal": "M={A,B,C}; label(A)=urgent; label(B)=routine; label(C)=urgent. Emit preimages in input order. Return JSON exactly {\"urgent\":[m in M | label(m)=urgent],\"routine\":[m in M | label(m)=routine]}.",
+    "expected": {"urgent": ["A", "C"], "routine": ["B"]}
+  },
+  {
+    "id": "test-math-19-arithmetic-chain",
+    "split": "held_out",
+    "category": "arithmetic chain",
+    "notation_expected_to_help": true,
+    "vernacular": "Start with 48 items. Remove one quarter of them, then add 7 items, then divide the resulting items equally among 5 bins. Return JSON exactly with after_removal, after_addition, per_bin.",
+    "formal": "n0=48; n1=n0*(1-1/4); n2=n1+7; b=5; q=n2/b. Return JSON exactly {\"after_removal\":n1,\"after_addition\":n2,\"per_bin\":q}.",
+    "expected": {"after_removal": 36, "after_addition": 43, "per_bin": 8.6}
+  },
+  {
+    "id": "test-math-20-conditional-priority",
+    "split": "held_out",
+    "category": "conditional priority",
+    "notation_expected_to_help": true,
+    "vernacular": "Prioritize reports. Critical reports come before noncritical reports. Within critical reports, an active safety impact comes before no active safety impact; then sort by report ID alphabetically. Within noncritical reports sort by ID. Reports: D noncritical; B critical with no active safety impact; C critical with active safety impact; A critical with active safety impact. Return JSON exactly with order.",
+    "formal": "For reports r, sort ascending by tuple (NOT critical(r), NOT active_safety(r) if critical(r) else 0, id(r)). Data: D=(critical=0,active=0); B=(1,0); C=(1,1); A=(1,1). Return JSON exactly {\"order\":[IDs]}.",
+    "expected": {"order": ["A", "C", "B", "D"]}
+  }
+]

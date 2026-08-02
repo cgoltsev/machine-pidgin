@@ -1,0 +1,321 @@
+task_id,model,condition,repetition,category,notation_expected_to_help,on_task,constraint_score,valid_json,latency_seconds,reported_cost_usd,provider,error,audit_included
+test-math-01-selection,openai/gpt-4o-mini,formal,1,constrained selection,True,True,1.0,True,1.423,2.7e-05,OpenAI,,True
+test-math-01-selection,openai/gpt-4o-mini,formal,2,constrained selection,True,True,1.0,True,1.504,2.76e-05,Azure,,True
+test-math-01-selection,openai/gpt-4o-mini,vernacular,1,constrained selection,True,True,1.0,True,1.392,2.91e-05,Azure,,True
+test-math-01-selection,openai/gpt-4o-mini,vernacular,2,constrained selection,True,True,1.0,True,1.062,2.85e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-4o-mini,formal,1,lexicographic allocation,True,False,0.3333333333333333,True,1.378,2.58e-05,Azure,,True
+test-math-02-lexicographic,openai/gpt-4o-mini,formal,2,lexicographic allocation,True,False,0.3333333333333333,True,1.293,2.52e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-4o-mini,vernacular,1,lexicographic allocation,True,False,0.3333333333333333,True,1.417,2.94e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-4o-mini,vernacular,2,lexicographic allocation,True,False,0.3333333333333333,True,1.579,2.94e-05,OpenAI,,True
+test-math-03-topological,openai/gpt-4o-mini,formal,1,precedence,True,True,1.0,True,1.083,2.4e-05,Azure,,True
+test-math-03-topological,openai/gpt-4o-mini,formal,2,precedence,True,True,1.0,True,0.973,2.34e-05,OpenAI,,True
+test-math-03-topological,openai/gpt-4o-mini,vernacular,1,precedence,True,True,1.0,True,1.21,2.97e-05,Azure,,True
+test-math-03-topological,openai/gpt-4o-mini,vernacular,2,precedence,True,True,1.0,True,1.058,2.97e-05,Azure,,True
+test-math-04-stop-gates,openai/gpt-4o-mini,formal,1,boolean gates,True,False,0.6666666666666666,True,1.508,3.36e-05,Azure,,True
+test-math-04-stop-gates,openai/gpt-4o-mini,formal,2,boolean gates,True,False,0.6666666666666666,True,1.583,3.36e-05,Azure,,True
+test-math-04-stop-gates,openai/gpt-4o-mini,vernacular,1,boolean gates,True,True,1.0,True,1.196,3.375e-05,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-4o-mini,vernacular,2,boolean gates,True,True,1.0,True,1.803,3.435e-05,Azure,,True
+test-math-05-provenance,openai/gpt-4o-mini,formal,1,source precedence,True,True,1.0,True,1.009,3.735e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-4o-mini,formal,2,source precedence,True,False,0.5,True,1.029,3.735e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-4o-mini,vernacular,1,source precedence,True,True,1.0,True,1.374,3.945e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-4o-mini,vernacular,2,source precedence,True,True,1.0,True,1.398,3.945e-05,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-4o-mini,formal,1,nested exception,True,True,1.0,True,1.084,3.075e-05,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-4o-mini,formal,2,nested exception,True,True,1.0,True,1.727,3.135e-05,Azure,,True
+test-math-06-nested-exception,openai/gpt-4o-mini,vernacular,1,nested exception,True,True,1.0,True,1.326,3.36e-05,Azure,,True
+test-math-06-nested-exception,openai/gpt-4o-mini,vernacular,2,nested exception,True,True,1.0,True,1.198,3.3e-05,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-4o-mini,formal,1,unit conversion,True,False,0.5,True,1.372,2.55e-05,Azure,,True
+test-math-07-unit-chain,openai/gpt-4o-mini,formal,2,unit conversion,True,False,0.5,True,1.438,2.55e-05,Azure,,True
+test-math-07-unit-chain,openai/gpt-4o-mini,vernacular,1,unit conversion,True,True,1.0,True,1.524,2.4e-05,Azure,,True
+test-math-07-unit-chain,openai/gpt-4o-mini,vernacular,2,unit conversion,True,True,1.0,True,1.416,2.4e-05,Azure,,True
+test-math-08-access-set,openai/gpt-4o-mini,formal,1,set membership,True,True,1.0,True,1.343,2.82e-05,OpenAI,,True
+test-math-08-access-set,openai/gpt-4o-mini,formal,2,set membership,True,True,1.0,True,1.308,2.88e-05,Azure,,True
+test-math-08-access-set,openai/gpt-4o-mini,vernacular,1,set membership,True,True,1.0,True,1.374,2.925e-05,OpenAI,,True
+test-math-08-access-set,openai/gpt-4o-mini,vernacular,2,set membership,True,True,1.0,True,1.449,2.985e-05,Azure,,True
+test-math-09-time-window,openai/gpt-4o-mini,formal,1,temporal interval,True,True,1.0,True,1.244,2.52e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-4o-mini,formal,2,temporal interval,True,True,1.0,True,1.191,2.52e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-4o-mini,vernacular,1,temporal interval,True,True,1.0,True,1.084,2.25e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-4o-mini,vernacular,2,temporal interval,True,True,1.0,True,1.586,2.73e-05,Azure,,True
+test-math-10-output-schema,openai/gpt-4o-mini,formal,1,typed output contract,True,True,1.0,True,1.696,2.58e-05,Azure,,True
+test-math-10-output-schema,openai/gpt-4o-mini,formal,2,typed output contract,True,True,1.0,True,1.824,2.52e-05,OpenAI,,True
+test-math-10-output-schema,openai/gpt-4o-mini,vernacular,1,typed output contract,True,True,1.0,True,1.138,2.43e-05,OpenAI,,True
+test-math-10-output-schema,openai/gpt-4o-mini,vernacular,2,typed output contract,True,True,1.0,True,0.984,2.43e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-4o-mini,formal,1,scoring function,True,False,0.0,True,1.508,2.49e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-4o-mini,formal,2,scoring function,True,False,0.5,True,1.484,2.55e-05,Azure,,True
+test-math-11-weighted-score,openai/gpt-4o-mini,vernacular,1,scoring function,True,False,0.5,True,1.039,2.835e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-4o-mini,vernacular,2,scoring function,True,False,0.5,True,0.997,2.835e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-4o-mini,formal,1,interval intersection,True,True,1.0,True,1.059,2.49e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-4o-mini,formal,2,interval intersection,True,True,1.0,True,1.572,2.55e-05,Azure,,True
+test-math-12-overlap,openai/gpt-4o-mini,vernacular,1,interval intersection,True,True,1.0,True,1.138,3.03e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-4o-mini,vernacular,2,interval intersection,True,True,1.0,True,1.169,3.03e-05,OpenAI,,True
+test-math-13-set-cover,openai/gpt-4o-mini,formal,1,set coverage,True,False,0.8,True,1.269,3.315e-05,Azure,,True
+test-math-13-set-cover,openai/gpt-4o-mini,formal,2,set coverage,True,False,0.8,True,1.734,3.255e-05,OpenAI,,True
+test-math-13-set-cover,openai/gpt-4o-mini,vernacular,1,set coverage,True,False,0.8,True,1.401,3.45e-05,OpenAI,,True
+test-math-13-set-cover,openai/gpt-4o-mini,vernacular,2,set coverage,True,False,0.8,True,1.379,3.45e-05,OpenAI,,True
+test-math-14-workflow,openai/gpt-4o-mini,formal,1,state transition,True,True,1.0,True,1.482,2.4e-05,Azure,,False
+test-math-14-workflow,openai/gpt-4o-mini,formal,2,state transition,True,True,1.0,True,1.334,2.34e-05,OpenAI,,False
+test-math-14-workflow,openai/gpt-4o-mini,vernacular,1,state transition,True,False,0.5,True,0.987,2.52e-05,OpenAI,,False
+test-math-14-workflow,openai/gpt-4o-mini,vernacular,2,state transition,True,False,0.5,True,0.983,2.52e-05,OpenAI,,False
+test-math-15-satisfiability,openai/gpt-4o-mini,formal,1,constraint satisfiability,True,False,0.0,True,1.398,2.19e-05,Azure,,True
+test-math-15-satisfiability,openai/gpt-4o-mini,formal,2,constraint satisfiability,True,False,0.0,True,1.343,2.19e-05,Azure,,True
+test-math-15-satisfiability,openai/gpt-4o-mini,vernacular,1,constraint satisfiability,True,False,0.0,True,1.661,2.88e-05,Azure,,True
+test-math-15-satisfiability,openai/gpt-4o-mini,vernacular,2,constraint satisfiability,True,False,0.0,True,1.748,2.82e-05,OpenAI,,True
+test-math-16-information-value,openai/gpt-4o-mini,formal,1,decision theory,True,False,0.0,True,1.517,2.34e-05,Azure,,True
+test-math-16-information-value,openai/gpt-4o-mini,formal,2,decision theory,True,False,0.0,True,1.031,2.28e-05,OpenAI,,True
+test-math-16-information-value,openai/gpt-4o-mini,vernacular,1,decision theory,True,False,0.5,True,1.532,2.82e-05,Azure,,True
+test-math-16-information-value,openai/gpt-4o-mini,vernacular,2,decision theory,True,False,0.5,True,1.083,2.76e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-4o-mini,formal,1,negative control: lookup,False,True,1.0,True,0.939,1.665e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-4o-mini,formal,2,negative control: lookup,False,True,1.0,True,0.973,1.665e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-4o-mini,vernacular,1,negative control: lookup,False,True,1.0,True,1.281,2.07e-05,Azure,,True
+test-math-17-simple-lookup,openai/gpt-4o-mini,vernacular,2,negative control: lookup,False,True,1.0,True,1.181,2.01e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-4o-mini,formal,1,negative control: direct classification,False,True,1.0,True,1.111,2.175e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-4o-mini,formal,2,negative control: direct classification,False,True,1.0,True,1.055,2.175e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-4o-mini,vernacular,1,negative control: direct classification,False,True,1.0,True,1.48,2.37e-05,Azure,,True
+test-math-18-simple-classification,openai/gpt-4o-mini,vernacular,2,negative control: direct classification,False,True,1.0,True,1.44,2.37e-05,Azure,,True
+test-math-19-arithmetic-chain,openai/gpt-4o-mini,formal,1,arithmetic chain,True,False,1.0,True,1.167,2.895e-05,Azure,,True
+test-math-19-arithmetic-chain,openai/gpt-4o-mini,formal,2,arithmetic chain,True,False,1.0,True,1.919,2.895e-05,Azure,,True
+test-math-19-arithmetic-chain,openai/gpt-4o-mini,vernacular,1,arithmetic chain,True,False,0.6666666666666666,True,1.108,2.91e-05,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-4o-mini,vernacular,2,arithmetic chain,True,False,0.6666666666666666,True,1.154,2.91e-05,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-4o-mini,formal,1,conditional priority,True,False,0.0,True,1.008,2.265e-05,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-4o-mini,formal,2,conditional priority,True,False,0.0,True,0.932,2.265e-05,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-4o-mini,vernacular,1,conditional priority,True,False,0.0,True,1.775,3.285e-05,Azure,,True
+test-math-20-conditional-priority,openai/gpt-4o-mini,vernacular,2,conditional priority,True,False,0.0,True,2.622,3.225e-05,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-luna,formal,1,constrained selection,True,True,1.0,True,1.38,4.63e-05,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-luna,formal,2,constrained selection,True,True,1.0,True,1.232,2.41e-05,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-luna,vernacular,1,constrained selection,True,True,1.0,True,1.077,2.23e-05,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-luna,vernacular,2,constrained selection,True,True,1.0,True,1.391,4.21e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-luna,formal,1,lexicographic allocation,True,True,1.0,True,2.032,6.35e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-luna,formal,2,lexicographic allocation,True,True,1.0,True,1.958,6.05e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-luna,vernacular,1,lexicographic allocation,True,True,1.0,True,2.085,5.39e-05,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-luna,vernacular,2,lexicographic allocation,True,True,1.0,True,1.862,5.81e-05,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-luna,formal,1,precedence,True,True,1.0,True,2.308,8.17e-05,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-luna,formal,2,precedence,True,True,1.0,True,1.742,7.15e-05,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-luna,vernacular,1,precedence,True,True,1.0,True,3.839,5.47e-05,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-luna,vernacular,2,precedence,True,True,1.0,True,2.131,6.97e-05,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-luna,formal,1,boolean gates,True,False,0.3333333333333333,True,1.678,4.17e-05,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-luna,formal,2,boolean gates,True,False,0.3333333333333333,True,1.436,4.65e-05,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-luna,vernacular,1,boolean gates,True,True,1.0,True,1.437,3.98e-05,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-luna,vernacular,2,boolean gates,True,True,1.0,True,1.48,4.46e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-luna,formal,1,source precedence,True,True,1.0,True,1.432,3.38e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-luna,formal,2,source precedence,True,True,1.0,True,1.43,3.38e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-luna,vernacular,1,source precedence,True,True,1.0,True,2.032,3e-05,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-luna,vernacular,2,source precedence,True,True,1.0,True,3.007,5.76e-05,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-luna,formal,1,nested exception,True,True,1.0,True,1.674,5.32e-05,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-luna,formal,2,nested exception,True,True,1.0,True,1.607,5.08e-05,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-luna,vernacular,1,nested exception,True,True,1.0,True,1.633,4.43e-05,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-luna,vernacular,2,nested exception,True,True,1.0,True,1.563,4.25e-05,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-luna,formal,1,unit conversion,True,True,1.0,True,1.774,4.99e-05,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-luna,formal,2,unit conversion,True,True,1.0,True,1.391,5.05e-05,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-luna,vernacular,1,unit conversion,True,True,1.0,True,1.667,4.27e-05,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-luna,vernacular,2,unit conversion,True,True,1.0,True,2.121,4.93e-05,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-luna,formal,1,set membership,True,True,1.0,True,1.417,4.49e-05,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-luna,formal,2,set membership,True,True,1.0,True,1.391,4.07e-05,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-luna,vernacular,1,set membership,True,True,1.0,True,2.165,4.68e-05,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-luna,vernacular,2,set membership,True,True,1.0,True,1.862,4.68e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-luna,formal,1,temporal interval,True,True,1.0,True,2.242,4.57e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-luna,formal,2,temporal interval,True,True,1.0,True,1.8,5.11e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-luna,vernacular,1,temporal interval,True,True,1.0,True,1.482,2.17e-05,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-luna,vernacular,2,temporal interval,True,True,1.0,True,1.389,4.45e-05,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-luna,formal,1,typed output contract,True,True,1.0,True,1.493,2.43e-05,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-luna,formal,2,typed output contract,True,True,1.0,True,1.384,2.43e-05,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-luna,vernacular,1,typed output contract,True,True,1.0,True,1.308,2.37e-05,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-luna,vernacular,2,typed output contract,True,True,1.0,True,1.255,2.37e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-luna,formal,1,scoring function,True,True,1.0,True,1.782,5.43e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-luna,formal,2,scoring function,True,True,1.0,True,1.772,5.43e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-luna,vernacular,1,scoring function,True,True,1.0,True,1.382,4.96e-05,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-luna,vernacular,2,scoring function,True,True,1.0,True,1.579,5.32e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-luna,formal,1,interval intersection,True,True,1.0,True,1.512,3.61e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-luna,formal,2,interval intersection,True,True,1.0,True,2.01,3.85e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-luna,vernacular,1,interval intersection,True,True,1.0,True,1.238,2.37e-05,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-luna,vernacular,2,interval intersection,True,True,1.0,True,2.423,2.37e-05,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-luna,formal,1,set coverage,True,True,1.0,True,2.858,8.7e-05,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-luna,formal,2,set coverage,True,True,1.0,True,3.545,0.0001026,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-luna,vernacular,1,set coverage,True,True,1.0,True,1.944,7.79e-05,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-luna,vernacular,2,set coverage,True,True,1.0,True,2.064,9.65e-05,OpenAI,,True
+test-math-14-workflow,openai/gpt-5.6-luna,formal,1,state transition,True,True,1.0,True,1.583,4.03e-05,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-luna,formal,2,state transition,True,True,1.0,True,1.318,2.23e-05,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-luna,vernacular,1,state transition,True,False,0.5,True,1.696,2.09e-05,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-luna,vernacular,2,state transition,True,False,0.5,True,1.496,3.59e-05,OpenAI,,False
+test-math-15-satisfiability,openai/gpt-5.6-luna,formal,1,constraint satisfiability,True,True,1.0,True,2.037,6.11e-05,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-luna,formal,2,constraint satisfiability,True,True,1.0,True,1.724,6.05e-05,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-luna,vernacular,1,constraint satisfiability,True,True,1.0,True,1.696,5.87e-05,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-luna,vernacular,2,constraint satisfiability,True,True,1.0,True,1.724,6.29e-05,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-luna,formal,1,decision theory,True,True,1.0,True,1.291,3.45e-05,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-luna,formal,2,decision theory,True,True,1.0,True,1.259,3.45e-05,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-luna,vernacular,1,decision theory,True,True,1.0,True,1.566,3.75e-05,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-luna,vernacular,2,decision theory,True,True,1.0,True,2.618,3.57e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-luna,formal,1,negative control: lookup,False,True,1.0,True,1.141,1.74e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-luna,formal,2,negative control: lookup,False,True,1.0,True,2.716,1.74e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-luna,vernacular,1,negative control: lookup,False,True,1.0,True,1.632,1.69e-05,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-luna,vernacular,2,negative control: lookup,False,True,1.0,True,1.493,1.69e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-luna,formal,1,negative control: direct classification,False,True,1.0,True,1.053,2.12e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-luna,formal,2,negative control: direct classification,False,True,1.0,True,1.336,2.12e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-luna,vernacular,1,negative control: direct classification,False,True,1.0,True,1.251,1.97e-05,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-luna,vernacular,2,negative control: direct classification,False,True,1.0,True,1.311,1.97e-05,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-luna,formal,1,arithmetic chain,True,True,1.0,True,2.254,4.58e-05,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-luna,formal,2,arithmetic chain,True,True,1.0,True,1.771,4.58e-05,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-luna,vernacular,1,arithmetic chain,True,True,1.0,True,1.575,4.53e-05,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-luna,vernacular,2,arithmetic chain,True,True,1.0,True,1.709,5.73e-05,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-luna,formal,1,conditional priority,True,True,1.0,True,2.852,0.0001,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-luna,formal,2,conditional priority,True,True,1.0,True,2.985,0.0001,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-luna,vernacular,1,conditional priority,True,False,0.0,True,1.924,7.86e-05,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-luna,vernacular,2,conditional priority,True,False,0.0,True,3.557,7.08e-05,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-terra,formal,1,constrained selection,True,True,1.0,True,1.344,0.000241,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-terra,formal,2,constrained selection,True,True,1.0,True,1.145,0.000241,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-terra,vernacular,1,constrained selection,True,True,1.0,True,1.231,0.000223,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-terra,vernacular,2,constrained selection,True,True,1.0,True,2.79,0.000223,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-terra,formal,1,lexicographic allocation,True,True,1.0,True,2.148,0.000503,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-terra,formal,2,lexicographic allocation,True,True,1.0,True,1.648,0.000587,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-terra,vernacular,1,lexicographic allocation,True,True,1.0,True,1.969,0.000581,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-terra,vernacular,2,lexicographic allocation,True,True,1.0,True,1.606,0.000569,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-terra,formal,1,precedence,True,True,1.0,True,2.682,0.000895,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-terra,formal,2,precedence,True,True,1.0,True,2.245,0.000769,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-terra,vernacular,1,precedence,True,True,1.0,True,1.445,0.000235,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-terra,vernacular,2,precedence,True,True,1.0,True,2.103,0.000589,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-terra,formal,1,boolean gates,True,True,1.0,True,1.919,0.000465,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-terra,formal,2,boolean gates,True,True,1.0,True,1.615,0.000471,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-terra,vernacular,1,boolean gates,True,True,1.0,True,1.611,0.000404,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-terra,vernacular,2,boolean gates,True,True,1.0,True,1.642,0.000392,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-terra,formal,1,source precedence,True,True,1.0,True,1.5,0.000338,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-terra,formal,2,source precedence,True,True,1.0,True,1.464,0.000338,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-terra,vernacular,1,source precedence,True,False,0.75,True,2.372,0.0003,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-terra,vernacular,2,source precedence,True,False,0.75,True,1.271,0.0003,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-terra,formal,1,nested exception,True,True,1.0,True,1.439,0.000472,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-terra,formal,2,nested exception,True,True,1.0,True,1.199,0.00028,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-terra,vernacular,1,nested exception,True,True,1.0,True,1.209,0.000263,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-terra,vernacular,2,nested exception,True,True,1.0,True,1.341,0.000263,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-terra,formal,1,unit conversion,True,True,1.0,True,1.659,0.000457,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-terra,formal,2,unit conversion,True,True,1.0,True,1.769,0.000457,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-terra,vernacular,1,unit conversion,True,True,1.0,True,1.584,0.000433,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-terra,vernacular,2,unit conversion,True,True,1.0,True,1.489,0.000385,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-terra,formal,1,set membership,True,True,1.0,True,1.545,0.000263,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-terra,formal,2,set membership,True,True,1.0,True,1.179,0.000263,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-terra,vernacular,1,set membership,True,True,1.0,True,2.101,0.000528,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-terra,vernacular,2,set membership,True,True,1.0,True,1.706,0.000486,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-terra,formal,1,temporal interval,True,True,1.0,True,1.582,0.000463,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-terra,formal,2,temporal interval,True,True,1.0,True,1.722,0.000445,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-terra,vernacular,1,temporal interval,True,True,1.0,True,1.458,0.000433,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-terra,vernacular,2,temporal interval,True,True,1.0,True,1.38,0.000427,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-terra,formal,1,typed output contract,True,True,1.0,True,1.274,0.000243,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-terra,formal,2,typed output contract,True,True,1.0,True,1.487,0.000243,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-terra,vernacular,1,typed output contract,True,True,1.0,True,1.499,0.000237,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-terra,vernacular,2,typed output contract,True,True,1.0,True,1.129,0.000237,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-terra,formal,1,scoring function,True,True,1.0,True,1.512,0.000495,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-terra,formal,2,scoring function,True,True,1.0,True,5.299,0.000483,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-terra,vernacular,1,scoring function,True,True,1.0,True,1.527,0.000484,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-terra,vernacular,2,scoring function,True,True,1.0,True,1.602,0.000514,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-terra,formal,1,interval intersection,True,True,1.0,True,1.092,0.000241,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-terra,formal,2,interval intersection,True,True,1.0,True,1.361,0.000241,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-terra,vernacular,1,interval intersection,True,True,1.0,True,1.195,0.000237,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-terra,vernacular,2,interval intersection,True,True,1.0,True,1.466,0.000237,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-terra,formal,1,set coverage,True,True,1.0,True,1.64,0.000702,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-terra,formal,2,set coverage,True,True,1.0,True,1.918,0.000792,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-terra,vernacular,1,set coverage,True,True,1.0,True,2.055,0.000689,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-terra,vernacular,2,set coverage,True,True,1.0,True,2.18,0.000683,OpenAI,,True
+test-math-14-workflow,openai/gpt-5.6-terra,formal,1,state transition,True,True,1.0,True,1.436,0.000223,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-terra,formal,2,state transition,True,True,1.0,True,1.153,0.000223,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-terra,vernacular,1,state transition,True,False,0.5,True,1.21,0.000209,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-terra,vernacular,2,state transition,True,False,0.5,True,1.171,0.000209,OpenAI,,False
+test-math-15-satisfiability,openai/gpt-5.6-terra,formal,1,constraint satisfiability,True,True,1.0,True,2.01,0.000545,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-terra,formal,2,constraint satisfiability,True,True,1.0,True,3.258,0.000557,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-terra,vernacular,1,constraint satisfiability,True,True,1.0,True,1.616,0.000491,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-terra,vernacular,2,constraint satisfiability,True,True,1.0,True,1.581,0.000467,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-terra,formal,1,decision theory,True,True,1.0,True,1.452,0.000339,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-terra,formal,2,decision theory,True,True,1.0,True,1.686,0.000333,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-terra,vernacular,1,decision theory,True,True,1.0,True,1.41,0.000351,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-terra,vernacular,2,decision theory,True,True,1.0,True,1.253,0.000369,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-terra,formal,1,negative control: lookup,False,True,1.0,True,1.216,0.000174,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-terra,formal,2,negative control: lookup,False,True,1.0,True,1.559,0.000174,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-terra,vernacular,1,negative control: lookup,False,True,1.0,True,1.235,0.000169,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-terra,vernacular,2,negative control: lookup,False,True,1.0,True,1.307,0.000169,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-terra,formal,1,negative control: direct classification,False,True,1.0,True,1.202,0.000212,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-terra,formal,2,negative control: direct classification,False,True,1.0,True,1.138,0.000212,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-terra,vernacular,1,negative control: direct classification,False,True,1.0,True,1.595,0.000197,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-terra,vernacular,2,negative control: direct classification,False,True,1.0,True,1.201,0.000197,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-terra,formal,1,arithmetic chain,True,True,1.0,True,2.818,0.000374,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-terra,formal,2,arithmetic chain,True,True,1.0,True,1.313,0.000416,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-terra,vernacular,1,arithmetic chain,True,True,1.0,True,1.783,0.000459,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-terra,vernacular,2,arithmetic chain,True,True,1.0,True,1.396,0.000471,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-terra,formal,1,conditional priority,True,True,1.0,True,2.043,0.000778,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-terra,formal,2,conditional priority,True,True,1.0,True,2.206,0.000628,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-terra,vernacular,1,conditional priority,True,True,1.0,True,1.116,0.000228,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-terra,vernacular,2,conditional priority,True,True,1.0,True,1.741,0.000576,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-sol,formal,1,constrained selection,True,True,1.0,True,14.18,0.001205,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-sol,formal,2,constrained selection,True,True,1.0,True,19.33,0.001205,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-sol,vernacular,1,constrained selection,True,True,1.0,True,1.397,0.001115,OpenAI,,True
+test-math-01-selection,openai/gpt-5.6-sol,vernacular,2,constrained selection,True,True,1.0,True,7.391,0.001115,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-sol,formal,1,lexicographic allocation,True,True,1.0,True,38.289,0.002545,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-sol,formal,2,lexicographic allocation,True,True,1.0,True,38.859,0.002455,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-sol,vernacular,1,lexicographic allocation,True,True,1.0,True,26.618,0.002545,OpenAI,,True
+test-math-02-lexicographic,openai/gpt-5.6-sol,vernacular,2,lexicographic allocation,True,True,1.0,True,32.772,0.002545,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-sol,formal,1,precedence,True,True,1.0,True,37.882,0.003425,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-sol,formal,2,precedence,True,True,1.0,True,37.412,0.003755,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-sol,vernacular,1,precedence,True,True,1.0,True,37.969,0.003695,OpenAI,,True
+test-math-03-topological,openai/gpt-5.6-sol,vernacular,2,precedence,True,True,1.0,True,38.905,0.003365,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-sol,formal,1,boolean gates,True,True,1.0,True,36.213,0.001395,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-sol,formal,2,boolean gates,True,True,1.0,True,35.906,0.001395,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-sol,vernacular,1,boolean gates,True,True,1.0,True,37.277,0.0013,OpenAI,,True
+test-math-04-stop-gates,openai/gpt-5.6-sol,vernacular,2,boolean gates,True,True,1.0,True,38.485,0.0013,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-sol,formal,1,source precedence,True,True,1.0,True,36.736,0.00169,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-sol,formal,2,source precedence,True,True,1.0,True,35.893,0.00169,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-sol,vernacular,1,source precedence,True,True,1.0,True,35.941,0.0015,OpenAI,,True
+test-math-05-provenance,openai/gpt-5.6-sol,vernacular,2,source precedence,True,True,1.0,True,37.652,0.0015,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-sol,formal,1,nested exception,True,True,1.0,True,37.058,0.0014,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-sol,formal,2,nested exception,True,True,1.0,True,35.807,0.0014,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-sol,vernacular,1,nested exception,True,True,1.0,True,37.558,0.001315,OpenAI,,True
+test-math-06-nested-exception,openai/gpt-5.6-sol,vernacular,2,nested exception,True,True,1.0,True,37.302,0.001315,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-sol,formal,1,unit conversion,True,True,1.0,True,37.537,0.001115,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-sol,formal,2,unit conversion,True,True,1.0,True,38.145,0.001115,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-sol,vernacular,1,unit conversion,True,True,1.0,True,37.46,0.000965,OpenAI,,True
+test-math-07-unit-chain,openai/gpt-5.6-sol,vernacular,2,unit conversion,True,True,1.0,True,37.393,0.000965,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-sol,formal,1,set membership,True,True,1.0,True,37.239,0.001315,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-sol,formal,2,set membership,True,True,1.0,True,37.179,0.001315,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-sol,vernacular,1,set membership,True,True,1.0,True,38.11,0.00123,OpenAI,,True
+test-math-08-access-set,openai/gpt-5.6-sol,vernacular,2,set membership,True,True,1.0,True,37.485,0.00123,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-sol,formal,1,temporal interval,True,True,1.0,True,38.177,0.001175,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-sol,formal,2,temporal interval,True,True,1.0,True,38.436,0.001175,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-sol,vernacular,1,temporal interval,True,True,1.0,True,37.806,0.001085,OpenAI,,True
+test-math-09-time-window,openai/gpt-5.6-sol,vernacular,2,temporal interval,True,True,1.0,True,37.24,0.001085,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-sol,formal,1,typed output contract,True,True,1.0,True,37.809,0.001215,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-sol,formal,2,typed output contract,True,True,1.0,True,37.386,0.001215,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-sol,vernacular,1,typed output contract,True,True,1.0,True,37.584,0.001185,OpenAI,,True
+test-math-10-output-schema,openai/gpt-5.6-sol,vernacular,2,typed output contract,True,True,1.0,True,37.535,0.001185,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-sol,formal,1,scoring function,True,True,1.0,True,39.943,0.002415,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-sol,formal,2,scoring function,True,True,1.0,True,38.033,0.002505,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-sol,vernacular,1,scoring function,True,True,1.0,True,37.42,0.0026,OpenAI,,True
+test-math-11-weighted-score,openai/gpt-5.6-sol,vernacular,2,scoring function,True,True,1.0,True,36.985,0.0026,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-sol,formal,1,interval intersection,True,True,1.0,True,36.845,0.001205,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-sol,formal,2,interval intersection,True,True,1.0,True,44.093,0.001205,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-sol,vernacular,1,interval intersection,True,True,1.0,True,39.99,0.001185,OpenAI,,True
+test-math-12-overlap,openai/gpt-5.6-sol,vernacular,2,interval intersection,True,True,1.0,True,40.663,0.001185,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-sol,formal,1,set coverage,True,True,1.0,True,36.809,0.00147,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-sol,formal,2,set coverage,True,True,1.0,True,35.319,0.00147,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-sol,vernacular,1,set coverage,True,True,1.0,True,36.298,0.003595,OpenAI,,True
+test-math-13-set-cover,openai/gpt-5.6-sol,vernacular,2,set coverage,True,True,1.0,True,38.554,0.003835,OpenAI,,True
+test-math-14-workflow,openai/gpt-5.6-sol,formal,1,state transition,True,True,1.0,True,37.596,0.001115,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-sol,formal,2,state transition,True,True,1.0,True,37.34,0.001115,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-sol,vernacular,1,state transition,True,False,0.5,True,37.283,0.001045,OpenAI,,False
+test-math-14-workflow,openai/gpt-5.6-sol,vernacular,2,state transition,True,False,0.5,True,31.735,0.001045,OpenAI,,False
+test-math-15-satisfiability,openai/gpt-5.6-sol,formal,1,constraint satisfiability,True,True,1.0,True,37.524,0.001045,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-sol,formal,2,constraint satisfiability,True,False,0.3333333333333333,True,36.405,0.001045,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-sol,vernacular,1,constraint satisfiability,True,True,1.0,True,35.235,0.001075,OpenAI,,True
+test-math-15-satisfiability,openai/gpt-5.6-sol,vernacular,2,constraint satisfiability,True,True,1.0,True,36.485,0.001075,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-sol,formal,1,decision theory,True,True,1.0,True,37.675,0.001065,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-sol,formal,2,decision theory,True,True,1.0,True,37.447,0.001065,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-sol,vernacular,1,decision theory,True,True,1.0,True,36.735,0.001065,OpenAI,,True
+test-math-16-information-value,openai/gpt-5.6-sol,vernacular,2,decision theory,True,True,1.0,True,36.458,0.001065,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-sol,formal,1,negative control: lookup,False,True,1.0,True,37.766,0.00087,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-sol,formal,2,negative control: lookup,False,True,1.0,True,37.631,0.00087,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-sol,vernacular,1,negative control: lookup,False,True,1.0,True,37.402,0.000845,OpenAI,,True
+test-math-17-simple-lookup,openai/gpt-5.6-sol,vernacular,2,negative control: lookup,False,True,1.0,True,37.396,0.000845,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-sol,formal,1,negative control: direct classification,False,True,1.0,True,39.256,0.00106,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-sol,formal,2,negative control: direct classification,False,True,1.0,True,37.735,0.00106,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-sol,vernacular,1,negative control: direct classification,False,True,1.0,True,37.967,0.001465,OpenAI,,True
+test-math-18-simple-classification,openai/gpt-5.6-sol,vernacular,2,negative control: direct classification,False,True,1.0,True,38.198,0.000985,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-sol,formal,1,arithmetic chain,True,True,1.0,True,37.088,0.00127,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-sol,formal,2,arithmetic chain,True,True,1.0,True,37.164,0.00127,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-sol,vernacular,1,arithmetic chain,True,True,1.0,True,36.888,0.001215,OpenAI,,True
+test-math-19-arithmetic-chain,openai/gpt-5.6-sol,vernacular,2,arithmetic chain,True,True,1.0,True,37.234,0.001215,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-sol,formal,1,conditional priority,True,True,1.0,True,38.83,0.00326,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-sol,formal,2,conditional priority,True,True,1.0,True,39.859,0.00326,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-sol,vernacular,1,conditional priority,True,True,1.0,True,35.941,0.00114,OpenAI,,True
+test-math-20-conditional-priority,openai/gpt-5.6-sol,vernacular,2,conditional priority,True,True,1.0,True,37.391,0.00114,OpenAI,,True

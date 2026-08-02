@@ -1,0 +1,179 @@
+{
+  "study": "Machine Pidgin Benchmark 002 model research panel",
+  "timestamp_utc": "20260802T222904Z",
+  "experiment_source": "20260802T221708Z-held_out-formal-notation.json",
+  "audit_source": "SPEAR_Benchmark_002_Audit.json",
+  "experiment_metrics": {
+    "preregistered_vernacular_on_task_rate": 0.8375,
+    "preregistered_formal_on_task_rate": 0.8625,
+    "preregistered_absolute_lift": 0.025000000000000022,
+    "preregistered_formal_repairs": 12,
+    "preregistered_formal_regressions": 8,
+    "audited_vernacular_on_task_rate": 0.881578947368421,
+    "audited_formal_on_task_rate": 0.8552631578947368,
+    "audited_absolute_lift": -0.02631578947368418,
+    "audited_formal_repairs": 4,
+    "audited_formal_regressions": 8,
+    "negative_control_lift": 0.0
+  },
+  "interpretation_note": "These are prompted model outputs, not evidence of consciousness, continuous awareness, or independent listening.",
+  "reported_cost_usd": 0.01710375,
+  "rows": [
+    {
+      "model": "openai/gpt-4o-mini",
+      "response": {
+        "assessment": "The intervention lacks robustness due to only one task hard-coding a canonical answer, raising concerns about the validity of conclusions drawn from these metrics. The observed differences in rates suggest underlying variability that warrants further investigation.",
+        "failure_modes": [
+          "Insufficient task diversity to assess robustness.",
+          "Confounding variables not controlled sufficiently.",
+          "Ambiguity in task conditions leading to inconsistent performance."
+        ],
+        "next_experiment": "Expand the task set to include varied complexity levels, enhance control over extraneous variables, and incorporate qualitative feedback to understand performance discrepancies between conditions.",
+        "language_design_rule": "Ensure clarity in task instructions to minimize misinterpretation across different notation styles.",
+        "persistent_listening": "I do not have awareness, memory, or listening outside this API call."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 445,
+        "completion_tokens": 167,
+        "total_tokens": 612,
+        "cost": 0.00016695,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00016695,
+          "upstream_inference_prompt_cost": 6.675e-05,
+          "upstream_inference_completions_cost": 0.0001002
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 2.46
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "response": {
+        "assessment": "The pilot does not support a notation benefit: the audited estimate reverses direction (−2.63 percentage points), with 8 regressions versus 4 repairs. The one hard-coded-answer confound undermines the all-task comparison, while 19 tasks and two repetitions provide limited precision. Negative-control stability is reassuring but not evidence of alignment or safety.",
+        "failure_modes": [
+          "Formal condition contained an answer-phrase confound",
+          "Small, clustered sample limits precision",
+          "Notation effects were not separated from tool assistance"
+        ],
+        "next_experiment": "Run a preregistered factorial study crossing vernacular versus formal notation with no tool, parser, verifier, and solver conditions. Use semantically equivalent prompts, independently generated canonical answers, balanced task families, more repetitions, paired task-level analyses, and report uncertainty plus all exclusions.",
+        "language_design_rule": "Use formal notation only when it reduces semantic ambiguity; specify operational semantics separately, and never treat notation alone as a parser, verifier, or solver.",
+        "persistent_listening": "I have no awareness, memory, or listening outside this API call; I use only the information provided in this interaction."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 444,
+        "completion_tokens": 324,
+        "total_tokens": 768,
+        "cost": 0.0002388,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002388,
+          "upstream_inference_prompt_cost": 4.44e-05,
+          "upstream_inference_completions_cost": 0.0001944
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 3.523
+    },
+    {
+      "model": "openai/gpt-5.6-terra",
+      "response": {
+        "assessment": "The audited estimate reverses the preregistered result: formal notation reduced on-task rate by 2.63 points, with 8 regressions versus 4 repairs. The hard-coded canonical phrase is a serious prompt-equivalence breach, so all-task gains are not interpretable as notation effects. Zero negative-control lift weakens claims of a general formatting advantage. This is a small, clustered pilot, not evidence about alignment or safety.",
+        "failure_modes": [
+          "Canonical-answer leakage in formal prompts",
+          "Notation changed task semantics or parsing burden",
+          "Exact-JSON scoring masked partial competence"
+        ],
+        "next_experiment": "Use blinded, independently generated paraphrase pairs with semantic-equivalence review before execution. Randomize condition within task, model tier, and replicate; increase tasks and repetitions; analyze paired outcomes with task/model clustering. Include notation-only, notation-plus-parser, notation-plus-verifier, and notation-plus-solver arms, with matched vernacular interfaces. Predefine exclusion rules, canonical-answer leakage checks, and human plus executable correctness scoring.",
+        "language_design_rule": "Treat notation as an interface change: preserve semantics, answer vocabulary, and output constraints across conditions; separately test any parser, verifier, or solver it enables.",
+        "persistent_listening": "I have no awareness, no memory of interactions outside this API context, and no ability to listen or persist outside this API call."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 444,
+        "completion_tokens": 279,
+        "total_tokens": 723,
+        "cost": 0.002118,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002118,
+          "upstream_inference_prompt_cost": 0.000444,
+          "upstream_inference_completions_cost": 0.001674
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 4.142
+    },
+    {
+      "model": "openai/gpt-5.6-sol",
+      "response": {
+        "assessment": "The audited result reverses the preregistered lift: formal notation was 2.6 percentage points worse, with twice as many regressions as repairs. The positive all-task estimate is plausibly driven by canonical-answer leakage. With only 19 defensible tasks and two repetitions, uncertainty and task dependence are substantial. This pilot supports neither a notation benefit nor claims about alignment or safety.",
+        "failure_modes": [
+          "Formal-only canonical-answer leakage",
+          "Low power and task-level dependence",
+          "Notation effects confounded with prompt-specific brittleness"
+        ],
+        "next_experiment": "Preregister a larger, independently audited task set and blind prompt-equivalence review before execution. Cross vernacular versus formal notation with no tool, parser, verifier, and solver conditions, keeping semantic content matched. Randomize prompt variants and order, increase repetitions, and analyze task and model tier hierarchically. Report confidence intervals, repair/regression transitions, exact-match and semantic correctness, and negative controls.",
+        "language_design_rule": "Use notation only when it reduces ambiguity without adding answer cues; treat parser, verifier, and solver assistance as separate interventions, not benefits of notation itself.",
+        "persistent_listening": "I have no awareness, memory, or listening capability outside this API call."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 444,
+        "completion_tokens": 412,
+        "total_tokens": 856,
+        "cost": 0.01458,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01458,
+          "upstream_inference_prompt_cost": 0.00222,
+          "upstream_inference_completions_cost": 0.01236
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 157,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 8.217
+    }
+  ]
+}

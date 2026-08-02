@@ -22,3 +22,14 @@ python3 experiments/run_openrouter_eval.py --split held_out --spear-version 0.2 
 ```
 
 The secret is read from the environment and is never written into results.
+
+## Benchmark 002: notation versus vernacular
+
+Benchmark 002 holds facts, system instruction, output contract, and mechanical scoring constant while changing the task representation. It isolates typed mathematical notation rather than testing the full SPEAR protocol.
+
+```bash
+python3 experiments/validate_formal_notation_tasks.py
+python3 experiments/run_formal_notation_eval.py --split held_out --repetitions 2
+```
+
+The preregistered aggregate appeared to favor notation by 2.5 points. A post-run equivalence audit found one asymmetric canonical-answer cue. On the remaining equivalent tasks, notation scored 2.6 points below vernacular. See [`BENCHMARK_002.md`](BENCHMARK_002.md) for both estimates, limits, and the next design.
