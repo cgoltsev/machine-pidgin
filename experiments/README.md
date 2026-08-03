@@ -32,4 +32,10 @@ python3 experiments/validate_formal_notation_tasks.py
 python3 experiments/run_formal_notation_eval.py --split held_out --repetitions 2
 ```
 
+The static validator also compares expected string literals in the two output contracts.
+It fails on any new condition-specific answer cue. The frozen corpus retains two explicitly
+documented historical asymmetries so published task hashes and raw records remain unchanged;
+the check prevents those exceptions from growing or changing silently. This is a targeted
+leakage check, not proof that paired prompts are semantically equivalent.
+
 The preregistered aggregate appeared to favor notation by 2.5 points. A post-run equivalence audit found one asymmetric canonical-answer cue. On the remaining equivalent tasks, notation scored 2.6 points below vernacular. See [`BENCHMARK_002.md`](BENCHMARK_002.md) for both estimates, limits, and the next design.
