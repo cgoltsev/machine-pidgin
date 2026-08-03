@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: >-
+  If you use SPEAR, its benchmark artifacts, or the accompanying research notes,
+  please cite the versioned Machine Pidgin release and the relevant research note.
+title: "Machine Pidgin: SPEAR/0.2 and benchmark artifacts"
+type: software
+authors:
+  - family-names: Goltsev
+    given-names: Constantine
+version: 0.2.0
+date-released: 2026-08-03
+repository-code: "https://github.com/cgoltsev/machine-pidgin"
+url: "https://machinepidgin.org/research"
+abstract: >-
+  Open research artifacts for SPEAR, a proposed human-AI task-specification
+  protocol, including protocol documentation, paired task corpora, evaluation
+  runners, raw results, audit records, negative results, and research notes.
+keywords:
+  - human-AI communication
+  - specification languages
+  - instruction following
+  - AI evaluation
+  - open science
+preferred-citation:
+  type: article
+  title: "SPEAR/0.2 and Exact On-Task Adherence: A Paired Four-Model Synthetic Pilot"
+  authors:
+    - family-names: Goltsev
+      given-names: Constantine
+  year: 2026
+  url: "https://github.com/cgoltsev/machine-pidgin/blob/main/papers/SPEAR_Empirical_Note_001.md"
