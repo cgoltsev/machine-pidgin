@@ -19,6 +19,10 @@ This is a small synthetic pilot, not evidence that SPEAR solves alignment or rec
 
 Read [Benchmark 001](experiments/BENCHMARK_001.md), the [empirical note](papers/SPEAR_Empirical_Note_001.pdf), or inspect the [raw held-out record](experiments/results/20260802T184929Z-held_out-spear-0.2.json).
 
+Citation metadata for versioned releases is available in
+[`CITATION.cff`](CITATION.cff). Published releases are intended for archival in Zenodo so
+that protocol, code, data, and negative results remain citable independently of GitHub.
+
 ## Second held-out result: notation alone
 
 Benchmark 002 isolated strict mathematical notation from the rest of SPEAR. The preregistered 20-task aggregate was 83.8% exactly on task in vernacular and 86.3% with notation, an apparent +2.5-point effect. A post-run prompt-equivalence audit found one formal prompt that supplied the exact answer label omitted from its vernacular pair. That task accounts for more than the apparent gain.
@@ -32,7 +36,7 @@ Across the remaining 19 equivalent tasks, vernacular scored **134/152 (88.2%)** 
 | GPT-5.6 Terra | 94.7% | 100.0% | +5.3 points |
 | GPT-5.6 Sol | 100.0% | 97.4% | -2.6 points |
 
-Read [Benchmark 002](experiments/BENCHMARK_002.md), inspect the [audit record](experiments/results/SPEAR_Benchmark_002_Audit.json), or download the [tidy rows](experiments/results/SPEAR_Benchmark_002_Rows.csv). This result motivates a factorial follow-up separating dual-register explanation, parser, verifier, and solver support.
+Read [Benchmark 002](experiments/BENCHMARK_002.md), inspect the [audit record](experiments/results/SPEAR_Benchmark_002_Audit.json), or download the [tidy rows](experiments/results/SPEAR_Benchmark_002_Rows.csv). This result motivates a factorial follow-up separating dual-register explanation, parser, verifier, and solver support. The first prospective design is published as a [Benchmark 003 preregistration draft](experiments/BENCHMARK_003_PREREGISTRATION_DRAFT.md); it is not yet registered and cannot trigger paid calls without the listed human gates.
 
 ## Repository map
 
