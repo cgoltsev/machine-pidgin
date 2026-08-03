@@ -55,6 +55,4 @@ The task author also designed SPEAR, the tasks, and the scoring rules. The sampl
 - `tasks.json` — paired task corpus and expected JSON
 - `run_openrouter_eval.py` — runner and mechanical scorer
 - `results/20260802T184929Z-held_out-spear-0.2.json` — raw held-out record
-- `../public/research/SPEAR_Benchmark_001_Raw.json` — web-downloadable raw record
-- `../public/research/SPEAR_Benchmark_001_Rows.csv` — tidy row-level outcomes
-
+- `results/SPEAR_Benchmark_001_Rows.csv` — tidy row-level outcomes

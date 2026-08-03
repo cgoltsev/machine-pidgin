@@ -18,7 +18,7 @@ This is a synthetic instruction-following pilot, not evidence that SPEAR solves 
 ```bash
 export OPENROUTER_API_KEY='...'
 python3 experiments/run_openrouter_eval.py --split development --spear-version 0.1 --repetitions 2
-python3 experiments/run_openrouter_eval.py --split held_out --spear-version 0.2 --repetitions 2
+python3 experiments/run_openrouter_eval.py --split held_out --spear-version 0.2 --repetitions 1
 ```
 
 The secret is read from the environment and is never written into results.
