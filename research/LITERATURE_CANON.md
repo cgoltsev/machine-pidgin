@@ -1,7 +1,9 @@
 # Machine Pidgin literature canon
 
-**Status:** Living research index, first established 3 August 2026  
-**Last source check:** 3 August 2026  
+**Status:** Living research index, first established 3 August 2026
+
+**Last source check:** 3 August 2026
+
 **Scope:** Human-to-machine communication standards and the evidence needed to
 evaluate SPEAR without treating popularity, formalism, or citation count as proof.
 

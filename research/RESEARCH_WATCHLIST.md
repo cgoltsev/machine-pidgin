@@ -1,6 +1,7 @@
 # Public-source research watchlist
 
-**Established:** 3 August 2026  
+**Established:** 3 August 2026
+
 **Language rule:** Every entry is “research we are learning from.” Listing does not imply
 collaboration, support, affiliation, endorsement, permission, or contact.
 

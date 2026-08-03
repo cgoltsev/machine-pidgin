@@ -1,6 +1,7 @@
 # Current-literature scan — 3 August 2026
 
-**Window:** 3 August 2025 through 3 August 2026, inclusive  
+**Window:** 3 August 2025 through 3 August 2026, inclusive
+
 **Run type:** First Researcher cycle; “new” below means published or materially updated
 inside this window and new to the Institute’s documented canon. It does not claim a delta
 from an undocumented earlier Researcher scan.
