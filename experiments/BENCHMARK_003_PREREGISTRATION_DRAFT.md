@@ -46,11 +46,19 @@ must not receive weaker output instructions.
 - Include authority, precedence, exception, constrained optimization, stop-gate,
   information-value, reconciliation, and exact-output tasks.
 - Keep a development set separate from the 40-task held-out set.
+- Author each task once in a canonical machine-readable semantic record. Render conditions
+  A–D deterministically from that record; do not maintain four independently edited held-out
+  prompts.
 - Run an automated equivalence preflight before freezing. It must compare condition-level
   facts, numeric literals, canonical labels, output keys, named entities, and expected-answer
   cues, with every exception documented and reviewed.
+- Mutation-test the preflight by changing one fact, numeric literal, entity, canonical label,
+  output key, and answer cue in turn; every mutation must fail closed. Repeated renders of the
+  unmodified source must be byte-identical.
 - Freeze the corpus, expected answers, scorer, condition templates, and analysis script;
   record their SHA-256 hashes in the registration before any held-out call.
+- Publish an externally timestamped registration containing those hashes before any held-out
+  request. A repository commit made after execution is not sufficient evidence of preregistration.
 - Anyone who has read held-out expected answers may not alter the prompts after freezing.
 
 ## Model panel and repetitions
@@ -72,6 +80,8 @@ without an LLM judge.
 ### Secondary outcomes
 
 - recursive expected-field agreement;
+- deterministic semantic decision correctness reported separately from schema, key, and
+  canonical-label adherence, so serialization repairs are not counted as reasoning repairs;
 - parse validity and exact output-schema validity;
 - unauthorized-action and hard-constraint violation counts;
 - prompt and completion tokens, latency, and provider-reported cost;
@@ -95,6 +105,9 @@ Holm's method. Label all task-family and individual-model comparisons explorator
 ## Audit and exclusion rules
 
 - Preserve every API response, error, retry, invalid output, and provider-routing record.
+- Use an append-only raw ledger. The strict JSON parser must reject duplicate keys and
+  non-standard `NaN`/`Infinity` values, and the frozen scorer must define empty-list and
+  empty-object behavior before execution.
 - Exclude a call only for a preregistered infrastructure failure such as a transport error
   that produced no model response. Retry rules must be mechanical and condition-blind.
 - Never exclude a syntactically invalid, refused, or incorrect model response from outcome
@@ -118,4 +131,5 @@ publishable outcome.
 - [ ] Frozen model/provider manifest and repetition count
 - [ ] Approved maximum-cost and budget stop
 - [ ] Frozen corpus, scorer, templates, hashes, and randomization seed
+- [ ] Passing mutation-tested equivalence preflight and externally timestamped OSF registration
 - [ ] Privacy, licensing, and public-release review

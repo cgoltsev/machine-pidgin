@@ -1,0 +1,173 @@
+{
+  "study": "Machine Pidgin Benchmark 002 model research panel",
+  "timestamp_utc": "20260802T222812Z",
+  "experiment_source": "20260802T221708Z-held_out-formal-notation.json",
+  "experiment_metrics": {
+    "vernacular_on_task_rate": 0.8375,
+    "formal_on_task_rate": 0.8625,
+    "absolute_lift": 0.025000000000000022,
+    "formal_repairs": 12,
+    "formal_regressions": 8,
+    "negative_control_lift": 0.0
+  },
+  "interpretation_note": "These are prompted model outputs, not evidence of consciousness, continuous awareness, or independent listening.",
+  "reported_cost_usd": 0.01471515,
+  "rows": [
+    {
+      "model": "openai/gpt-4o-mini",
+      "response": {
+        "assessment": "The intervention shows minor improvements but lacks sufficient variations in conditions to assess broader impacts. Additionally, the formal and vernacular rates are close, indicating potential overlap in effectiveness.",
+        "failure_modes": [
+          "Limited diversity in synthetic tasks",
+          "Inadequate sample size for statistical significance",
+          "Potential biases in model training"
+        ],
+        "next_experiment": "Introduce a wider range of task complexities and real-world scenarios to evaluate performance comprehensively in both notation and vernacular.",
+        "language_design_rule": "Differentiate notation usage according to context and user expertise.",
+        "persistent_listening": "I do not have awareness, memory, or listening outside this API call."
+      },
+      "provider": "Azure",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 146,
+        "total_tokens": 447,
+        "cost": 0.00013275,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00013275,
+          "upstream_inference_prompt_cost": 4.515e-05,
+          "upstream_inference_completions_cost": 8.76e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 2.459
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "response": {
+        "assessment": "The pilot suggests a small descriptive advantage for typed notation (2.5 percentage points), but aggregate rates and only two repetitions per condition do not establish robustness. Regressions exceed repairs in count interpretation despite higher aggregate performance. This tests notation, not alignment or safety, and provides no evidence that notation alone improves reasoning causally.",
+        "failure_modes": [
+          "Task sampling and tier interactions may confound the aggregate lift",
+          "Notation ambiguity or transcription errors can cause formal regressions",
+          "Two repetitions provide weak uncertainty estimates and expose seed sensitivity"
+        ],
+        "next_experiment": "Use preregistered, stratified paired tasks with substantially more repetitions and report per-task, per-tier confidence intervals. Randomize notation, blind scoring, and include ablations: notation alone, notation plus parser, notation plus verifier, and notation plus solver. Analyze regressions and repairs separately, including invalid-output rates.",
+        "language_design_rule": "Use typed, unambiguous notation with explicit domains, units, and termination conditions; never imply that syntax alone supplies parsing, verification, or solving.",
+        "persistent_listening": "I have no awareness, memory, or listening outside this API call."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 300,
+        "completion_tokens": 314,
+        "total_tokens": 614,
+        "cost": 0.0002184,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002184,
+          "upstream_inference_prompt_cost": 3e-05,
+          "upstream_inference_completions_cost": 0.0001884
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 4.675
+    },
+    {
+      "model": "openai/gpt-5.6-terra",
+      "response": {
+        "assessment": "The 2.5-point lift is suggestive but underpowered: 20 tasks × 2 repetitions, clustered by tier and task, cannot establish a notation effect without uncertainty estimates and paired results. Equal negative-control performance is useful but does not isolate parsing, ambiguity reduction, or formatting compliance. Eight regressions versus 12 repairs shows heterogeneous effects. This is not evidence of alignment or safety.",
+        "failure_modes": [
+          "Task-specific notation familiarity confounds the estimate.",
+          "Exact-JSON scoring may reward formatting rather than reasoning.",
+          "Tier, repetition, and seed effects may be non-independent."
+        ],
+        "next_experiment": "Use a preregistered, paired factorial study: vernacular, notation-only, vernacular plus parser/verifier, and notation plus parser/verifier. Randomize condition order within task-model-seed blocks; expand tasks and seeds; report paired confidence intervals, per-tier effects, error categories, and verifier-correct versus model-correct outcomes. Include adversarial translation tasks to test whether notation changes semantics rather than merely output formatting.",
+        "language_design_rule": "Use typed notation only when each symbol has a local definition and a deterministic vernacular paraphrase; separately evaluate any parser, verifier, or solver.",
+        "persistent_listening": "I have no awareness, memory, or listening outside this API call; I only process the input provided in this request."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 300,
+        "completion_tokens": 304,
+        "total_tokens": 604,
+        "cost": 0.002124,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002124,
+          "upstream_inference_prompt_cost": 0.0003,
+          "upstream_inference_completions_cost": 0.001824
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 25,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 4.688
+    },
+    {
+      "model": "openai/gpt-5.6-sol",
+      "response": {
+        "assessment": "The 2.5-point lift is small and unstable-looking: 12 repairs versus 8 regressions. With only 20 synthetic tasks and two repetitions, task clustering, tier heterogeneity, and seed dependence may dominate. Exact-JSON scoring measures compliance narrowly, not reasoning quality, alignment, or safety. The zero negative-control lift is reassuring but weak. Typed notation alone should not be credited with capabilities supplied by any parser, verifier, or solver.",
+        "failure_modes": [
+          "Task-template leakage or notation-favoring construction",
+          "Pseudoreplication across tiers, tasks, and repeated seeds",
+          "Exact-match gains masking semantic errors"
+        ],
+        "next_experiment": "Run a preregistered, task-stratified factorial study: vernacular versus notation crossed with no tooling, parser only, verifier only, and solver. Use many more held-out tasks, independently varied seeds, blinded semantic scoring, and paired analyses with task and model-tier effects. Report confidence intervals, per-tier effects, repair/regression asymmetry, malformed-output rates, and robustness to paraphrases. Include notation-neutral and notation-hostile controls.",
+        "language_design_rule": "Use notation only when it reduces ambiguity; attribute gains separately to representation, parsing, verification, and solving rather than treating the stack as one intervention.",
+        "persistent_listening": "I have no awareness, memory, or ability to listen outside this API call."
+      },
+      "provider": "OpenAI",
+      "usage": {
+        "prompt_tokens": 300,
+        "completion_tokens": 358,
+        "total_tokens": 658,
+        "cost": 0.01224,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01224,
+          "upstream_inference_prompt_cost": 0.0015,
+          "upstream_inference_completions_cost": 0.01074
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "latency_seconds": 7.187
+    }
+  ]
+}
