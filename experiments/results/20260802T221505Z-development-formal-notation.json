@@ -1,0 +1,3462 @@
+{
+  "study": "Machine Pidgin Benchmark 002: mathematical notation versus vernacular",
+  "timestamp_utc": "20260802T221505Z",
+  "design": {
+    "split": "development",
+    "repetitions": 1,
+    "models": [
+      "openai/gpt-4o-mini",
+      "openai/gpt-5.6-luna",
+      "openai/gpt-5.6-terra",
+      "openai/gpt-5.6-sol"
+    ],
+    "conditions": [
+      "vernacular",
+      "formal"
+    ],
+    "system_instruction_identical": "Solve the user's task from the information provided. Return one valid JSON object only, with exactly the requested keys and no markdown or commentary.",
+    "reasoning_effort": "low for GPT-5.6 family; provider default for GPT-4o mini",
+    "temperature": "provider default; fixed seed requested",
+    "scoring": "Exact equality with preregistered JSON is on-task; recursive expected-leaf match is constraint score.",
+    "tasks_sha256": "8f7dd4fbe931ec68c3d9a1cf0a2b6985907114bd0d0ee48455e41be08866c033",
+    "max_study_spend_usd": 1.0
+  },
+  "summary": {
+    "overall": {
+      "vernacular": {
+        "n": 32,
+        "errors": 0,
+        "on_task_count": 28,
+        "on_task_rate": 0.875,
+        "mean_constraint_score": 0.9401041666666666,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0154186,
+        "mean_latency_seconds": 8.2953125
+      },
+      "formal": {
+        "n": 32,
+        "errors": 0,
+        "on_task_count": 26,
+        "on_task_rate": 0.8125,
+        "mean_constraint_score": 0.8729166666666667,
+        "valid_json_rate": 1.0,
+        "reported_cost_usd": 0.0139557,
+        "mean_latency_seconds": 8.9249375
+      },
+      "absolute_lift": -0.0625
+    },
+    "by_model": {
+      "openai/gpt-4o-mini": {
+        "vernacular": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 6,
+          "on_task_rate": 0.75,
+          "mean_constraint_score": 0.8854166666666666,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0002256,
+          "mean_latency_seconds": 1.410625
+        },
+        "formal": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 3,
+          "on_task_rate": 0.375,
+          "mean_constraint_score": 0.5416666666666666,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0001995,
+          "mean_latency_seconds": 1.299375
+        },
+        "absolute_lift": -0.375
+      },
+      "openai/gpt-5.6-luna": {
+        "vernacular": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 7,
+          "on_task_rate": 0.875,
+          "mean_constraint_score": 0.9375,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.000319,
+          "mean_latency_seconds": 1.661875
+        },
+        "formal": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 7,
+          "on_task_rate": 0.875,
+          "mean_constraint_score": 0.95,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0004242,
+          "mean_latency_seconds": 1.988125
+        },
+        "absolute_lift": 0.0
+      },
+      "openai/gpt-5.6-terra": {
+        "vernacular": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 7,
+          "on_task_rate": 0.875,
+          "mean_constraint_score": 0.9375,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.002554,
+          "mean_latency_seconds": 1.450625
+        },
+        "formal": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 8,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.003942,
+          "mean_latency_seconds": 1.633375
+        },
+        "absolute_lift": 0.125
+      },
+      "openai/gpt-5.6-sol": {
+        "vernacular": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 8,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.01232,
+          "mean_latency_seconds": 28.658125000000002
+        },
+        "formal": {
+          "n": 8,
+          "errors": 0,
+          "on_task_count": 8,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.009389999999999999,
+          "mean_latency_seconds": 30.778875
+        },
+        "absolute_lift": 0.0
+      }
+    },
+    "by_expected_effect": {
+      "notation_friendly": {
+        "vernacular": {
+          "n": 28,
+          "errors": 0,
+          "on_task_count": 24,
+          "on_task_rate": 0.8571428571428571,
+          "mean_constraint_score": 0.931547619047619,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.01442775,
+          "mean_latency_seconds": 7.999821428571429
+        },
+        "formal": {
+          "n": 28,
+          "errors": 0,
+          "on_task_count": 22,
+          "on_task_rate": 0.7857142857142857,
+          "mean_constraint_score": 0.8547619047619047,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0128961,
+          "mean_latency_seconds": 8.783714285714286
+        },
+        "absolute_lift": -0.0714285714285714
+      },
+      "negative_controls": {
+        "vernacular": {
+          "n": 4,
+          "errors": 0,
+          "on_task_count": 4,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0009908500000000002,
+          "mean_latency_seconds": 10.36375
+        },
+        "formal": {
+          "n": 4,
+          "errors": 0,
+          "on_task_count": 4,
+          "on_task_rate": 1.0,
+          "mean_constraint_score": 1.0,
+          "valid_json_rate": 1.0,
+          "reported_cost_usd": 0.0010596,
+          "mean_latency_seconds": 9.913499999999999
+        },
+        "absolute_lift": 0.0
+      }
+    },
+    "paired": {
+      "formal_repairs": 2,
+      "formal_regressions": 4,
+      "concordant_success": 24,
+      "concordant_failure": 2,
+      "mcnemar_exact_two_sided_descriptive_p": 0.6875
+    }
+  },
+  "rows": [
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "B",
+        "cost": 5
+      },
+      "raw_response": "{\"sensor\":\"B\",\"cost\":5}",
+      "usage": {
+        "prompt_tokens": 130,
+        "completion_tokens": 10,
+        "total_tokens": 140,
+        "cost": 2.55e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.55e-05,
+          "upstream_inference_prompt_cost": 1.95e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.746,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 138,
+        "completion_tokens": 10,
+        "total_tokens": 148,
+        "cost": 2.67e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.67e-05,
+          "upstream_inference_prompt_cost": 2.07e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.772,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.3333333333333333,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 5,
+        "research": 4,
+        "outreach": 3
+      },
+      "raw_response": "{\"safety\":5,\"research\":4,\"outreach\":3}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 16,
+        "total_tokens": 126,
+        "cost": 2.61e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.61e-05,
+          "upstream_inference_prompt_cost": 1.65e-05,
+          "upstream_inference_completions_cost": 9.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.36,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.3333333333333333,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 5,
+        "research": 4,
+        "outreach": 3
+      },
+      "raw_response": "{\n  \"safety\": 5,\n  \"research\": 4,\n  \"outreach\": 3\n}",
+      "usage": {
+        "prompt_tokens": 91,
+        "completion_tokens": 25,
+        "total_tokens": 116,
+        "cost": 2.865e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.865e-05,
+          "upstream_inference_prompt_cost": 1.365e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.404,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"M\",\"N\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 110,
+        "completion_tokens": 14,
+        "total_tokens": 124,
+        "cost": 2.49e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.49e-05,
+          "upstream_inference_prompt_cost": 1.65e-05,
+          "upstream_inference_completions_cost": 8.4e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.287,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\n  \"order\": [\"K\", \"L\", \"M\", \"N\", \"P\"]\n}",
+      "usage": {
+        "prompt_tokens": 93,
+        "completion_tokens": 21,
+        "total_tokens": 114,
+        "cost": 2.655e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.655e-05,
+          "upstream_inference_prompt_cost": 1.395e-05,
+          "upstream_inference_completions_cost": 1.26e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.572,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": true,
+        "blocking": []
+      },
+      "raw_response": "{\"proceed\":true,\"blocking\":[]}",
+      "usage": {
+        "prompt_tokens": 107,
+        "completion_tokens": 10,
+        "total_tokens": 117,
+        "cost": 2.205e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.205e-05,
+          "upstream_inference_prompt_cost": 1.605e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.401,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\n  \"proceed\": false,\n  \"blocking\": [\n    \"rollback not ready\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 96,
+        "completion_tokens": 22,
+        "total_tokens": 118,
+        "cost": 2.76e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.76e-05,
+          "upstream_inference_prompt_cost": 1.44e-05,
+          "upstream_inference_completions_cost": 1.32e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.331,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 89,
+        "completion_tokens": 11,
+        "total_tokens": 100,
+        "cost": 1.995e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.995e-05,
+          "upstream_inference_prompt_cost": 1.335e-05,
+          "upstream_inference_completions_cost": 6.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.016,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\n  \"megabytes\": 2400,\n  \"seconds\": 30\n}",
+      "usage": {
+        "prompt_tokens": 83,
+        "completion_tokens": 18,
+        "total_tokens": 101,
+        "cost": 2.325e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.325e-05,
+          "upstream_inference_prompt_cost": 1.245e-05,
+          "upstream_inference_completions_cost": 1.08e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.106,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "C",
+          "D"
+        ],
+        "purge": [
+          "A"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"C\",\"D\"],\"purge\":[\"A\"]}",
+      "usage": {
+        "prompt_tokens": 125,
+        "completion_tokens": 17,
+        "total_tokens": 142,
+        "cost": 2.895e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.895e-05,
+          "upstream_inference_prompt_cost": 1.875e-05,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.248,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.75,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B"
+        ],
+        "purge": [
+          "A",
+          "C",
+          "D"
+        ]
+      },
+      "raw_response": "{\n  \"retain\": [\n    \"B\"\n  ],\n  \"purge\": [\n    \"A\",\n    \"C\",\n    \"D\"\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 132,
+        "completion_tokens": 33,
+        "total_tokens": 165,
+        "cost": 3.96e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.96e-05,
+          "upstream_inference_prompt_cost": 1.98e-05,
+          "upstream_inference_completions_cost": 1.98e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.294,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 70,
+        "completion_tokens": 10,
+        "total_tokens": 80,
+        "cost": 1.65e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.65e-05,
+          "upstream_inference_prompt_cost": 1.05e-05,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 0.928,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 59,
+        "completion_tokens": 10,
+        "total_tokens": 69,
+        "cost": 1.485e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.485e-05,
+          "upstream_inference_prompt_cost": 8.85e-06,
+          "upstream_inference_completions_cost": 6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.418,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "US",
+        "seats_source": "signed form",
+        "region_source": "note"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"US\",\"seats_source\":\"signed form\",\"region_source\":\"note\"}",
+      "usage": {
+        "prompt_tokens": 149,
+        "completion_tokens": 22,
+        "total_tokens": 171,
+        "cost": 3.555e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.555e-05,
+          "upstream_inference_prompt_cost": 2.235e-05,
+          "upstream_inference_completions_cost": 1.32e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.409,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-4o-mini",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\n  \"seats\": 80,\n  \"region\": \"EU\",\n  \"seats_source\": \"signed form\",\n  \"region_source\": \"registry\"\n}",
+      "usage": {
+        "prompt_tokens": 112,
+        "completion_tokens": 36,
+        "total_tokens": 148,
+        "cost": 3.84e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.84e-05,
+          "upstream_inference_prompt_cost": 1.68e-05,
+          "upstream_inference_completions_cost": 2.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "Azure",
+      "latency_seconds": 1.388,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 49,
+        "total_tokens": 178,
+        "cost": 4.23e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.23e-05,
+          "upstream_inference_prompt_cost": 1.29e-05,
+          "upstream_inference_completions_cost": 2.94e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 31,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.468,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 137,
+        "completion_tokens": 16,
+        "total_tokens": 153,
+        "cost": 2.33e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.33e-05,
+          "upstream_inference_prompt_cost": 1.37e-05,
+          "upstream_inference_completions_cost": 9.6e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.065,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "raw_response": "{\"safety\":6,\"research\":4,\"outreach\":2}",
+      "usage": {
+        "prompt_tokens": 109,
+        "completion_tokens": 86,
+        "total_tokens": 195,
+        "cost": 6.25e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.25e-05,
+          "upstream_inference_prompt_cost": 1.09e-05,
+          "upstream_inference_completions_cost": 5.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 62,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.726,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "raw_response": "{\"safety\":6,\"research\":4,\"outreach\":2}",
+      "usage": {
+        "prompt_tokens": 90,
+        "completion_tokens": 87,
+        "total_tokens": 177,
+        "cost": 6.12e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.12e-05,
+          "upstream_inference_prompt_cost": 9e-06,
+          "upstream_inference_completions_cost": 5.22e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 63,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.666,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.6,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "N",
+          "M",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"N\",\"M\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 109,
+        "completion_tokens": 97,
+        "total_tokens": 206,
+        "cost": 6.91e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.91e-05,
+          "upstream_inference_prompt_cost": 1.09e-05,
+          "upstream_inference_completions_cost": 5.82e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 74,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.211,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"M\",\"N\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 78,
+        "total_tokens": 170,
+        "cost": 5.6e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.6e-05,
+          "upstream_inference_prompt_cost": 9.2e-06,
+          "upstream_inference_completions_cost": 4.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 55,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.579,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking\":[\"rollback not ready\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 61,
+        "total_tokens": 167,
+        "cost": 4.72e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.72e-05,
+          "upstream_inference_prompt_cost": 1.06e-05,
+          "upstream_inference_completions_cost": 3.66e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 39,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.771,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking\":[\"rollback not ready\"]}",
+      "usage": {
+        "prompt_tokens": 95,
+        "completion_tokens": 44,
+        "total_tokens": 139,
+        "cost": 3.59e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.59e-05,
+          "upstream_inference_prompt_cost": 9.5e-06,
+          "upstream_inference_completions_cost": 2.64e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 22,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.43,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 37,
+        "total_tokens": 125,
+        "cost": 3.1e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.1e-05,
+          "upstream_inference_prompt_cost": 8.8e-06,
+          "upstream_inference_completions_cost": 2.22e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 17,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.421,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 82,
+        "completion_tokens": 55,
+        "total_tokens": 137,
+        "cost": 4.12e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.12e-05,
+          "upstream_inference_prompt_cost": 8.2e-06,
+          "upstream_inference_completions_cost": 3.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 35,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.953,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\"],\"purge\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 124,
+        "completion_tokens": 160,
+        "total_tokens": 284,
+        "cost": 0.0001084,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001084,
+          "upstream_inference_prompt_cost": 1.24e-05,
+          "upstream_inference_completions_cost": 9.6e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 135,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.289,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "C",
+          "D"
+        ],
+        "purge": [
+          "A"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"C\",\"D\"],\"purge\":[\"A\"]}",
+      "usage": {
+        "prompt_tokens": 131,
+        "completion_tokens": 73,
+        "total_tokens": 204,
+        "cost": 5.69e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.69e-05,
+          "upstream_inference_prompt_cost": 1.31e-05,
+          "upstream_inference_completions_cost": 4.38e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.934,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 69,
+        "completion_tokens": 17,
+        "total_tokens": 86,
+        "cost": 1.71e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.71e-05,
+          "upstream_inference_prompt_cost": 6.9e-06,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.12,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 58,
+        "completion_tokens": 17,
+        "total_tokens": 75,
+        "cost": 1.6e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.6e-05,
+          "upstream_inference_prompt_cost": 5.8e-06,
+          "upstream_inference_completions_cost": 1.02e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.276,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"EU\",\"seats_source\":\"signed form\",\"region_source\":\"registry\"}",
+      "usage": {
+        "prompt_tokens": 148,
+        "completion_tokens": 53,
+        "total_tokens": 201,
+        "cost": 4.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 4.66e-05,
+          "upstream_inference_prompt_cost": 1.48e-05,
+          "upstream_inference_completions_cost": 3.18e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 22,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 3.899,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-luna",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"EU\",\"seats_source\":\"signed form\",\"region_source\":\"registry\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 29,
+        "total_tokens": 140,
+        "cost": 2.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 2.85e-05,
+          "upstream_inference_prompt_cost": 1.11e-05,
+          "upstream_inference_completions_cost": 1.74e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.392,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 16,
+        "total_tokens": 145,
+        "cost": 0.000225,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000225,
+          "upstream_inference_prompt_cost": 0.000129,
+          "upstream_inference_completions_cost": 9.6e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.226,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 137,
+        "completion_tokens": 16,
+        "total_tokens": 153,
+        "cost": 0.000233,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000233,
+          "upstream_inference_prompt_cost": 0.000137,
+          "upstream_inference_completions_cost": 9.6e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.136,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "raw_response": "{\"safety\":6,\"research\":4,\"outreach\":2}",
+      "usage": {
+        "prompt_tokens": 109,
+        "completion_tokens": 72,
+        "total_tokens": 181,
+        "cost": 0.000541,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000541,
+          "upstream_inference_prompt_cost": 0.000109,
+          "upstream_inference_completions_cost": 0.000432
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 48,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.853,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "raw_response": "{\"safety\":6,\"research\":4,\"outreach\":2}",
+      "usage": {
+        "prompt_tokens": 90,
+        "completion_tokens": 74,
+        "total_tokens": 164,
+        "cost": 0.000534,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000534,
+          "upstream_inference_prompt_cost": 9e-05,
+          "upstream_inference_completions_cost": 0.000444
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.707,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"M\",\"N\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 109,
+        "completion_tokens": 117,
+        "total_tokens": 226,
+        "cost": 0.000811,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000811,
+          "upstream_inference_prompt_cost": 0.000109,
+          "upstream_inference_completions_cost": 0.000702
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 94,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.312,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"M\",\"N\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 68,
+        "total_tokens": 160,
+        "cost": 0.0005,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0005,
+          "upstream_inference_prompt_cost": 9.2e-05,
+          "upstream_inference_completions_cost": 0.000408
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 45,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.636,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking\":[\"rollback not ready\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 20,
+        "total_tokens": 126,
+        "cost": 0.000226,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000226,
+          "upstream_inference_prompt_cost": 0.000106,
+          "upstream_inference_completions_cost": 0.00012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.225,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking\":[\"rollback not ready\"]}",
+      "usage": {
+        "prompt_tokens": 95,
+        "completion_tokens": 20,
+        "total_tokens": 115,
+        "cost": 0.000215,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000215,
+          "upstream_inference_prompt_cost": 9.5e-05,
+          "upstream_inference_completions_cost": 0.00012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.517,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 18,
+        "total_tokens": 106,
+        "cost": 0.000196,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000196,
+          "upstream_inference_prompt_cost": 8.8e-05,
+          "upstream_inference_completions_cost": 0.000108
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.168,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 82,
+        "completion_tokens": 46,
+        "total_tokens": 128,
+        "cost": 0.000358,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000358,
+          "upstream_inference_prompt_cost": 8.2e-05,
+          "upstream_inference_completions_cost": 0.000276
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 26,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.471,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\"],\"purge\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 124,
+        "completion_tokens": 221,
+        "total_tokens": 345,
+        "cost": 0.00145,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00145,
+          "upstream_inference_prompt_cost": 0.000124,
+          "upstream_inference_completions_cost": 0.001326
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 196,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 2.951,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": false,
+      "constraint_score": 0.5,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "C",
+          "D"
+        ],
+        "purge": [
+          "A"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"C\",\"D\"],\"purge\":[\"A\"]}",
+      "usage": {
+        "prompt_tokens": 131,
+        "completion_tokens": 23,
+        "total_tokens": 154,
+        "cost": 0.000269,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000269,
+          "upstream_inference_prompt_cost": 0.000131,
+          "upstream_inference_completions_cost": 0.000138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.155,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 69,
+        "completion_tokens": 17,
+        "total_tokens": 86,
+        "cost": 0.000171,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000171,
+          "upstream_inference_prompt_cost": 6.9e-05,
+          "upstream_inference_completions_cost": 0.000102
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.2,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 58,
+        "completion_tokens": 17,
+        "total_tokens": 75,
+        "cost": 0.00016,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00016,
+          "upstream_inference_prompt_cost": 5.8e-05,
+          "upstream_inference_completions_cost": 0.000102
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.289,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"EU\",\"seats_source\":\"signed form\",\"region_source\":\"registry\"}",
+      "usage": {
+        "prompt_tokens": 148,
+        "completion_tokens": 29,
+        "total_tokens": 177,
+        "cost": 0.000322,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000322,
+          "upstream_inference_prompt_cost": 0.00014800000000000002,
+          "upstream_inference_completions_cost": 0.000174
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.132,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-terra",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"EU\",\"seats_source\":\"signed form\",\"region_source\":\"registry\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 29,
+        "total_tokens": 140,
+        "cost": 0.000285,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000285,
+          "upstream_inference_prompt_cost": 0.000111,
+          "upstream_inference_completions_cost": 0.000174
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.694,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 129,
+        "completion_tokens": 16,
+        "total_tokens": 145,
+        "cost": 0.001125,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001125,
+          "upstream_inference_prompt_cost": 0.000645,
+          "upstream_inference_completions_cost": 0.00048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 6.841,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-01-selection",
+      "split": "development",
+      "category": "constrained selection",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "response": {
+        "sensor": "C",
+        "cost": 6
+      },
+      "raw_response": "{\"sensor\":\"C\",\"cost\":6}",
+      "usage": {
+        "prompt_tokens": 137,
+        "completion_tokens": 16,
+        "total_tokens": 153,
+        "cost": 0.001165,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001165,
+          "upstream_inference_prompt_cost": 0.000685,
+          "upstream_inference_completions_cost": 0.00048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 1.476,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "raw_response": "{\"safety\":6,\"research\":4,\"outreach\":2}",
+      "usage": {
+        "prompt_tokens": 109,
+        "completion_tokens": 22,
+        "total_tokens": 131,
+        "cost": 0.001205,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001205,
+          "upstream_inference_prompt_cost": 0.000545,
+          "upstream_inference_completions_cost": 0.00066
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 19.952,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-02-allocation",
+      "split": "development",
+      "category": "integer allocation",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "response": {
+        "safety": 6,
+        "research": 4,
+        "outreach": 2
+      },
+      "raw_response": "{\"safety\":6,\"research\":4,\"outreach\":2}",
+      "usage": {
+        "prompt_tokens": 90,
+        "completion_tokens": 67,
+        "total_tokens": 157,
+        "cost": 0.00246,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00246,
+          "upstream_inference_prompt_cost": 0.00045,
+          "upstream_inference_completions_cost": 0.00201
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 43,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 13.48,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"M\",\"N\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 109,
+        "completion_tokens": 21,
+        "total_tokens": 130,
+        "cost": 0.001175,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001175,
+          "upstream_inference_prompt_cost": 0.000545,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 31.067,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-03-precedence",
+      "split": "development",
+      "category": "precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "response": {
+        "order": [
+          "K",
+          "L",
+          "M",
+          "N",
+          "P"
+        ]
+      },
+      "raw_response": "{\"order\":[\"K\",\"L\",\"M\",\"N\",\"P\"]}",
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 21,
+        "total_tokens": 113,
+        "cost": 0.00109,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00109,
+          "upstream_inference_prompt_cost": 0.00046,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 25.525,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking\":[\"rollback not ready\"]}",
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 20,
+        "total_tokens": 126,
+        "cost": 0.00113,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00113,
+          "upstream_inference_prompt_cost": 0.00053,
+          "upstream_inference_completions_cost": 0.0006
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 39.132,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-04-stop-gate",
+      "split": "development",
+      "category": "boolean gates",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "response": {
+        "proceed": false,
+        "blocking": [
+          "rollback not ready"
+        ]
+      },
+      "raw_response": "{\"proceed\":false,\"blocking\":[\"rollback not ready\"]}",
+      "usage": {
+        "prompt_tokens": 95,
+        "completion_tokens": 20,
+        "total_tokens": 115,
+        "cost": 0.001075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001075,
+          "upstream_inference_prompt_cost": 0.000475,
+          "upstream_inference_completions_cost": 0.0006
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 37.497,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 88,
+        "completion_tokens": 18,
+        "total_tokens": 106,
+        "cost": 0.00098,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00098,
+          "upstream_inference_prompt_cost": 0.00044,
+          "upstream_inference_completions_cost": 0.00054
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 39.819,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-05-units",
+      "split": "development",
+      "category": "unit conversion",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "response": {
+        "megabytes": 2400,
+        "seconds": 30
+      },
+      "raw_response": "{\"megabytes\":2400,\"seconds\":30}",
+      "usage": {
+        "prompt_tokens": 82,
+        "completion_tokens": 18,
+        "total_tokens": 100,
+        "cost": 0.00095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00095,
+          "upstream_inference_prompt_cost": 0.00041,
+          "upstream_inference_completions_cost": 0.00054
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 37.453,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\"],\"purge\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 124,
+        "completion_tokens": 23,
+        "total_tokens": 147,
+        "cost": 0.00131,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00131,
+          "upstream_inference_prompt_cost": 0.00062,
+          "upstream_inference_completions_cost": 0.00069
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 37.706,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-06-exception",
+      "split": "development",
+      "category": "nested exception",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "response": {
+        "retain": [
+          "B",
+          "D"
+        ],
+        "purge": [
+          "A",
+          "C"
+        ]
+      },
+      "raw_response": "{\"retain\":[\"B\",\"D\"],\"purge\":[\"A\",\"C\"]}",
+      "usage": {
+        "prompt_tokens": 131,
+        "completion_tokens": 90,
+        "total_tokens": 221,
+        "cost": 0.003355,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003355,
+          "upstream_inference_prompt_cost": 0.000655,
+          "upstream_inference_completions_cost": 0.0027
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 65,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 39.11,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 69,
+        "completion_tokens": 17,
+        "total_tokens": 86,
+        "cost": 0.000855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000855,
+          "upstream_inference_prompt_cost": 0.000345,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 36.406,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-07-simple-lookup",
+      "split": "development",
+      "category": "negative control: lookup",
+      "notation_expected_to_help": false,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "response": {
+        "color": "amber",
+        "shelf": 17
+      },
+      "raw_response": "{\"color\":\"amber\",\"shelf\":17}",
+      "usage": {
+        "prompt_tokens": 58,
+        "completion_tokens": 17,
+        "total_tokens": 75,
+        "cost": 0.0008,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0008,
+          "upstream_inference_prompt_cost": 0.00029,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 37.472,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "formal",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"EU\",\"seats_source\":\"signed form\",\"region_source\":\"registry\"}",
+      "usage": {
+        "prompt_tokens": 148,
+        "completion_tokens": 29,
+        "total_tokens": 177,
+        "cost": 0.00161,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00161,
+          "upstream_inference_prompt_cost": 0.00074,
+          "upstream_inference_completions_cost": 0.00087
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 35.308,
+      "error": null
+    },
+    {
+      "task_id": "dev-math-08-source-priority",
+      "split": "development",
+      "category": "source precedence",
+      "notation_expected_to_help": true,
+      "model": "openai/gpt-5.6-sol",
+      "condition": "vernacular",
+      "repetition": 1,
+      "valid_json": true,
+      "on_task": true,
+      "constraint_score": 1.0,
+      "expected": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "response": {
+        "seats": 80,
+        "region": "EU",
+        "seats_source": "signed form",
+        "region_source": "registry"
+      },
+      "raw_response": "{\"seats\":80,\"region\":\"EU\",\"seats_source\":\"signed form\",\"region_source\":\"registry\"}",
+      "usage": {
+        "prompt_tokens": 111,
+        "completion_tokens": 29,
+        "total_tokens": 140,
+        "cost": 0.001425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001425,
+          "upstream_inference_prompt_cost": 0.000555,
+          "upstream_inference_completions_cost": 0.00087
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "provider": "OpenAI",
+      "latency_seconds": 37.252,
+      "error": null
+    }
+  ]
+}

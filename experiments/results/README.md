@@ -19,3 +19,15 @@ Primary held-out pilot. Sixteen untouched held-out task prompts were run once pe
 Complete Benchmark 002 held-out record: 20 tasks, two paired conditions, two repetitions, and four model tiers (320 calls, no request errors). The preregistered aggregate showed a +2.5-point formal effect. A post-run equivalence audit found that `test-math-14-workflow` supplied the expected canonical label only in the formal prompt. The raw record is unchanged.
 
 `SPEAR_Benchmark_002_Audit.json` reports the full and 19-task audited sensitivity estimates, the exclusion reason, and paired discordances. `SPEAR_Benchmark_002_Rows.csv` marks every row with `audit_included`. `20260802T222904Z-benchmark-002-model-panel.json` contains prompted critiques from four model instances; it is not evidence of persistent awareness or independent authorship. See `../BENCHMARK_002.md`.
+
+## `20260802T221234Z-development-formal-notation.json`
+
+Development-only, one repetition per condition across eight tasks and four model tiers. Vernacular scored 26/32 and formal notation 23/32, an observed -9.375-point difference, with no request errors. The recorded task hash is `3912786ed9c2aae6ba7c647c1f046478dc6c734165a063ee6fb02bff1edd5bae`; that exact corpus version is no longer present, so this run is not fully reproducible from the current tree. The original bytes are retained as audit evidence and the result is not confirmatory.
+
+## `20260802T221505Z-development-formal-notation.json`
+
+Development-only, one repetition per condition across the current eight-task development corpus and four model tiers. Vernacular scored 28/32 and formal notation 26/32, an observed -6.25-point difference, with no request errors. Its task hash matches the retained corpus. This run preceded held-out execution, may have informed debugging, and is not a confirmatory estimate.
+
+## Model-panel audit artifacts
+
+`20260802T222812Z-benchmark-002-model-panel.json` is the first prompted model-panel run. It used the unaudited all-task aggregate because no audit file was available to the runner, and is superseded by `20260802T222904Z-benchmark-002-model-panel.json`, which includes the post-run equivalence audit. Both are retained as prompted critiques rather than scientific evidence. `../run_model_panel.py` is the generator for these artifacts.
