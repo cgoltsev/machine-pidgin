@@ -1,0 +1,95 @@
+{
+  "schema_version": "benchmark-003-semantic-record/0.1-development",
+  "id": "dev-b003-release-gate-01",
+  "split": "development",
+  "status": "exploratory-development-only",
+  "task": "Evaluate whether Dataset Cedar may be released.",
+  "entities": [
+    {
+      "id": "dataset_cedar",
+      "label": "Dataset Cedar"
+    }
+  ],
+  "facts": [
+    {
+      "id": "consent",
+      "entity_id": "dataset_cedar",
+      "attribute": "consent_verified",
+      "value": true
+    },
+    {
+      "id": "anonymization",
+      "entity_id": "dataset_cedar",
+      "attribute": "anonymization_passed",
+      "value": true
+    },
+    {
+      "id": "risk",
+      "entity_id": "dataset_cedar",
+      "attribute": "risk_score",
+      "value": 6
+    }
+  ],
+  "constraints": [
+    {
+      "id": "release_gate",
+      "kind": "all",
+      "conditions": [
+        {
+          "fact_id": "consent",
+          "operator": "equals",
+          "value": true,
+          "failure_label_id": "blocker_consent"
+        },
+        {
+          "fact_id": "anonymization",
+          "operator": "equals",
+          "value": true,
+          "failure_label_id": "blocker_anonymization"
+        },
+        {
+          "fact_id": "risk",
+          "operator": "less_than",
+          "value": 4,
+          "failure_label_id": "blocker_risk"
+        }
+      ],
+      "on_pass_label_id": "decision_release",
+      "on_fail_label_id": "decision_hold"
+    }
+  ],
+  "authority": {
+    "allowed": [
+      "evaluate_release"
+    ],
+    "approval_required": [
+      "publish_release"
+    ],
+    "prohibited": [
+      "change_source_records"
+    ]
+  },
+  "canonical_labels": {
+    "blocker_anonymization": "anonymization failed",
+    "blocker_consent": "consent not verified",
+    "blocker_risk": "risk not below 4",
+    "decision_hold": "hold",
+    "decision_release": "release"
+  },
+  "output": {
+    "keys": [
+      "decision",
+      "blocking"
+    ],
+    "types": {
+      "decision": "string",
+      "blocking": "array[string]"
+    }
+  },
+  "expected": {
+    "decision": "hold",
+    "blocking": [
+      "risk not below 4"
+    ]
+  }
+}

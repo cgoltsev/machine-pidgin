@@ -13,6 +13,35 @@ and 002. It must receive named human methodological review, a frozen corpus hash
 model-and-provider manifest, and an approved maximum-cost gate before it is submitted as
 an immutable registration or used for paid model calls.
 
+## Development equivalence preflight (not registration evidence)
+
+A single synthetic development fixture now exercises the proposed canonical-record path:
+deterministic A-D renderers, condition-level semantic inventories, and source-bound atom
+traces. Each trace binds an exact rendered span and source role to an independently resolved
+JSON Pointer. Traversal-derived coverage includes task text; entity identifiers and labels;
+fact identifiers, entity links, attributes, and values; constraint kinds, operators, targets,
+failure labels, and outcome labels; authority levels and actions; canonical-label identifiers
+and values; and output keys and types. Duplicate JSON keys are rejected. Exact
+canonical/expected output-cue counts and fail-closed renderer-corruption tests remain separate
+checks. Independently frozen prompt-skeleton hashes cover untraced relation words, field names,
+negation, and output imperatives for the frozen development-audited base and empty-authority
+profiles; other structures fail closed pending a new human-reviewed hash. Frozen system-prompt
+hashes and source-derived lexeme counts
+guard the interpretation contract. Each condition renders from an isolated source snapshot, and
+the prompts bind `blocking=[]` on pass plus gate-then-condition failure ordering. It runs offline:
+
+```bash
+python3 experiments/benchmark_003_equivalence_preflight.py
+python3 -m unittest experiments/test_benchmark_003_equivalence_preflight.py -v
+```
+
+This is an exploratory development control only. It makes no model calls, spends nothing,
+does not create or inspect a held-out corpus, and does not satisfy the unchecked freeze or
+registration gate below. The validator can bind controlled source atoms to exact prompt spans,
+establish equality of its controlled semantic surfaces, and detect exact scalar cues. It cannot
+prove equivalence of arbitrary paraphrases, validate pragmatic emphasis, or rule out every
+answer cue. Blinded human review remains required.
+
 ## Research question
 
 Benchmark 001 combined structured SPEAR fields with a system-level interpretation
@@ -50,11 +79,13 @@ must not receive weaker output instructions.
   A–D deterministically from that record; do not maintain four independently edited held-out
   prompts.
 - Run an automated equivalence preflight before freezing. It must compare condition-level
-  facts, numeric literals, canonical labels, output keys, named entities, and expected-answer
-  cues, with every exception documented and reviewed.
-- Mutation-test the preflight by changing one fact, numeric literal, entity, canonical label,
-  output key, and answer cue in turn; every mutation must fail closed. Repeated renders of the
-  unmodified source must be byte-identical.
+  facts, numeric literals, constraints, authority boundaries, canonical labels, output keys and
+  types, named entities, and expected-answer cues, with every exception documented and reviewed.
+- Mutation-test both rendered spans and semantic surfaces. Change fact values and attributes,
+  entity links and labels, constraint kinds/operators/targets/failure and outcome labels,
+  authority levels/actions, task text, output keys/types, and answer cues in turn; every mutation
+  must fail closed even if trace and artifact integrity hashes are refreshed. Repeated renders of
+  the unmodified source must be byte-identical.
 - Freeze the corpus, expected answers, scorer, condition templates, and analysis script;
   record their SHA-256 hashes in the registration before any held-out call.
 - Publish an externally timestamped registration containing those hashes before any held-out

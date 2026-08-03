@@ -33,3 +33,14 @@ python3 experiments/run_formal_notation_eval.py --split held_out --repetitions 2
 ```
 
 The preregistered aggregate appeared to favor notation by 2.5 points. A post-run equivalence audit found one asymmetric canonical-answer cue. On the remaining equivalent tasks, notation scored 2.6 points below vernacular. See [`BENCHMARK_002.md`](BENCHMARK_002.md) for both estimates, limits, and the next design.
+
+## Benchmark 003: development equivalence preflight
+
+Benchmark 003 remains a preregistration draft with no paid execution authorization. Its first development-only milestone renders conditions A-D deterministically from isolated copies of one canonical semantic record. Ordered atom traces bind exact prompt spans to independently resolved JSON Pointers for task, entity, fact, constraint, authority, label, and output-schema content. Independently frozen user-prompt skeleton and system-prompt hashes cover untraced glue and system constants. The validator also rejects duplicate JSON keys and compares semantic surfaces and exact canonical/expected output-cue counts. Corruption tests refresh offsets, trace hashes, and artifact hashes after changing representative atoms or untraced relations; the independent controls must still fail closed.
+
+```bash
+python3 experiments/benchmark_003_equivalence_preflight.py
+python3 -m unittest experiments/test_benchmark_003_equivalence_preflight.py -v
+```
+
+This fixture is exploratory development evidence, not a frozen corpus, held-out result, or proof of arbitrary natural-language equivalence. Human equivalence review and every gate in [`BENCHMARK_003_PREREGISTRATION_DRAFT.md`](BENCHMARK_003_PREREGISTRATION_DRAFT.md) remain required.
