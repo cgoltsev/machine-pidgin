@@ -43,6 +43,7 @@ Read [Benchmark 002](experiments/BENCHMARK_002.md), inspect the [audit record](e
 - [`papers/`](papers/) - founding theoretical preprint and empirical research notes
 - [`protocol/`](protocol/) - SPEAR/0.2 quick reference and portable LLM interpretation prompt
 - [`experiments/`](experiments/) - paired task corpus, evaluation runner, audit trail, raw responses, and tidy outcomes
+- [`research/`](research/) - source-anchored literature canon, current scans, public watchlist, and weekly Researcher reports
 - [`animation/`](animation/) - Manim source and rendered two-minute conceptual primer
 - [`CONSTITUTION.md`](CONSTITUTION.md) and [`GOVERNANCE.md`](GOVERNANCE.md) - public-interest and human-override foundations
 
