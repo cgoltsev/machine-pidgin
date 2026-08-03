@@ -1,5 +1,7 @@
 # Researcher report — weekly cycle of 3 August 2026
 
+**Run window:** 3 August 2026, 16:54:52–18:16:21 EEST (UTC+03:00)
+
 **Cycle status:** Completed without a reportable security, privacy, spend, legal,
 governance, research-integrity, or account incident.
 
@@ -162,6 +164,25 @@ URL exists:
 > and critique welcome. AI-assisted draft.
 
 No media or forum post was made.
+
+## Review workflow and publication state
+
+The bounded public changes were committed on
+[`agent/researcher-cycle-2026-08-03`](https://github.com/cgoltsev/machine-pidgin/tree/agent/researcher-cycle-2026-08-03)
+and opened as stacked draft [PR #4](https://github.com/cgoltsev/machine-pidgin/pull/4),
+targeting `agent/restore-benchmark-audit-trail` / draft PR #3. The initial content commits
+are `6d69d04` (canon, scan, watchlist, and report), `96e3311` (equivalence preflight), and
+`eceaf2d` (Markdown normalization); this workflow record follows them on the same branch.
+After PR #3 merges, a human should merge updated `main` into the head without rewriting
+history, retarget PR #4 to `main`, and verify that only this cycle's delta remains.
+
+PR #4 is a human-review draft. No scientific news article was created because the evidence
+is development-only; no artifact was published as a result claim; no forum or social copy
+was posted; and no merge, release, deployment, account action, follow, or institutional
+commitment was made. Repository labels `codex` and `codex-automation` were not available,
+so no label was invented. The GitHub application could read repository state but returned
+403 for PR creation; the already-authenticated GitHub CLI completed that bounded draft-PR
+step. This access limitation did not change the evidence or governance gates.
 
 ## Limitations, anomalies, and required review
 
