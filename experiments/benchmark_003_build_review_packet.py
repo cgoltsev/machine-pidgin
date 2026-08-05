@@ -302,6 +302,11 @@ def _validate_source_manifest(manifest: Any) -> None:
             raise ReviewBundleError(
                 f"bound source bytes differ from recorded commit: {relative_path}"
             )
+        working_tree_hash = sha256_file(REPO_ROOT / relative_path)
+        if working_tree_hash != supplied_hash:
+            raise ReviewBundleError(
+                f"bound working-tree bytes differ from source manifest: {relative_path}"
+            )
 
 
 def _seal(document: dict[str, Any], digest_key: str) -> dict[str, Any]:
@@ -399,8 +404,8 @@ def _phase1_response_schema(profile_ids: list[str]) -> dict[str, Any]:
             "rationale": "non-empty string",
         },
         "disposition_rule": (
-            "PASS only when every profile and cross-profile verdict is PASS; "
-            "otherwise REVISE"
+            "PASS only when every profile, per-profile mutation-probe, and "
+            "cross-profile verdict is PASS; otherwise REVISE"
         ),
     }
 

@@ -9,6 +9,7 @@ import stat
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 
@@ -230,6 +231,19 @@ class Benchmark003ReviewBundleTests(unittest.TestCase):
         changed_manifest["git_head_at_build"] = "f" * 40
         with self.assertRaisesRegex(review.ReviewBundleError, "resolvable commit"):
             review.build_bundle(NONCE, manifest=changed_manifest)
+
+    def test_working_tree_bytes_must_match_manifest(self) -> None:
+        original_sha256_file = review.sha256_file
+        first_bound_path = review.BOUND_PATHS[0]
+
+        def altered_hash(path: Path) -> str:
+            if path == first_bound_path:
+                return "0" * 64
+            return original_sha256_file(path)
+
+        with mock.patch.object(review, "sha256_file", side_effect=altered_hash):
+            with self.assertRaisesRegex(review.ReviewBundleError, "working-tree bytes"):
+                review.build_bundle(NONCE, manifest=self.manifest)
 
     def test_wrong_nonce_cannot_open_resealed_reveal(self) -> None:
         tampered = copy.deepcopy(self.reveal)

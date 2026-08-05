@@ -63,7 +63,9 @@ secret nonce; byte length alone is not enough. Full hashes become visible only i
 
 Identical inputs and nonce must reproduce byte-identical canonical Phase 1 and reveal
 objects. Changing any bound file, prompt, or nonce must change a bound digest or fail
-verification. The builder uses only the Python standard library and the existing offline
+verification. Construction and verification require every bound working-tree file to match
+the corresponding blob in the recorded resolvable commit; manifest injection cannot certify
+stale executing bytes. The builder uses only the Python standard library and the existing offline
 preflight. It performs zero model calls, zero provider calls, and exact spend of `$0.00`.
 
 ## Phase 1 — masked prompt and oracle review

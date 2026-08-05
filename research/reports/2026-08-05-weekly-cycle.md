@@ -152,7 +152,8 @@ each profile. Phase 1 exposes a redacted-source digest and keyed hiding commitme
 reusable raw digest over the low-entropy oracle-bearing source. The coordinator reveal opens
 those commitments, restores the A–D/factor mapping, and exposes commit-bound source hashes
 and mandatory issue dossiers. The verifier independently rebuilds every sensitive reveal
-field and checks each prompt against its revealed condition. Live nonce/reveal files must be
+field, requires the executing working-tree bytes to match their recorded commit blobs, and
+checks each prompt against its revealed condition. Live nonce/reveal files must be
 user-only, are created without putting the nonce in process arguments, and cannot overwrite
 an existing file. Public source code cannot blind a reviewer who inspects it or independently
 infers visible treatment factors; the separation is an auditable procedure.
@@ -206,7 +207,7 @@ The clean fixture continues to produce the prior development-only preflight `PAS
 source-bound atoms per condition, and semantic-record SHA-256
 `8298cf6b4659b7560423a522eab135bc6890ef4f413d091763ec76f16a9b7515`.
 That result is retained for reproducibility but narrowed by the new negative probes. The
-34 dedicated review-bundle tests and all 61 discovered experiment tests passed offline;
+35 dedicated review-bundle tests and all 62 discovered experiment tests passed offline;
 compilation, fixture parsing, the existing 28-task Benchmark 002 validator, and diff checks
 also passed.
 
