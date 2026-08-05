@@ -44,3 +44,20 @@ python3 -m unittest experiments/test_benchmark_003_equivalence_preflight.py -v
 ```
 
 This fixture is exploratory development evidence, not a frozen corpus, held-out result, or proof of arbitrary natural-language equivalence. Human equivalence review and every gate in [`BENCHMARK_003_PREREGISTRATION_DRAFT.md`](BENCHMARK_003_PREREGISTRATION_DRAFT.md) remain required.
+
+The 5 August audit narrowed that claim further. Newline and reserved-heading strings in
+task text, entity labels, fact attributes, and authority actions can still receive a
+fixture-internal `PASS`; the contract factor also replaces rather than adds to the common
+baseline, and the implemented templates need a human construct-validity decision. A
+two-stage, condition-label-masked and oracle-withheld review bundle now packages those
+negative findings for a named independent human:
+
+```bash
+python3 experiments/benchmark_003_build_review_packet.py --help
+python3 -m unittest experiments/test_benchmark_003_build_review_packet.py -v
+```
+
+See [`BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md`](BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md).
+The coordinator nonce and A–D reveal must remain outside this public repository until the
+Phase 1 response is sealed. This tooling means “ready for human review,” not equivalence
+established, and cannot authorize fixture extension, registration, model calls, or spend.

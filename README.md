@@ -38,6 +38,11 @@ Across the remaining 19 equivalent tasks, vernacular scored **134/152 (88.2%)** 
 
 Read [Benchmark 002](experiments/BENCHMARK_002.md), inspect the [audit record](experiments/results/SPEAR_Benchmark_002_Audit.json), or download the [tidy rows](experiments/results/SPEAR_Benchmark_002_Rows.csv). This result motivates a factorial follow-up separating dual-register explanation, parser, verifier, and solver support. The first prospective design is published as a [Benchmark 003 preregistration draft](experiments/BENCHMARK_003_PREREGISTRATION_DRAFT.md); it is not yet registered and cannot trigger paid calls without the listed human gates.
 
+Benchmark 003's single-fixture preflight is now explicitly blocked from extension pending
+the [two-stage human-review protocol](experiments/BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md).
+The protocol preserves newly reproduced false-PASS and construct-validity limitations and
+means “ready for review,” not equivalence established.
+
 ## Repository map
 
 - [`papers/`](papers/) - founding theoretical preprint and empirical research notes

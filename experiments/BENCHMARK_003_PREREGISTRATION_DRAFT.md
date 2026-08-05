@@ -42,6 +42,34 @@ establish equality of its controlled semantic surfaces, and detect exact scalar 
 prove equivalence of arbitrary paraphrases, validate pragmatic emphasis, or rule out every
 answer cue. Blinded human review remains required.
 
+### 5 August scope audit and human-review bundle
+
+A second adversarial audit reproduced four unresolved development limitations:
+
+1. the contract-present system prompt replaces, rather than appends to, the common
+   no-contract baseline;
+2. the “ordinary prose” template is highly fielded, while the bespoke field template and
+   compact contract do not instantiate the published SPEAR/0.2 schema and interpretation
+   prompt;
+3. newline/reserved-heading mutations to task text, entity labels, fact attributes, and
+   authority actions can still receive a fixture-internal `PASS`, with raw-versus-JSON-escaped
+   grammar in some condition pairs; and
+4. empty fact identifiers and malformed-input exception behavior expose schema/error-contract
+   gaps.
+
+These findings do not change the clean fixture's deterministic hash or historical `PASS`;
+they narrow that result to the exact fixture and block generalization. The preflight must not
+be extended to new fixtures merely because the current record passes.
+
+[`BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md`](BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md) and
+[`benchmark_003_build_review_packet.py`](benchmark_003_build_review_packet.py) now define a
+two-stage, provenance-bound review. Phase 1 withholds condition labels, the stored expected
+oracle, prior automated verdict, mapping, and known-issue answers. Phase 2 opens the mapping
+and requires explicit disposition of all four limitations. This is condition-label masking
+and oracle withholding, not treatment blindness: prompt content and public source make the
+factors inferable. Any uncertainty or unresolved item yields `REVISE`, and the review itself
+cannot authorize fixture extension.
+
 ## Research question
 
 Benchmark 001 combined structured SPEAR fields with a system-level interpretation
