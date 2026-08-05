@@ -39,6 +39,7 @@ BOUND_PATHS = (
     EXPERIMENTS_DIR / "test_benchmark_003_build_review_packet.py",
 )
 VERDICTS = {"PASS", "REVISE", "UNCERTAIN"}
+RESOLVED_ISSUE_STATUS = "resolved-and-reverified"
 PHASE1_SCHEMA_VERSION = "benchmark-003-human-review-phase1/0.2-development"
 REVEAL_SCHEMA_VERSION = "benchmark-003-human-review-reveal/0.2-development"
 PHASE1_RESPONSE_SCHEMA_VERSION = "benchmark-003-human-review-response/0.2"
@@ -192,6 +193,10 @@ def canonical_json(value: Any) -> str:
 
 def canonical_bytes(value: Any) -> bytes:
     return canonical_json(value).encode("utf-8")
+
+
+def _canonical_equal(left: Any, right: Any) -> bool:
+    return canonical_bytes(left) == canonical_bytes(right)
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -817,6 +822,15 @@ def _current_semantic_evidence() -> tuple[
     return record, artifacts, result
 
 
+def _require_zero_accounting(document: dict[str, Any], label: str) -> None:
+    if type(document.get("model_calls")) is not int or document["model_calls"] != 0:
+        raise ReviewBundleError(f"{label} model_calls must be integer zero")
+    if type(document.get("provider_calls")) is not int or document["provider_calls"] != 0:
+        raise ReviewBundleError(f"{label} provider_calls must be integer zero")
+    if type(document.get("spend_usd")) is not float or document["spend_usd"] != 0.0:
+        raise ReviewBundleError(f"{label} spend_usd must be floating-point zero")
+
+
 def verify_phase1(
     phase1: dict[str, Any],
     *,
@@ -834,13 +848,11 @@ def verify_phase1(
         "fixture_scope": "one existing public synthetic development fixture",
         "review_instructions": _phase1_review_instructions(),
         "mutation_probes": list(MUTATION_PROBES),
-        "model_calls": 0,
-        "provider_calls": 0,
-        "spend_usd": 0.0,
     }
     for key, expected in fixed_fields.items():
-        if phase1.get(key) != expected:
+        if not _canonical_equal(phase1.get(key), expected):
             raise ReviewBundleError(f"Phase 1 {key} differs from the fixed protocol")
+    _require_zero_accounting(phase1, "Phase 1")
     leaked_keys = _walk_keys(phase1) & FORBIDDEN_PHASE1_KEYS
     if leaked_keys:
         raise ReviewBundleError(
@@ -850,10 +862,16 @@ def verify_phase1(
     source_without_oracle = copy.deepcopy(record)
     source_without_oracle.pop("expected")
     _validate_source_without_oracle_shape(phase1.get("source_without_oracle"))
-    if phase1["source_without_oracle"] != source_without_oracle:
+    if not _canonical_equal(phase1["source_without_oracle"], source_without_oracle):
         raise ReviewBundleError("Phase 1 source differs from the current canonical source")
     expected_source_hash = sha256_bytes(canonical_bytes(source_without_oracle))
-    if phase1.get("source_without_oracle_sha256") != expected_source_hash:
+    supplied_source_hash = sha256_bytes(
+        canonical_bytes(phase1["source_without_oracle"])
+    )
+    if (
+        phase1.get("source_without_oracle_sha256") != supplied_source_hash
+        or supplied_source_hash != expected_source_hash
+    ):
         raise ReviewBundleError("Phase 1 redacted source hash differs")
     expected_paths = sorted(
         path.relative_to(REPO_ROOT).as_posix() for path in BOUND_PATHS
@@ -896,7 +914,9 @@ def verify_phase1(
     if observed_prompts != expected_prompts:
         raise ReviewBundleError("Phase 1 profiles differ from the current rendered prompts")
     ordered_profile_ids = [item["profile_id"] for item in profiles]
-    if phase1.get("response_schema") != _phase1_response_schema(ordered_profile_ids):
+    if not _canonical_equal(
+        phase1.get("response_schema"), _phase1_response_schema(ordered_profile_ids)
+    ):
         raise ReviewBundleError("Phase 1 response schema differs from fixed requirements")
 
     # The public phase must not expose a reusable digest over oracle-bearing source.
@@ -923,6 +943,7 @@ def verify_reveal(
     verify_phase1(phase1, expected_manifest=expected_manifest)
     _require_exact_keys(reveal, REVEAL_TOP_LEVEL_KEYS, "coordinator reveal")
     _verify_seal(reveal, "reveal_sha256")
+    _require_zero_accounting(reveal, "reveal")
     if reveal.get("schema_version") != REVEAL_SCHEMA_VERSION:
         raise ReviewBundleError("reveal schema version differs")
     if reveal.get("phase1_packet_sha256") != phase1.get("phase1_packet_sha256"):
@@ -944,10 +965,10 @@ def verify_reveal(
         else source_manifest(git_head_override=actual_manifest["git_head_at_build"])
     )
     _validate_source_manifest(manifest)
-    if actual_manifest != manifest:
+    if not _canonical_equal(actual_manifest, manifest):
         raise ReviewBundleError("reveal source manifest differs from bound source bytes")
     expected_context = _source_context(manifest, record, preflight_result)
-    if reveal.get("source_context") != expected_context:
+    if not _canonical_equal(reveal.get("source_context"), expected_context):
         raise ReviewBundleError("reveal source context differs from current evidence")
     context_commitment = _hiding_commitment(
         nonce, "benchmark-003-source-context-v2", expected_context
@@ -994,7 +1015,7 @@ def verify_reveal(
         preflight_result,
     )
     actual_core = {key: copy.deepcopy(reveal[key]) for key in REVEAL_CORE_KEYS}
-    if actual_core != expected_core:
+    if not _canonical_equal(actual_core, expected_core):
         raise ReviewBundleError("reveal core differs from independently recomputed evidence")
     reveal_core_commitment = _hiding_commitment(
         nonce, "benchmark-003-reveal-core-v2", expected_core
@@ -1138,10 +1159,15 @@ def validate_phase2_response(
         _validate_judgment(value, f"known issue {key}")
         for key, value in dispositions.items()
     ]
+    reveal_issues_resolved = all(
+        item.get("status") == RESOLVED_ISSUE_STATUS
+        for item in reveal["known_issues"]
+    )
     all_pass = (
         phase1_result["disposition"] == "PASS"
         and phase2_response["overall_verdict"] == "PASS"
         and all(verdict == "PASS" for verdict in issue_verdicts)
+        and reveal_issues_resolved
     )
     return {"disposition": "PASS" if all_pass else "REVISE"}
 

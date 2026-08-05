@@ -161,9 +161,12 @@ Adversarial tests falsified several earlier draft assumptions before any live pa
 raw full-source hashes allowed low-entropy oracle checking; mutable response schemas and
 resealable reveal fields were trusted; Phase 2 did not bind the exact reveal; prompt payloads
 could be swapped across fixed opaque IDs; an arbitrary string could pose as a source commit;
-and ordinary reveal writes could be world-readable or overwritten. All were corrected in the
-development tooling and retained as regression tests. This is a tooling negative result, not
-evidence that cryptographic commitments confer reviewer independence or scientific validity.
+Python boolean/integer equality could mask source or accounting changes; and ordinary reveal
+writes could be world-readable or overwritten. All were corrected in the
+development tooling and retained as regression tests. The conservative validator also makes
+the present unresolved/reproduced-negative dossiers deterministically yield `REVISE`, even
+if every reviewer-supplied verdict says `PASS`. This is a tooling negative result, not evidence
+that cryptographic commitments confer reviewer independence or scientific validity.
 
 The agenda preserved four material negative findings rather than repairing around them:
 
@@ -203,7 +206,7 @@ The clean fixture continues to produce the prior development-only preflight `PAS
 source-bound atoms per condition, and semantic-record SHA-256
 `8298cf6b4659b7560423a522eab135bc6890ef4f413d091763ec76f16a9b7515`.
 That result is retained for reproducibility but narrowed by the new negative probes. The
-31 dedicated review-bundle tests and all 58 discovered experiment tests passed offline;
+34 dedicated review-bundle tests and all 61 discovered experiment tests passed offline;
 compilation, fixture parsing, the existing 28-task Benchmark 002 validator, and diff checks
 also passed.
 

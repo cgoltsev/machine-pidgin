@@ -160,7 +160,11 @@ and response-schema version, covers all four issue IDs, records an overall verdi
 rationale, and must set
 `authorizes_fixture_extension=false`. Any non-`PASS`, uncertainty, unresolved defect, hash
 mismatch, or incomplete disclosure produces `REVISE`. Even a fully passing response is only a
-human methodological input; the AI Director and named humans retain later decisions.
+human methodological input; it cannot override a dossier whose bound status remains
+unresolved or reproduced-negative. The current reveal therefore derives `REVISE` even if a
+reviewer marks every response item `PASS`. A future `PASS` requires a newly bound bundle in
+which every defect is `resolved-and-reverified`, followed by fresh review. The AI Director
+and named humans retain later decisions.
 
 ## Completion and stop rules
 
@@ -169,7 +173,8 @@ This tooling milestone is complete when:
 - deterministic construction and byte identity are tested;
 - file/prompt tampering changes provenance or fails verification;
 - Phase 1 matches exact top-level and nested schemas, exposes no oracle-bearing raw digest,
-  and has no forbidden structural key;
+  compares canonical JSON bytes (including boolean/number distinctions), and has no forbidden
+  structural key;
 - the reveal opens every keyed commitment and exactly matches independently recomputed
   source, mapping, metadata, oracle, preflight, and issue evidence;
 - response validators derive fixed requirements from code and require independent semantic

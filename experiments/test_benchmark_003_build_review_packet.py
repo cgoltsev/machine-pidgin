@@ -196,6 +196,28 @@ class Benchmark003ReviewBundleTests(unittest.TestCase):
         with self.assertRaisesRegex(review.ReviewBundleError, "canonical source"):
             review.verify_phase1(tampered, expected_manifest=self.manifest)
 
+    def test_bool_int_alias_cannot_bypass_source_binding(self) -> None:
+        tampered_phase1 = copy.deepcopy(self.phase1)
+        self.assertIs(tampered_phase1["source_without_oracle"]["facts"][0]["value"], True)
+        tampered_phase1["source_without_oracle"]["facts"][0]["value"] = 1
+        tampered_phase1 = self.reseal(tampered_phase1, "phase1_packet_sha256")
+        tampered_reveal = copy.deepcopy(self.reveal)
+        tampered_reveal["phase1_packet_sha256"] = tampered_phase1[
+            "phase1_packet_sha256"
+        ]
+        tampered_reveal = self.reseal(tampered_reveal, "reveal_sha256")
+        with self.assertRaisesRegex(review.ReviewBundleError, "canonical source"):
+            review.verify_reveal(tampered_phase1, tampered_reveal)
+
+    def test_boolean_zero_accounting_alias_fails_closed(self) -> None:
+        tampered_phase1 = copy.deepcopy(self.phase1)
+        tampered_phase1["model_calls"] = False
+        tampered_phase1["provider_calls"] = False
+        tampered_phase1["spend_usd"] = False
+        tampered_phase1 = self.reseal(tampered_phase1, "phase1_packet_sha256")
+        with self.assertRaisesRegex(review.ReviewBundleError, "integer zero"):
+            review.verify_phase1(tampered_phase1)
+
     def test_manifest_byte_change_fails_commit_binding(self) -> None:
         changed_manifest = copy.deepcopy(self.manifest)
         path = next(iter(changed_manifest["files"]))
@@ -367,6 +389,23 @@ class Benchmark003ReviewBundleTests(unittest.TestCase):
             "verdict": "REVISE",
             "rationale": "The issue remains unresolved.",
         }
+        result = review.validate_phase2_response(
+            self.phase1,
+            self.reveal,
+            phase1_response,
+            phase2_response,
+        )
+        self.assertEqual(result["disposition"], "REVISE")
+
+    def test_current_unresolved_dossiers_force_revise(self) -> None:
+        phase1_response = self.valid_phase1_response()
+        phase2_response = self.valid_phase2_response(phase1_response)
+        self.assertTrue(
+            any(
+                item["status"] != review.RESOLVED_ISSUE_STATUS
+                for item in self.reveal["known_issues"]
+            )
+        )
         result = review.validate_phase2_response(
             self.phase1,
             self.reveal,
