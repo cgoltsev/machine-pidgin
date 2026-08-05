@@ -1,7 +1,6 @@
 # Researcher report — weekly cycle of 5 August 2026
 
-**Run window:** 5 August 2026, 12:15:59 EEST (UTC+03:00) through the final
-verification time recorded in the automation handoff
+**Run window:** 5 August 2026, 12:15:59–13:28:49 EEST (UTC+03:00)
 
 **Cycle status:** Completed without a reportable security, privacy, unexpected-spend,
 legal, governance, urgent research-integrity, or unsafe-account incident.
@@ -226,10 +225,13 @@ private-intake material remain unknown.
 
 The source-anchored scan, canon/watchlist changes, weekly report, and review tooling are a
 material development-method update, so they were routed through the existing public draft
-[PR #4](https://github.com/cgoltsev/machine-pidgin/pull/4). The PR remains stacked on draft
-PR #3 and remains a human-review draft. No merge, release, deployment, OSF registration,
-scientific acceptance, or publication was performed. Repository labels `codex` and
-`codex-automation` were unavailable and were not invented.
+[PR #4](https://github.com/cgoltsev/machine-pidgin/pull/4) on branch
+`agent/researcher-cycle-2026-08-03`. The implementation/review commits were `7e65696`,
+`416d758`, and clean verified head `d4fd6d5`; the branch was pushed and the draft PR body
+updated with the current evidence and review request. The PR remains stacked on draft PR #3,
+open, mergeable, and without review, comment, request, check, or label. No merge, release,
+deployment, OSF registration, scientific acceptance, or publication was performed.
+Repository labels `codex` and `codex-automation` were unavailable and were not invented.
 
 No news article was prepared: a review instrument and newly exposed limitations are not a
 scientific outcome. The strongest platform copy is therefore held for the Director and not
