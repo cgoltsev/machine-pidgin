@@ -74,3 +74,23 @@ python3 experiments/benchmark_003_unicode_line_separator_audit.py
 
 This is one synthetic boundary test, not model-behavior or held-out evidence. See the
 [`7 August audit report`](../research/reports/2026-08-07-on-demand-unicode-boundary-audit.md).
+
+### Line-boundary acceptance and encoding matrix
+
+The weekly follow-up characterizes all 11 boundary forms documented by Python
+`str.splitlines()` across the four canonical source fields already named in the human-review
+protocol. It records exact source-trace atoms rather than searching whole prompts, labels
+Unicode hard-break forms separately from Python's additional FS/GS/RS boundaries, and emits
+ASCII-escaped deterministic JSON:
+
+```bash
+python3 experiments/benchmark_003_line_boundary_matrix_audit.py
+python3 -m unittest experiments/test_benchmark_003_line_boundary_matrix_audit.py -v
+```
+
+All 44 development mutations are currently accepted and receive preflight `PASS`; 144 of
+176 A-D trace observations expose the injected reserved heading as a literal split line.
+The remaining 32 are C0/CRLF forms escaped by JSON-rendered entity-label and authority-action
+atoms. NEL, LS, and PS remain literal in those same atoms. This is an offline renderer and
+validator characterization, not a text policy, vulnerability claim, model-behavior result,
+or authorization to extend the fixture set.
