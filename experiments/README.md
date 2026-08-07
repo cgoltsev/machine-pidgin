@@ -61,3 +61,16 @@ See [`BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md`](BENCHMARK_003_HUMAN_REVIEW_PROTOC
 The coordinator nonce and A–D reveal must remain outside this public repository until the
 Phase 1 response is sealed. This tooling means “ready for human review,” not equivalence
 established, and cannot authorize fixture extension, registration, model calls, or spend.
+
+### Unicode line-separator boundary audit
+
+One additional offline development audit appends U+2028 LINE SEPARATOR plus a reserved
+`HARD_GATES` heading to the canonical task field. The current validator preserves the marker
+in all A–D prompts and still returns `PASS`; in this audit, that `PASS` is the negative result.
+
+```bash
+python3 experiments/benchmark_003_unicode_line_separator_audit.py
+```
+
+This is one synthetic boundary test, not model-behavior or held-out evidence. See the
+[`7 August audit report`](../research/reports/2026-08-07-on-demand-unicode-boundary-audit.md).
