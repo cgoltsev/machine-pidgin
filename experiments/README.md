@@ -99,8 +99,8 @@ or authorization to extend the fixture set.
 
 The next bounded development characterization covers the fourth unresolved human-review
 dossier without selecting or implementing its repair. It applies empty-string and integer
-mutations to 11 identifier/reference surfaces and JSON `null`/list mutations to 17 record or
-render-artifact container surfaces:
+mutations to 11 identifier/reference surfaces and JSON `null`/list mutations in 17 fixed
+record or render-artifact container cases:
 
 ```bash
 python3 experiments/benchmark_003_identifier_error_contract_audit.py

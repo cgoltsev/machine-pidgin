@@ -170,11 +170,11 @@ policy change, private or participant data, held-out or validation evidence, mod
 call, paid service, outreach, or authorization to extend the fixture set.
 
 **Scoped completion test:** Apply two invalid values—empty string and integer zero—to each
-of 11 identifier/reference surfaces for 22 exact cases; apply `null`/list mutations to 17
-fixed container surfaces; record validation, rendering, and aggregate-equivalence stages;
-classify deliberate, incidental, accepted, and unexpected outcomes; serialize deterministic
-ASCII JSON; pass five dedicated tests, the full offline suite, prior regression checks, JSON
-validation, compilation, and diff checks; record calls and spend as zero.
+of 11 identifier/reference surfaces for 22 exact cases; apply `null`/list mutations in 17
+fixed malformed-container cases; record validation, rendering, and aggregate-equivalence
+stages; classify deliberate, incidental, accepted, and unexpected outcomes; serialize
+deterministic ASCII JSON; pass five dedicated tests, the full offline suite, prior regression
+checks, JSON validation, compilation, and diff checks; record calls and spend as zero.
 
 **Completion state:** **COMPLETE** for this bounded development characterization. The
 broader Benchmark 003 review/fix/extension agenda remains incomplete and was not counted as
@@ -250,9 +250,9 @@ budget, Athens-day spend, or paid-call approval gate was entered or assumed.
 No eligible forum submission existed, so **0** submissions were assessed and no
 recommendation, clarification request, moderation action, or adjudication was made.
 
-The audit, tests, scan, canon/watchlist maintenance, and this report are routed through the
-existing draft [PR #4](https://github.com/cgoltsev/machine-pidgin/pull/4) on branch
-`agent/researcher-cycle-2026-08-03`. The PR remains stacked on PR #3; no merge, release,
+The audit, tests, experiment README, scan, canon/watchlist maintenance, and this report are
+routed through existing draft [PR #4](https://github.com/cgoltsev/machine-pidgin/pull/4)
+on branch `agent/researcher-cycle-2026-08-03`. The PR remains stacked on PR #3; no merge, release,
 deployment, registration, scientific acceptance, or publication was performed. Named human
 review remains required.
 
@@ -284,7 +284,7 @@ remains locked; no enforcement evasion, post, follow, or Director-cadence use oc
   estimate, security test, exploitability demonstration, or model-behavior result.
 - An incidental Python exception is evidence about the current implementation surface, not
   proof of a remotely reachable vulnerability, sensitive-data exposure, or governance harm.
-- The accepted fact identifiers and 14 raw exception surfaces are preserved as negative
+- The accepted fact identifiers and 14 cases exposing raw exceptions are preserved as negative
   results. No repair or policy preference was smuggled into the characterization.
 - The public ASD-STE100 percentages lack enough method and artifact detail for independent
   reproduction. The standard is copyrighted; contributor-data permission remains unknown.
