@@ -94,3 +94,24 @@ The remaining 32 are C0/CRLF forms escaped by JSON-rendered entity-label and aut
 atoms. NEL, LS, and PS remain literal in those same atoms. This is an offline renderer and
 validator characterization, not a text policy, vulnerability claim, model-behavior result,
 or authorization to extend the fixture set.
+
+### Identifier and malformed-input contract audit
+
+The next bounded development characterization covers the fourth unresolved human-review
+dossier without selecting or implementing its repair. It applies empty-string and integer
+mutations to 11 identifier/reference surfaces and JSON `null`/list mutations to 17 record or
+render-artifact container surfaces:
+
+```bash
+python3 experiments/benchmark_003_identifier_error_contract_audit.py
+python3 -m unittest experiments/test_benchmark_003_identifier_error_contract_audit.py -v
+```
+
+Twenty of 22 identifier cases fail deliberately at record validation. A fact identifier and
+its references can still pass record validation as either an empty string or integer zero;
+the empty string reaches aggregate equivalence rejection, while the integer fails during
+rendering with an incidental `TypeError`. Of 17 malformed-container cases, three use a
+deliberate validation exception and 14 expose an incidental Python `TypeError` or
+`AttributeError`; none is accepted. This is one fixed matrix over one synthetic development
+fixture, not a fuzzer, public error-policy choice, exploitability result, security-impact
+claim, or authorization to modify the validator or extend Benchmark 003.
