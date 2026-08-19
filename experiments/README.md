@@ -115,3 +115,27 @@ deliberate validation exception and 14 expose an incidental Python `TypeError` o
 `AttributeError`; none is accepted. This is one fixed matrix over one synthetic development
 fixture, not a fuzzer, public error-policy choice, exploitability result, security-impact
 claim, or authorization to modify the validator or extend Benchmark 003.
+
+### Factor-label construct audit
+
+The remaining representation and system-factor dossiers now have a source-bound,
+deterministic characterization against the published SPEAR/0.2 quick reference and
+interpretation prompt:
+
+```bash
+python3 experiments/benchmark_003_factor_label_audit.py
+python3 -m unittest experiments/test_benchmark_003_factor_label_audit.py -v
+```
+
+The current field renderer uses eight explicit sections. Against the 12 published
+SPEAR/0.2 fields, the Researcher-coded mapping finds three exact headings, five partial
+constructs, and four absent fields. The supposed ordinary-prose renderer also has seven
+explicit labeled sections. The contract factor keeps each user prompt fixed, but the
+contract-present system prompt replaces rather than preserves the no-contract baseline;
+it is a 35-word compact prompt rather than the 484-word published SPEAR/0.2 prompt and
+does not reproduce the latter's 12 rules as numbered entries.
+
+This is a negative development characterization, not a semantic-equivalence proof,
+SPEAR conformance result, independent construct-validity review, or decision to rename,
+redesign, or make the baseline additive. The named-human review and all fixture-extension,
+registration, model-call, spending, merge, and publication gates remain closed.
