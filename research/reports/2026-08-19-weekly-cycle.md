@@ -76,7 +76,7 @@ evidence was not independently established. No entry was removed or promoted:
   [replication package](https://zenodo.org/records/21880022) add evidence that semantically
   enriched non-functional requirements can change some quality proxies without reliably
   improving functional correctness, and that content-fixed JSON versus prose had negligible
-  functional-correctness differences in the tested setting. Selective execution-time
+  functional-correctness differences in that study. Selective execution-time
   differences, one model, and a small coding benchmark bound the claim.
 - Muruaga's [Bounded Agents](https://arxiv.org/abs/2608.15888) adds a provisional external
   intent, scope, budget, and history-enforcement comparator. Its zero-observed-exfiltration
@@ -87,7 +87,7 @@ evidence was not independently established. No entry was removed or promoted:
 - [TANGLE](https://arxiv.org/abs/2608.13921) adds provisional evidence that memory
   extraction can lose context, time, and source authority and that systems struggle to
   calibrate or clarify irreducible conflicts. Its cases are synthetic and substantially
-  model-judged, with no verified public artifact.
+  model-judged; the source metadata exposed no public artifact URL.
 
 Bu's individual principal/verifier-binding draft was updated from revision 05 to
 [revision 06](https://datatracker.ietf.org/doc/html/draft-bu-agentproto-security-principal-binding-06),
@@ -108,10 +108,11 @@ the same strict universe. The IETF query returned 15 drafts and one meeting blue
 
 Explicit State Elicitation, self-improving-agent fragility, Normalized Use-Case,
 HarnessRisk, and Act2Intention remain scan-only. Several overlapping individual agent
-drafts remain activity signals rather than standards or validated evidence. MCP remains at
-2026-07-28 and A2A at v1.0.1; post-cutoff changes were documentation or generated-schema
-maintenance, not semantic releases. NIST exposed no new technical deliverable. The Unicode
-18 preliminary/beta discrepancy remains unresolved, and stable UAX #14 remains revision 55.
+drafts remain activity signals rather than standards or independently reproduced results.
+MCP remains at 2026-07-28 and A2A at v1.0.1; post-cutoff changes were documentation or
+generated-schema maintenance, not semantic releases. NIST exposed no new technical
+deliverable. The Unicode 18 preliminary/beta discrepancy remains unresolved, and stable
+UAX #14 remains revision 55.
 
 ## Public-source watchlist
 
@@ -123,7 +124,7 @@ permission, correspondence, or consensus is claimed.
 
 No follow, message, subscription, like, repost, public reply, or other account action
 occurred. Follow candidates are recommendations only and remain behind the Institute's
-operating, verified-account, suspension-resolution, audit, and named-human gates.
+operating, account-identity/state, suspension-resolution, audit, and named-human gates.
 
 ## The exactly one selected agenda
 
@@ -218,8 +219,8 @@ Two serialized runs were byte-identical; the final stdout SHA-256 is
 `b2615e6a17a4182cc1f7d6416b3c1133b64f02ac24dd4e026440071a1854f04f`.
 Independent read-only review corrected an initial INTERACTION/STOP classification and a
 semantic overstatement about numbered rules. Exact per-field assertions were added. Final
-re-review found no actionable issue and verified the mapping, hashes, metrics,
-multi-hash-seed determinism, and zero-call boundary.
+re-review found no actionable issue after checking all 12 mapping rows, four source hashes,
+exact metrics, four hash seeds, and the zero-call fields.
 
 Reproduce from the public repository root:
 
