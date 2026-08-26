@@ -86,11 +86,11 @@ That branch has no upstream or public PR. It was forked from 3321f8e, before the
 19 August Researcher commits, so those absent files must not be described as deletions by
 the follow-up. During the agenda audit, its separate worktree contained concurrent,
 user-owned modifications to PROTOCOL_AMENDMENTS.md and runner.py plus an untracked
-test_runner_recovery.py. The owner subsequently incorporated that work into 655071e,
-leaving the worktree clean. This cycle did not create that commit, and the later manifest,
-amendment, README, and recovery-test bytes were not independently reviewed or tested here.
-The commit is an unreviewed candidate successor, not evidence that the recovery gate is
-cleared. It remains local-only and was not pushed by this cycle.
+test_runner_recovery.py. Git subsequently recorded that work in 655071e, leaving the
+worktree clean. This selected agenda did not create that commit. No independent audit or
+test was performed here on its later manifest, amendment, README, or recovery-test bytes.
+The commit is a candidate successor without validation evidence, not proof that the
+recovery gate is cleared. It remains local-only and was not pushed by this cycle.
 
 The private operations checkout has no post-cutoff Git commit or ref-log entry. Its six
 current private remote heads match the local tracking refs; the newest remains 6fc411d from
