@@ -33,3 +33,109 @@ python3 experiments/run_formal_notation_eval.py --split held_out --repetitions 2
 ```
 
 The preregistered aggregate appeared to favor notation by 2.5 points. A post-run equivalence audit found one asymmetric canonical-answer cue. On the remaining equivalent tasks, notation scored 2.6 points below vernacular. See [`BENCHMARK_002.md`](BENCHMARK_002.md) for both estimates, limits, and the next design.
+
+## Benchmark 003: development equivalence preflight
+
+Benchmark 003 remains a preregistration draft with no paid execution authorization. Its first development-only milestone renders conditions A-D deterministically from isolated copies of one canonical semantic record. Ordered atom traces bind exact prompt spans to independently resolved JSON Pointers for task, entity, fact, constraint, authority, label, and output-schema content. Independently frozen user-prompt skeleton and system-prompt hashes cover untraced glue and system constants. The validator also rejects duplicate JSON keys and compares semantic surfaces and exact canonical/expected output-cue counts. Corruption tests refresh offsets, trace hashes, and artifact hashes after changing representative atoms or untraced relations; the independent controls must still fail closed.
+
+```bash
+python3 experiments/benchmark_003_equivalence_preflight.py
+python3 -m unittest experiments/test_benchmark_003_equivalence_preflight.py -v
+```
+
+This fixture is exploratory development evidence, not a frozen corpus, held-out result, or proof of arbitrary natural-language equivalence. Human equivalence review and every gate in [`BENCHMARK_003_PREREGISTRATION_DRAFT.md`](BENCHMARK_003_PREREGISTRATION_DRAFT.md) remain required.
+
+The 5 August audit narrowed that claim further. Newline and reserved-heading strings in
+task text, entity labels, fact attributes, and authority actions can still receive a
+fixture-internal `PASS`; the contract factor also replaces rather than adds to the common
+baseline, and the implemented templates need a human construct-validity decision. A
+two-stage, condition-label-masked and oracle-withheld review bundle now packages those
+negative findings for a named independent human:
+
+```bash
+python3 experiments/benchmark_003_build_review_packet.py --help
+python3 -m unittest experiments/test_benchmark_003_build_review_packet.py -v
+```
+
+See [`BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md`](BENCHMARK_003_HUMAN_REVIEW_PROTOCOL.md).
+The coordinator nonce and A–D reveal must remain outside this public repository until the
+Phase 1 response is sealed. This tooling means “ready for human review,” not equivalence
+established, and cannot authorize fixture extension, registration, model calls, or spend.
+
+### Unicode line-separator boundary audit
+
+One additional offline development audit appends U+2028 LINE SEPARATOR plus a reserved
+`HARD_GATES` heading to the canonical task field. The current validator preserves the marker
+in all A–D prompts and still returns `PASS`; in this audit, that `PASS` is the negative result.
+
+```bash
+python3 experiments/benchmark_003_unicode_line_separator_audit.py
+```
+
+This is one synthetic boundary test, not model-behavior or held-out evidence. See the
+[`7 August audit report`](../research/reports/2026-08-07-on-demand-unicode-boundary-audit.md).
+
+### Line-boundary acceptance and encoding matrix
+
+The weekly follow-up characterizes all 11 boundary forms documented by Python
+`str.splitlines()` across the four canonical source fields already named in the human-review
+protocol. It records exact source-trace atoms rather than searching whole prompts, labels
+Unicode hard-break forms separately from Python's additional FS/GS/RS boundaries, and emits
+ASCII-escaped deterministic JSON:
+
+```bash
+python3 experiments/benchmark_003_line_boundary_matrix_audit.py
+python3 -m unittest experiments/test_benchmark_003_line_boundary_matrix_audit.py -v
+```
+
+All 44 development mutations are currently accepted and receive preflight `PASS`; 144 of
+176 A-D trace observations expose the injected reserved heading as a literal split line.
+The remaining 32 are C0/CRLF forms escaped by JSON-rendered entity-label and authority-action
+atoms. NEL, LS, and PS remain literal in those same atoms. This is an offline renderer and
+validator characterization, not a text policy, vulnerability claim, model-behavior result,
+or authorization to extend the fixture set.
+
+### Identifier and malformed-input contract audit
+
+The next bounded development characterization covers the fourth unresolved human-review
+dossier without selecting or implementing its repair. It applies empty-string and integer
+mutations to 11 identifier/reference surfaces and JSON `null`/list mutations in 17 fixed
+record or render-artifact container cases:
+
+```bash
+python3 experiments/benchmark_003_identifier_error_contract_audit.py
+python3 -m unittest experiments/test_benchmark_003_identifier_error_contract_audit.py -v
+```
+
+Twenty of 22 identifier cases fail deliberately at record validation. A fact identifier and
+its references can still pass record validation as either an empty string or integer zero;
+the empty string reaches aggregate equivalence rejection, while the integer fails during
+rendering with an incidental `TypeError`. Of 17 malformed-container cases, three use a
+deliberate validation exception and 14 expose an incidental Python `TypeError` or
+`AttributeError`; none is accepted. This is one fixed matrix over one synthetic development
+fixture, not a fuzzer, public error-policy choice, exploitability result, security-impact
+claim, or authorization to modify the validator or extend Benchmark 003.
+
+### Factor-label construct audit
+
+The remaining representation and system-factor dossiers now have a source-bound,
+deterministic characterization against the published SPEAR/0.2 quick reference and
+interpretation prompt:
+
+```bash
+python3 experiments/benchmark_003_factor_label_audit.py
+python3 -m unittest experiments/test_benchmark_003_factor_label_audit.py -v
+```
+
+The current field renderer uses eight explicit sections. Against the 12 published
+SPEAR/0.2 fields, the Researcher-coded mapping finds three exact headings, five partial
+constructs, and four absent fields. The supposed ordinary-prose renderer also has seven
+explicit labeled sections. The contract factor keeps each user prompt fixed, but the
+contract-present system prompt replaces rather than preserves the no-contract baseline;
+it is a 35-word compact prompt rather than the 484-word published SPEAR/0.2 prompt and
+does not reproduce the latter's 12 rules as numbered entries.
+
+This is a negative development characterization, not a semantic-equivalence proof,
+SPEAR conformance result, independent construct-validity review, or decision to rename,
+redesign, or make the baseline additive. The named-human review and all fixture-extension,
+registration, model-call, spending, merge, and publication gates remain closed.
