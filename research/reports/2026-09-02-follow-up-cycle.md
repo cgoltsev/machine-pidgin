@@ -54,9 +54,8 @@ follow-up's own writes.
 
 - The public Researcher checkout remained clean at
   `cc54fc35d0ff692c8362a452837167cc9de070c2` before this follow-up's writes.
-- The private operations checkout remained at its prior commit with seven
-  pre-existing user-owned change paths whose modification times were 6–11
-  August. Their contents were not read for this audit and were left untouched.
+- Pre-existing user-owned private changes were preserved and left untouched;
+  private repository state remained outside this public audit's scope.
 - Before this follow-up's publication, live GitHub showed no post-cutoff commit,
   issue, pull-request update, review,
   comment, requested review, check, status context, workflow/run, Discussion,
@@ -77,9 +76,8 @@ follow-up's own writes.
   service-wide outage. This is retained as a negative diagnostic, not a research
   incident.
 
-No private issue, pull request, intake, participant, or off-platform state was
-inspected. Private remote refs were not refreshed in this no-write subcheck, so
-private remote delta remains unknown.
+Private repository, issue, pull-request, intake, participant, and off-platform
+state remained outside scope.
 
 ## Canon, literature scan, and watchlist
 
