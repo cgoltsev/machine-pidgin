@@ -244,6 +244,12 @@ commit, push, PR, and clean-tree state. No new PR, merge, release, deployment,
 registration, scientific acceptance, governance action, moderation action, or
 article, reviewed scientific publication, or social publication occurred.
 
+Proportionate artifact validation passed: whitespace/diff checks, internal
+relative-link resolution, Markdown table widths, public/private marker separation,
+unchanged canon arithmetic `19/13/14/32`, required brief-schema fields, and separate
+literature, brief, and public-privacy reviews. No research code changed, so no code
+or empirical test suite was warranted.
+
 ## Publication and media gate
 
 No article or news draft was prepared. The agenda has direct mission fit, but it
