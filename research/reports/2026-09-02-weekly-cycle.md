@@ -1,7 +1,8 @@
 # Researcher report — weekly cycle of 2 September 2026
 
 **Run time:** 2 September 2026. The initial public-state audit ran through
-`2026-09-02T08:13:05Z`; content delivery was verified at `2026-09-02T08:56:05Z`.
+`2026-09-02T08:13:05Z`; content delivery across all three branch refs was verified at
+`2026-09-02T08:56:05Z`.
 Repository and PR delivery facts are recorded below.
 
 **RESEARCH-INTEGRITY ALERT:** A metadata-only review found preserved Luna follow-up
@@ -168,7 +169,7 @@ correspondence, implementation adoption, or standards consensus is claimed.
 
 No follow, message, subscription, like, repost, public reply, or other account action
 occurred. Candidates remain recommendations behind the Institute's operating,
-verified-account, audit, and named-human gates.
+authenticated-account, audit, and named-human gates.
 
 ## The exactly one selected agenda
 
@@ -277,8 +278,8 @@ at `34722676e095ba1ed5fe6ae47610f6d0ced93526`. PR #4 had been updated at
 `2026-09-02T08:55:52Z` and was open, draft, mergeable, and clean, with zero labels,
 reviews, comments, or check runs. GitHub's aggregate status was `pending` with zero
 contexts, which is not evidence of a running check. This delivery record is a later
-provenance commit; at cycle close, local HEAD, the tracking ref, and the live remote ref
-were verified equal, with the exact final head supplied by the public Git history. The
+provenance commit; at cycle close, the equality check covered local HEAD, the tracking ref, and
+the live remote ref and passed, with the exact final head supplied by the public Git history. The
 PR is stacked on unreviewed PR #3 and cannot be treated as scientific or release approval.
 This cycle performed no merge, release, deployment, registration, scientific acceptance,
 news article, or reviewed scientific publication; current deployment state was not

@@ -108,7 +108,7 @@ or standards consensus is claimed.
 
 No follow, message, subscription, like, repost, public reply, or other account
 action occurred. Follow candidates remain recommendations behind the
-Institute's operating, verified-account, audit, and named-human gates.
+Institute's operating, authenticated-account, audit, and named-human gates.
 
 ## Limits and continuation
 
